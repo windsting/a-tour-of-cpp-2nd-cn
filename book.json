@@ -1,0 +1,29 @@
+{
+    "root": "./src",
+    "title": "C++导览 第二版 简体中文版",
+    "description": "A Tour of C++ (第二版) 非官方中译本",
+    "author": "Windsting",
+    "language": "zh-hans",
+    "links": {
+        "sidebar": {
+            "Github": "https://github.com/"
+        }
+    },
+    "plugins": [
+        "@dogatana/page-toc-button",
+        "@dogatana/back-to-top-button",
+        "disqus-legacy"
+    ],
+    "pluginsConfig": {
+        "disqus-legacy": {
+            "shortname": "a-tour-of-cpp-2nd-cn"
+        },
+        "styles": {
+            "website": "styles/website.css"
+        }
+    },
+    "pdf": {
+        "paperSize": "a5",
+        "fontSize": 14
+    }
+}

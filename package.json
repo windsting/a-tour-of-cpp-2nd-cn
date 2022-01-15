@@ -1,0 +1,22 @@
+{
+    "name": "a-tour-of-cpp-2nd-cn",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "serve": "npx honkit serve --reload",
+        "build": "npm run rm-website && npx honkit build src/ docs",
+        "rm": "npm run rm-website",
+        "rm-website": "rm -rf docs",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@dogatana/honkit-plugin-back-to-top-button": "^1.0.0",
+        "@dogatana/honkit-plugin-page-toc-button": "^1.0.0",
+        "gitbook-plugin-disqus-legacy": "^1.2.3",
+        "honkit": "^3.6.23"
+    }
+}
