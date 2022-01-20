@@ -8,6 +8,7 @@
         "build": "npm run rm-website && npx honkit build src/ docs",
         "rm": "npm run rm-website",
         "rm-website": "rm -rf docs",
+        "gen-idx": "tools/index_processor/index_processor.py src/idx_src.md -o src/idx.md",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
