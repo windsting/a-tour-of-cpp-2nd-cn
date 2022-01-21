@@ -9,6 +9,8 @@
         "rm": "npm run rm-website",
         "rm-website": "rm -rf docs",
         "gen-idx": "tools/index_processor/index_processor.py src/idx_src.md -o src/idx.md",
+        "test-idx-gen": "cd tools/index_processor/ && python3 -m unittest test.py && echo \"\" || echo \"Please install python3 with a built-in unittest package\"",
+        "tt": "echo \"Testing tools\" && npm run test-idx-gen",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
