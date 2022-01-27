@@ -28,7 +28,7 @@ class Test(unittest.TestCase):
         for l,nl in cases.items():
             new_line = self.convertor.convert_line(l)
             self.assertEqual(new_line,nl,f"result of \t[{l}] \nshould be\t[{nl}], \ngot\t\t[{new_line}]")
-    
+
     def test_get_link(self):
         cases = {
             (147,11):'[147](ch11.md#147)'
@@ -36,7 +36,7 @@ class Test(unittest.TestCase):
         for pc,link in cases.items():
             got_link = ip.PageNumberConvertor.gen_link(pc[0],pc[1])
             self.assertEqual(got_link,link,f"result of \t[{pc}] \nshould be\t[{link}], \ngot\t\t[{got_link}]")
-    
+
     def test_rreplace(self):
         cases = [
             ('something old', 'old', 'new', 'something new')
