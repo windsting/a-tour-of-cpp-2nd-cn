@@ -40,7 +40,4 @@
 
 ## Blah blah
 
-[^1] A stand-in for trivial, obvious, or boring content.
-    (from [wiktionary](https://en.wiktionary.org/wiki/blah_blah_blah#English))
-
----;
+[^1]: A stand-in for trivial, obvious, or boring content. (from [wiktionary](https://en.wiktionary.org/wiki/blah_blah_blah#English))

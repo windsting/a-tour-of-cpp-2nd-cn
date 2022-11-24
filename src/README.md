@@ -87,22 +87,16 @@ Charles 以及 Sergey Zubkov，他们审阅此书并给出了很多改进意见�
 >
 > 本贾尼·斯特劳斯特鲁普
 
-[^1] 本书英文版出版于 2018 年。 —— 译者注
+[^1]: 本书英文版出版于 2018 年。 —— 译者注
 
-[^2] 该书已经有中文版《C++程序设计：原理与实践（原书第2版）》，分为“基础篇”和“进阶篇”两册，
-由 机械工业出版社 出版于2017年4月1日。 —— 译者注
+[^2]: 该书已经有中文版《C++程序设计：原理与实践（原书第2版）》，分为“基础篇”和“进阶篇”两册，由**机械工业出版社**出版于2017年4月1日。 —— 译者注
 
-[^3] The C++ Programming Language (4th Edition)，该书中文版《C++程序设计语言》
-已经由 机械工业出版社 出版于2019年6月1日。 —— 译者注
+[^3]: The C++ Programming Language (4th Edition)，该书中文版《C++程序设计语言》已经由**机械工业出版社**出版于2019年6月1日。 —— 译者注
 
-[^4] C++ Applications，一个列表，列出了一些全部或绝大部分用 C++ 开发的系统、应用或者程序库，
-位于作者网站的页面 <https://www.stroustrup.com/applications.html>。 —— 译者注
+[^4]: C++ Applications，一个列表，列出了一些全部或绝大部分用 C++ 开发的系统、应用或者程序库，位于作者网站的页面 <https://www.stroustrup.com/applications.html>。 —— 译者注
 
-[^5] 在线的 C++ 参考手册，网址在 <https://en.cppreference.com>。 —— 译者注
+[^5]: 在线的 C++ 参考手册，网址在 <https://en.cppreference.com>。 —— 译者注
 
-[^6] 即《C++ 核心指南》，网址在<https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines>
-非官方中文版可参见
-<https://github.com/lynnboy/CppCoreGuidelines-zh-CN/blob/master/CppCoreGuidelines-zh-CN.md>。
- —— 译者注
+[^6]: 即《C++ 核心指南》，网址在<https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines>非官方中文版可参见<https://github.com/lynnboy/CppCoreGuidelines-zh-CN/blob/master/CppCoreGuidelines-zh-CN.md>。 —— 译者注
 
 ---
