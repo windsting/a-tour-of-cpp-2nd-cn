@@ -5,6 +5,8 @@ in_index: true
 
 <a class="en-page-number" id="227"></a>
 
+<div class="chapter-number"><p class="chapter-number">{{ page.ch }}</p></div>
+
 # 索引
 
 > 知识有两种。
