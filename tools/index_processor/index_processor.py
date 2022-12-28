@@ -33,7 +33,7 @@ class PageNumberConvertor():
     def convert_page_numbers(self, page_strings: list[str]) -> str:
         cp = self.convert_page_number
         links = [cp(word) for word in page_strings]
-        return ','.join(links)
+        return ', '.join(links)
     def convert_line(self, line:str) -> str:
         words = line.split()
         if len(words) <= 1:
