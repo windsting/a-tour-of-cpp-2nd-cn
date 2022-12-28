@@ -25,16 +25,28 @@ class PageNumberConvertor():
         raise ValueError(f'page_number {page_number} is larger or equal than end page number of last chapter?')
     def gen_link(page: int, chapter:int) -> str:
         return f"[{page}](ch{str(chapter).zfill(2)}.md#{page})"
+    def convert_page_number(self, page_string: str) -> str:
+        page_number = int(page_string)
+        chapter = self.chapter_of_page(page_number)
+        link = PageNumberConvertor.gen_link(page_number, chapter)
+        return link
+    def convert_page_numbers(self, page_strings: list[str]) -> str:
+        cp = self.convert_page_number
+        links = [cp(word) for word in page_strings]
+        return ','.join(links)
     def convert_line(self, line:str) -> str:
         words = line.split()
         if len(words) <= 1:
             return line
         last_word = words[len(words)-1]
+        last_words = None
         if not last_word.isdigit():
-            return line
-        page_number = int(last_word)
-        chapter = self.chapter_of_page(page_number)
-        link = PageNumberConvertor.gen_link(page_number, chapter)
+            last_words = last_word.split(',')
+            if not all(w.isdigit() for w in last_words):
+                return line
+        cp = self.convert_page_number
+        cps = self.convert_page_numbers
+        link = cp(last_word) if last_words is None else cps(last_words)
         new_line = rreplace(line, last_word, link)
         return new_line
     def convert_file(self, infile: TextIOWrapper, outfile: TextIOWrapper):
