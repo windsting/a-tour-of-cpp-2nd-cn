@@ -1,0 +1,808 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>2 用户定义类型 · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.23">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch03.html" />
+    
+    
+    <link rel="prev" href="ch01.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="translation_note.html">
+            
+                <a href="translation_note.html">
+            
+                    
+                    译者言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ch01.html">
+            
+                <a href="ch01.html">
+            
+                    
+                    1 基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="ch02.html">
+            
+                <a href="ch02.html">
+            
+                    
+                    2 用户定义类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ch03.html">
+            
+                <a href="ch03.html">
+            
+                    
+                    3 模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch04.html">
+            
+                <a href="ch04.html">
+            
+                    
+                    4 类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ch05.html">
+            
+                <a href="ch05.html">
+            
+                    
+                    5 基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch06.html">
+            
+                <a href="ch06.html">
+            
+                    
+                    6 模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ch07.html">
+            
+                <a href="ch07.html">
+            
+                    
+                    7 概束和泛型编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="ch08.html">
+            
+                <a href="ch08.html">
+            
+                    
+                    8 标准库概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="ch09.html">
+            
+                <a href="ch09.html">
+            
+                    
+                    9 字符串和正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="ch10.html">
+            
+                <a href="ch10.html">
+            
+                    
+                    10 输入输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="ch11.html">
+            
+                <a href="ch11.html">
+            
+                    
+                    11 容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="ch12.html">
+            
+                <a href="ch12.html">
+            
+                    
+                    12 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="ch13.html">
+            
+                <a href="ch13.html">
+            
+                    
+                    13 实用功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="ch14.html">
+            
+                <a href="ch14.html">
+            
+                    
+                    14 数值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="ch15.html">
+            
+                <a href="ch15.html">
+            
+                    
+                    15 并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="ch16.html">
+            
+                <a href="ch16.html">
+            
+                    
+                    16 历史及兼容性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="idx.html">
+            
+                <a href="idx.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >2 用户定义类型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+
+    
+        
+                                <p><a class="en-page-number" id="21"></a></p>
+<div class="chapter-number"><p class="chapter-number">2</p></div>
+
+<h1 id="user-defined-types">用户定义类型 </h1>
+<blockquote>
+<p>别慌！</p>
+<p>—— 道格拉斯·亚当斯</p>
+</blockquote>
+<h2 id="2.1">2.1 导言 </h2>
+<p>仅使用基本类型(§1.4)、<code>const</code>修饰符(§1.6)以及声明运算符(§1.7)构建出的类型，
+被称为<em>内置类型（built-in type）</em>。
+C++的内置类型和运算都很丰富，但有意地低级化了。
+它们直接、高效地反映出了传统计算机硬件的能力。
+但是在开发高级应用程序的便利性方面，它的高层设施可就捉襟见肘了。
+相反，C++用一套精细的<em>抽象机制（abstraction mechanism）</em>强化了内置类型及运算，
+借助这套机制，程序员可以构建出这些高层设施。</p>
+<p>C++的抽象机制的主要设计意图是让程序员设计并实现自己的类型，
+这些类型具备适当的表现和运算，同时，还能让程序员用起来简单而优雅。
+遵循C++的抽象机制，借助其它类型构建出的类型被称为
+<em>用户定义类型（user-defined type）</em>。
+也被称为<em>类（class）</em>和<em>枚举（enumeration）</em>。
+构造用户定义类型时，即可以动用内置类型，也可以动用其它用户定义类型。
+用户定义类型通常优于内置类型，因为更易使用，出错少，
+而效率则通常与内置类型相差无几，有时候甚至更快。</p>
+<p><a class="en-page-number" id="22"></a></p>
+<p>本章后面的内容，介绍最简单也是最基础的用于创建和使用类型的工具。
+对这种抽象机制及其支持的编程风格，在第4-7章给出了更完整的描述。
+第5-8章给出了标准库的概览，同时标准库主要由用户定义类型构成，
+因此对第1-7章所介绍的语言构造及编程技术而言，标准库提供了用例。</p>
+<h2 id="2.2">2.2 结构体（structure） </h2>
+<p>构建新类型的第一步，通常是把它所需的要素组织到一个数据类型
+——结构体（<code>struct</code>）里：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Vector</span>
+{</span>
+    <span class="hljs-keyword">int</span> sz;         <span class="hljs-comment">// 元素数量</span>
+    <span class="hljs-keyword">double</span>* elem;   <span class="hljs-comment">// 指向元素的指针</span>
+};
+</code></pre>
+<p>这<code>Vector</code>的第一个版本包含了一个<code>int</code>和一个<code>double*</code>。</p>
+<p><code>Vector</code>类型的变量可以这样定义：</p>
+<pre><code class="lang-cpp">Vector v;
+</code></pre>
+<p>但是，光有它自己用处不大，因为<code>v</code>的指针<code>elem</code>没有指向任何东西。
+想让它有用，必须让<code>v</code>指向某些元素。比方说，可以这样构造<code>Vector</code>：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">vector_init</span><span class="hljs-params">(Vector&amp; v, <span class="hljs-keyword">int</span> s)</span>
+</span>{
+    v.elem = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[s]; <span class="hljs-comment">// 分配一个数组，里面有s个double</span>
+    v.sz = s;
+}
+</code></pre>
+<p>这样，<code>v</code>的成员<code>elem</code>就得到一个用<code>new</code>生成的指针，
+而<code>v</code>的成员<code>sz</code>也得到了元素数量。
+<code>Vector&amp;</code>里的<code>&amp;</code>意思是：<code>v</code>通过非<code>const</code>引用(§1.7)方式传递；
+这样一来，<code>vector_init()</code>就可以修改传入的Vector了。</p>
+<p><code>new</code>运算符从一块叫<em>自由存储（free store）</em>
+（也叫<em>动态内存（dynamic memory）</em>和<em>堆（heap）</em>）的区域里分配内存。
+分配在自由存储上的对象，与其被创建的作用域无关，
+而是会一直“存活”下去，直到用<code>delete</code>运算符(§4.2.2)把它销毁。</p>
+<p><code>Vector</code>可以简单应用如下：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">read_and_sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s)</span>
+    <span class="hljs-comment">// 从cin读取s个整数，返回它们的和；假定s时正数</span>
+</span>{
+    Vector v;
+    <span class="hljs-built_in">vector_init</span>(v,s);           <span class="hljs-comment">// 给v分配s个元素</span>
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)
+        cin&gt;&gt;v.elem[i];         <span class="hljs-comment">// 向元素中读入内容</span>
+</code></pre>
+<p><a class="en-page-number" id="23"></a></p>
+<pre><code class="lang-cpp">    <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)
+        sum+=v.elem[i];         <span class="hljs-comment">// 对元素求和</span>
+    <span class="hljs-keyword">return</span> sum;
+}
+</code></pre>
+<p>要媲美标准库中<code>vector</code>的优雅和灵活，<code>Vector</code>还有待提升。
+尤其是，<code>Vector</code>的用户必须对<code>Vector</code>的细节了如指掌。
+本章后续及接下来的两章内容，将逐步改进<code>Vector</code>，作为语言特性及技术的示例。
+第11章介绍标准库的<code>vector</code>，它包含很多精致的改进。</p>
+<p>我拿<code>vector</code>和其它标准库组件做例子是为了：</p>
+<ul>
+<li>展示语言特性和设计技巧，并</li>
+<li>帮助你理解和运用标准库组件</li>
+</ul>
+<p>对于<code>vector</code>和<code>string</code>这样的标准库组件，别造轮子；直接用。</p>
+<p>通过变量名（及引用）访问<code>struct</code>成员用<code>.</code>（点），
+而通过指针访问<code>struct</code>成员用<code>-&gt;</code>。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Vector v, Vector&amp; rv, Vector* pv)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i1 = v.sz;      <span class="hljs-comment">// 通过变量名访问</span>
+    <span class="hljs-keyword">int</span> i2 = rv.sz;     <span class="hljs-comment">// 通过引用访问</span>
+    <span class="hljs-keyword">int</span> i3 = pv-&gt;sz;    <span class="hljs-comment">// 通过指针访问</span>
+}
+</code></pre>
+<h2 id="2.3">2.3 类（class） </h2>
+<p>把具体数据和运算分离有它的优势，比方说，能够随心所欲地使用数据。
+但是，想让用户定义类型具有“真正的类型”那些属性，就需要让数据和运算结合得更紧密些。
+具体而言，我们通常希望数据表示对用户不可访问，从而避免被使用，
+确保该类型数据的使用一致性，这还让我们后续能够改进数据表示。
+要达成这个目的，必须区分类型的（供任何人使用的）接口和（可对数据排他性访问的）实现。
+这个语言机制叫做<em>类（class）</em>。
+类拥有一组<em>成员（member）</em>，成员可以是数据、函数或者类型成员。
+接口由类的<code>public</code>成员定义，而<code>private</code>成员仅允许通过接口访问。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector</span>{</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">Vector</span>(<span class="hljs-keyword">int</span> s) :elem{<span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[s]}, sz{s} { }
+    <span class="hljs-keyword">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i) { <span class="hljs-keyword">return</span> elem[i]; }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> sz; }
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">double</span>* elem;   <span class="hljs-comment">// 指向元素的指针</span>
+    <span class="hljs-keyword">int</span> sz;         <span class="hljs-comment">// 元素的数量</span>
+};
+</code></pre>
+<p><a class="en-page-number" id="24"></a></p>
+<p>有了这些，就可以定义新的<code>Vector</code>类型的变量了：</p>
+<pre><code class="lang-cpp"><span class="hljs-function">Vector <span class="hljs-title">v</span><span class="hljs-params">(<span class="hljs-number">6</span>)</span></span>;    <span class="hljs-comment">// 具有6个元素的Vector</span>
+</code></pre>
+<p><code>Vector</code>对象可图示如下：</p>
+<p><img src="img/ch02_01.png" alt="Vector object illustrate"></p>
+<p>大体上，<code>Vector</code>对象就是个“把手”，
+其中装载着指向元素的指针（<code>elem</code>）和元素数量（<code>sz</code>）。
+元素数量（例中是6）对不同的<code>Vector</code>对象是可变的，而同一个<code>Vector</code>对象，
+在不同时刻，其元素数量也可以不同。但是<code>Vector</code>对象自身的大小始终不变。
+在C++中，这是处理可变数量信息的基本技巧：以固定大小的把手操控数量可变的数据，
+这些数据被放在“别处”（比如用<code>new</code>分配在自由存储上；§4.2.2）。
+设计与使用这些对象的方法，是第4章的主要内容。</p>
+<p>在这里，<code>Vector</code>的数据（成员<code>elem</code>及<code>sz</code>）只能通过接口访问，
+这些接口都是<code>public</code>成员：<code>Vector()</code>、<code>operator[]()</code>及<code>size()</code>。
+§2.2 中的示例<code>read_and_sum()</code>可简化为：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">read_and_sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s)</span>
+</span>{
+    <span class="hljs-function">Vector <span class="hljs-title">v</span><span class="hljs-params">(s)</span></span>;                        <span class="hljs-comment">// 创建持有s个元素的vector</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=v.<span class="hljs-built_in">size</span>(); ++i)
+        cin&gt;&gt;v[i];                      <span class="hljs-comment">// 把数据读入元素</span>
+
+    <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=v.<span class="hljs-built_in">size</span>(); ++i)
+        sum+=v[i];                      <span class="hljs-comment">// 对元素求和</span>
+    <span class="hljs-keyword">return</span> sum;
+}
+</code></pre>
+<p>和类具有相同名称的成员“函数（function）”叫做<em>构造函数（constructor）</em>，
+就是说，这个函数的用途是构建此类对象。
+因此，构造函数<code>Vector()</code>取代了§2.2里的<code>vector_init()</code>。
+与一般函数不同，在构造其所属的类对象时，构造函数保证会被调用。
+由此，定义构造函数，就类消除了类的“变量未初始化”问题。</p>
+<p><code>Vector(int)</code>定义了怎样构造<code>Vector</code>对象。
+具体来说，它明确指出需要一个整数。
+该整数作为元素的数量使用。
+这个构造函数通过成员初始化列表来初始化<code>Vector</code>的成员：</p>
+<pre><code class="lang-cpp">:elem{<span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[s]}, sz{s}
+</code></pre>
+<p>意思是说，先用一个指针初始化<code>elem</code>，该指针指向<code>s</code>个<code>double</code>类型的元素，
+这些元素的空间取自自由存储区。
+然后用<code>s</code>的值初始化<code>sz</code>。</p>
+<p>对元素的访问由取下标函数提供，该函数叫做<code>operator[]</code>。
+它返回相应元素的引用（即可读又可写的<code>double&amp;</code>）。</p>
+<p><a class="en-page-number" id="25"></a></p>
+<p>函数<code>size()</code>把元素的数量交给用户。</p>
+<p>一望而知，错误处理被彻底忽略了，但是我们会在§3.5讲到它。
+与此类似，对于通过<code>new</code>获取的<code>double</code>数组，
+我们也并未提供一个机制把它“送回去（give back）”；
+§4.2.2展示了用析构函数优雅地做到这一点的方式。</p>
+<p><code>struct</code>和<code>class</code>没有本质上的区别，<code>struct</code>就是个<code>class</code>，
+只不过其成员默认是<code>public</code>的。
+比方说，你可以为<code>struct</code>定义构造函数和其它成员函数。</p>
+<h2 id="2.4">2.4 联合（union） </h2>
+<p>联合（<code>union</code>）就是结构体（<code>struct</code>），只不过联合的所有成员都分配在相同的地址上，
+因此联合所占据的空间，仅跟其容量最大的那个成员相同。
+自然而然，任何时候联合都只能持有其某一个成员的值。
+举例来说，有个符号表条目，它包含一个名称和一个值。其值可以是<code>Node*</code>或<code>int</code>：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Type</span> {</span> ptr, num }; <span class="hljs-comment">// 一个 Type 可以是ptr和num(§2.5)</span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Entry</span> {</span>
+    string name;    <span class="hljs-comment">// string是个标准库里的类型</span>
+    Type t;
+    Node* p;        <span class="hljs-comment">// 如果t==ptr，用p</span>
+    <span class="hljs-keyword">int</span> i;          <span class="hljs-comment">// 如果t==num，用i</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (pe-&gt;t == num)
+        cout &lt;&lt; pe-&gt;i;
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>成员<code>p</code>和<code>i</code>永远不会同时使用，但这样空间就被浪费了。
+可以指定它们都是某个<code>union</code>的成员，这样空间就轻而易举地节省下来了，像这样：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">Value</span> {</span>
+    Node* p;
+    <span class="hljs-keyword">int</span> i;
+};
+</code></pre>
+<p>语言并不会追踪<code>union</code>保持了哪种类型的值，所以程序员要亲力亲为：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Entry</span> {</span>
+    string name;
+    Type t;
+    Value v;    <span class="hljs-comment">// 如果t==ptr，用v.p；如果t==num，用v.i</span>
+};
+</code></pre>
+<p><a class="en-page-number" id="26"></a></p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (pe-&gt;t == num)
+        cout &lt;&lt; pe-&gt;v.i;
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p><em>类型信息（type field）</em>和<code>union</code>所持的类型之间的一致性很难维护。
+想要避免错误，可以强化这种一致性——把联合与类型信息封装成一个类，
+仅允许通过成员函数访问它们，再用成员函数确保准确无误地使用联合。
+在应用层面，依赖于这种<em>附有标签的联合（tagged union）</em>的抽象常见且有用。
+尽量少用“裸”的<code>union</code>。</p>
+<p>标准库有个类型叫<code>variant</code>，使用它就可以避免绝大多数针对 联合 的直接应用。
+<code>variant</code>存储一个值，该值的类型可以从一组类型中任选一个(§13.5.1)。
+举个例子，<code>variant&lt;Node*,int&gt;</code>的值，可以是<code>Node*</code>或者<code>int</code>。</p>
+<p>借助<code>variant</code>，<code>Entry</code>示例可以写成这样：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Entry</span> {</span>
+    string name;
+    variant&lt;Node*,<span class="hljs-keyword">int</span>&gt; v;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (holds_alternative&lt;<span class="hljs-keyword">int</span>&gt;(pe-&gt;v))  <span class="hljs-comment">// *pe的值是int类型吗？（参见§13.5.1）</span>
+        cout &lt;&lt; get&lt;<span class="hljs-keyword">int</span>&gt;(pe-&gt;v);        <span class="hljs-comment">// 取（get）int值</span>
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>很多情况下，使用<code>variant</code>都比<code>union</code>更简单也更安全。</p>
+<h2 id="2.5">2.5 枚举（enum） </h2>
+<p>除了类，C++还提供一种简单的用户定义类型，使用它可以把一组值逐一列举：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Color</span> {</span> red, blue, green };
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Traffic_light</span> {</span> green, yellow, red };
+
+Color col = Color::red;
+Traffic_light light = Traffic_light::red;
+</code></pre>
+<p>注意，枚举值（比如<code>red</code>）位于其<code>enum class</code>的作用域里，
+因此可以在不同的<code>enum class</code>里重复出现，而且不会相互混淆。
+例如：<code>Color::red</code>是<code>Color</code>里面的<code>red</code>，跟<code>Traffic_light::red</code>毫无关系。</p>
+<p>枚举用于表示一小撮整数值。
+使用它们，可以让代码更具有可读性，也更不易出错。</p>
+<p><a class="en-page-number" id="27"></a></p>
+<p><code>enum</code>后的<code>class</code>指明了这是个强类型的枚举，并且限定了这些枚举值的作用域。
+作为独立的类型，<code>enum class</code>有助于防止常量的误用。
+比方说，<code>Traffic_light</code>和<code>Color</code>的值无法混用：</p>
+<pre><code class="lang-cpp">Color x = red;                  <span class="hljs-comment">// 错误：哪个颜色？</span>
+Color y = Traffic_light::red;   <span class="hljs-comment">// 错误：此red并非Color类型</span>
+Color z = Color::red;           <span class="hljs-comment">// OK</span>
+</code></pre>
+<p>同样，<code>Color</code>的值也不能和整数值混用：</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> i = Color::red; <span class="hljs-comment">// 错误：Color::red不是int类型</span>
+
+Color c = <span class="hljs-number">2</span>;        <span class="hljs-comment">// 初始化错误：2不是Color类型</span>
+</code></pre>
+<p>捕捉这种向 enum 的类型转换有助于防止出错，
+但我们通常需要用底层类型（默认情况下是<code>int</code>）的值初始化一个 enum，
+因此，这种初始化就像显式从底层类型转换而来一样合法：</p>
+<pre><code class="lang-cpp">Color x = Color{<span class="hljs-number">5</span>}; <span class="hljs-comment">// 可行，但略有些啰嗦</span>
+Color y {<span class="hljs-number">6</span>};        <span class="hljs-comment">// 同样可行</span>
+</code></pre>
+<p>默认情况下，<code>enum class</code>仅定义了赋值、初始化和比较（也就是<code>==</code>和<code>&lt;</code>； §1.4）。
+不过，既然枚举是用户定义类型，我们就可以给它定义运算符：</p>
+<pre><code class="lang-cpp">Traffic_light&amp; <span class="hljs-keyword">operator</span>++(Traffic_light&amp; t)     <span class="hljs-comment">// 前置自增：++</span>
+{
+    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (t) {
+    <span class="hljs-keyword">case</span> Traffic_light::green:  <span class="hljs-keyword">return</span> t=Traffic_light::yellow;
+    <span class="hljs-keyword">case</span> Traffic_light::yellow: <span class="hljs-keyword">return</span> t=Traffic_light::red;
+    <span class="hljs-keyword">case</span> Traffic_light::red:    <span class="hljs-keyword">return</span> t=Traffic_light::green;
+    }
+}
+Traffic_light next = ++light;   <span class="hljs-comment">// next 将是 Traffic_light::green</span>
+</code></pre>
+<p>如果你的枚举值不需要独立的作用域，并希望把它们作为<code>int</code>使用（无需显式类型转换），
+可以省掉<code>enum class</code>中的<code>class</code>，以获得一个“普通”<code>enum</code>。
+“普通”<code>enum</code>中的枚举值的作用域跟这个<code>enum</code>相同，还能隐式转换成整数值，例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Color</span> {</span> red, green, blue };
+<span class="hljs-keyword">int</span> col = green;
+</code></pre>
+<p>此处的<code>col</code>值为<code>1</code>。
+默认情况下，枚举值的整数值从<code>0</code>开始，每增加一个新枚举值就递增一。
+“普通”<code>enum</code>是C++（和C）与生俱来的，因此，尽管它问题多多却仍然很常见。</p>
+<h2 id="2.6">2.6 忠告 </h2>
+<ul>
+<li>[1] 如果某个内置类型过于底层，请使用定义良好的用户定义类型代替它；§2.1。</li>
+</ul>
+<p><a class="en-page-number" id="28"></a></p>
+<ul>
+<li>[2] 把有关联的数据组织到结构里（成<code>struct</code>或<code>class</code>）；§2.2; [CG: C.1]。</li>
+<li>[3] 借助<code>class</code>区分接口和实现；§2.3; [CG: C.3]。</li>
+<li>[4] <code>struct</code>就是其成员默认为<code>public</code>的<code>class</code>；§2.3。</li>
+<li>[5] 为<code>class</code>定义构造函数，以确保执行初始化操作并简化它；§2.3; [CG: C.2]。</li>
+<li>[6] 别用“裸”<code>union</code>，把它们和类型字段凑一起放进类里面；§2.4; [CG: C.181]。</li>
+<li>[7] 使用枚举表示具名常量的集合；§2.5; [CG: Enum.2]。</li>
+<li>[8] 用<code>enum class</code>替代“普通”<code>enum</code>以避免事故；§2.5; [CG: Enum.3]。</li>
+<li>[9] 给枚举定义运算，可以获得安全性和便利性；§2.5; [CG: Enum.4]。</li>
+</ul>
+
+                                
+    
+
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch01.html" class="navigation navigation-prev " aria-label="Previous page: 1 基础知识">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch03.html" class="navigation navigation-next " aria-label="Next page: 3 模块化">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"ch":2,"title":"2 用户定义类型","level":"1.4","depth":1,"next":{"title":"3 模块化","level":"1.5","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"previous":{"title":"1 基础知识","level":"1.3","depth":1,"path":"ch01.md","ref":"ch01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch02.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

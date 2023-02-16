@@ -1,0 +1,1021 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>15 并发 · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.23">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch16.html" />
+    
+    
+    <link rel="prev" href="ch14.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="translation_note.html">
+            
+                <a href="translation_note.html">
+            
+                    
+                    译者言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ch01.html">
+            
+                <a href="ch01.html">
+            
+                    
+                    1 基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ch02.html">
+            
+                <a href="ch02.html">
+            
+                    
+                    2 用户定义类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ch03.html">
+            
+                <a href="ch03.html">
+            
+                    
+                    3 模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch04.html">
+            
+                <a href="ch04.html">
+            
+                    
+                    4 类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ch05.html">
+            
+                <a href="ch05.html">
+            
+                    
+                    5 基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch06.html">
+            
+                <a href="ch06.html">
+            
+                    
+                    6 模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ch07.html">
+            
+                <a href="ch07.html">
+            
+                    
+                    7 概束和泛型编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="ch08.html">
+            
+                <a href="ch08.html">
+            
+                    
+                    8 标准库概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="ch09.html">
+            
+                <a href="ch09.html">
+            
+                    
+                    9 字符串和正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="ch10.html">
+            
+                <a href="ch10.html">
+            
+                    
+                    10 输入输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="ch11.html">
+            
+                <a href="ch11.html">
+            
+                    
+                    11 容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="ch12.html">
+            
+                <a href="ch12.html">
+            
+                    
+                    12 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="ch13.html">
+            
+                <a href="ch13.html">
+            
+                    
+                    13 实用功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="ch14.html">
+            
+                <a href="ch14.html">
+            
+                    
+                    14 数值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17" data-path="ch15.html">
+            
+                <a href="ch15.html">
+            
+                    
+                    15 并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="ch16.html">
+            
+                <a href="ch16.html">
+            
+                    
+                    16 历史及兼容性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="idx.html">
+            
+                <a href="idx.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >15 并发</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+
+    
+        
+                                <p><a class="en-page-number" id="195"></a></p>
+<div class="chapter-number"><p class="chapter-number">15</p></div>
+
+<h1 id="concurrency">并发 </h1>
+<blockquote>
+<p>让事物保持简单：</p>
+<p>越简单越好，</p>
+<p>但不要过头。</p>
+<p>– <span title="没有明确证据证明爱因斯坦说过这句话，但是也没有证据证明他没说过，有一个考据在这个页面： https://quoteinvestigator.com/2011/05/13/einstein-simple/ ，我参考了网络上的一些翻译，感觉这样译合理，但也没有足够论据。"> —— 阿尔伯特·爱因斯坦</span><sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
+</blockquote>
+<h2 id="15.1">15.1 导言 </h2>
+<p>并发——同时执行多个任务——被大量用于提高吞吐量（为单个计算任务使用多处理器的方式）
+或提升响应能力（方法是在程序的一部分处理业务的同时，另一部分提供响应）。
+所有的现代编程语言都支持并发。
+C++里有个久经20多年考验，获得现代硬件普遍支持的并发方式，
+C++标准库提供的支持是上述方法的一个变种，具备可移植性且类型安全。
+标准库对并发的支持着眼于系统层面的并发，而不是直接提供高级并发模型，
+后者可以作为程序库的形式呈现，利用标准库提供的设施进行构建。</p>
+<p>对于多线程在单地址空间上的并发执行，标准库提供了直接的支持。
+为此，C++提供一个相应的内存模型以及一组原子操作。
+原子操作支援无锁编程[Dechev,2010]。</p>
+<p><a class="en-page-number" id="196"></a></p>
+<p>关于这个内存模型，只要程序员能避免数据竞争（对可变数据的失控并发访问），
+它就确保一切能够无脑地执行得丝般顺滑。
+但是，大多数用户所见的并发形式，表现为标准库以及构建于其上的程序库。
+本章为标准库支持并发的构件提供简短示例：<code>thread</code>、<code>mutex</code>、
+<code>lock()</code>操作、<code>packaged_task</code>、<code>future</code>。
+这些特性直接建立在操作系统提供的功能之上，且不会造成性能损失。
+当然，对操作系统的相关功能也没有显著的性能提升。</p>
+<p>千万别以为并发是万全之策。
+如果一个任务可以顺序搞定，那它通常是更简单、更快捷的方式。</p>
+<p>作为显式应用并行特性的替代方案，
+利用并行算法通常可以获取更好的性能（§12.9，§14.3.1）。</p>
+<h2 id="15.2">15.2 任务和<code>thread</code> </h2>
+<p>某个计算，如果有可能与其它计算并发执行，我们就称之为一个<em>任务（task）</em>。
+<em>线程（thread）</em>是任务在程序里的系统级表示。
+对于需要与其它任务并发执行的任务，可做为参数构造一个<code>std::thread</code>
+（在<code>&lt;thread&gt;</code>里）来启动。任务是一个函数或者函数对象：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>;               <span class="hljs-comment">// 函数</span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">F</span> {</span>              <span class="hljs-comment">// 函数对象</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;  <span class="hljs-comment">// F的调用操作符（§6.3.2）</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
+</span>{
+    thread t1 {f};      <span class="hljs-comment">// f() 在单独的线程里和执行</span>
+    thread t2 {<span class="hljs-built_in">F</span>()};    <span class="hljs-comment">// F()() 在单独的线程里和执行</span>
+
+    t1.<span class="hljs-built_in">join</span>();          <span class="hljs-comment">// 等待t1</span>
+    t2.<span class="hljs-built_in">join</span>();          <span class="hljs-comment">// 等待t2</span>
+}
+</code></pre>
+<p>这两个<code>join()</code>确保我们在两个线程运行完之前不会退出<code>user()</code>。
+“加入（join）”某个<code>thread</code>的意思是“等待这个线程终止”。</p>
+<p>一个程序的线程之间共享同一个地址空间。
+此处的线程有别于进程，进程间一般不会直接共享数据。
+因为线程共享同一个地址空间，它们可以通过共享对象（§15.5）进行通信。
+此类通信通常用锁或其它机制以避免数据竞争（对变量的失控并发访问）。
+编程并发任务可能<em>特别</em>棘手。
+琢磨以下任务<code>f</code>（函数）和<code>F</code>（函数对象）可能的实现：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+</span>{
+    cout &lt;&lt; <span class="hljs-string">&quot;Hello &quot;</span>;
+}
+</code></pre>
+<p><a class="en-page-number" id="197"></a></p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">F</span> {</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span> </span>{ cout &lt;&lt; <span class="hljs-string">&quot;Parallel World!\n&quot;</span>; }
+};
+</code></pre>
+<p>这展示了一个严重的错误：<code>f</code>和<code>F()</code>都用到了<code>cout</code>对象，但没通过任何形式进行同步。
+输出的结果是无法预料的，而且该程序每次执行的结果都可能有差异，
+原因在于，两个任务中各自操作的执行顺序是未定义的。
+这个程序的输出可能会有点“莫名其妙”，比如这样的：</p>
+<pre><code class="lang-cpp">PaHerallllel o World!
+</code></pre>
+<p>只有标准库里某个特定的保障才能力挽狂澜，
+以避免<code>ostream</code>定义里的数据竞争导致可能的崩溃。</p>
+<p>为并发程序定义任务的目标是，除简单明确的通信之外，保持任务相互间完全独立。
+关于并发任务，最简单的思路是把它看做一个函数，仅仅是恰好与它的调用者同时运行。
+为此，只需要传递参数，获取结果，并确保它们间不使用共享数据（没有数据竞争）。</p>
+<h2 id="15.3">15.3 参数传递 </h2>
+<p>一般来说，任务需要待加工的数据。
+数据（或指向它的指针、引用）可以简单地作为参数传递。琢磨这个：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v)</span></span>;  <span class="hljs-comment">// 函数：处理v</span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">F</span> {</span>                  <span class="hljs-comment">// 函数对象：处理v</span>
+    vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v;
+    <span class="hljs-built_in">F</span>(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; vv) :v{vv} { }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;      <span class="hljs-comment">// 调用操作符 §6.3.2</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    vector&lt;<span class="hljs-keyword">double</span>&gt; some_vec {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>};
+    vector&lt;<span class="hljs-keyword">double</span>&gt; vec2 {<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14</span>};
+
+    thread t1 {f,<span class="hljs-built_in">ref</span>(some_vec)};    <span class="hljs-comment">// f(some_vec) 在单独的线程里运行</span>
+    thread t2 {F{vec2}};            <span class="hljs-comment">// F(vec2)() 在单独的线程里运行</span>
+
+    t1.<span class="hljs-built_in">join</span>();
+    t2.<span class="hljs-built_in">join</span>();
+}
+</code></pre>
+<p>显然，<code>F{vec2}</code>在<code>F</code>中保存了参数vector的引用。
+然后<code>F</code>就可以操作这个vector，但要祈祷在<code>F</code>运行时没有其它任务访问<code>vec2</code>。
+为<code>vec2</code>传值可以消除这个风险。</p>
+<p><code>{f,ref(some_vec)}</code>这个初始化利用了<code>thread</code>的可变参数模板构造函数，
+它接受任意的参数序列（§7.4）。</p>
+<p><a class="en-page-number" id="198"></a></p>
+<p><code>ref()</code>是个来自<code>&lt;functional&gt;</code>的类型函数，很遗憾，
+让可变参数模板把<code>some_vec</code>作为引用而非对象时少不了它。
+如果缺少<code>ref()</code>，<code>some_vec</code>将以传值的方式传递。
+编译器会检查能否用后续参数调用第一个参数，然后构造必要的函数对象传递给线程。
+这样，<code>F::operator()()</code>和<code>f()</code>就执行同样的算法，两个任务的处理方式如出一辙：
+两种情况下，都是构造一个函数对象给<code>thread</code>去执行。</p>
+<h2 id="15.4">15.4 结果返回 </h2>
+<p>在 §15.3 的例子中，参数按照非<code>const</code>引用的方式传递。
+我仅在需要任务对引用的数据（§1.7）进行修改时才这么做。
+这个返回结果的方式略有点旁门左道，但并不稀奇。
+有个更通俗的方式是把输入数据以<code>const</code>引用方式传递，
+再传递一个位置作为单独的参数，用于保存结果：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v, <span class="hljs-keyword">double</span>* res)</span></span>;   <span class="hljs-comment">// 从v获取输入；结果放进 *res</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">F</span> {</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">F</span>(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; vv, <span class="hljs-keyword">double</span>* p) :v{vv}, res{p} { }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;              <span class="hljs-comment">// 结果放进 *res</span>
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v;        <span class="hljs-comment">// 输入源</span>
+    <span class="hljs-keyword">double</span>* res;                    <span class="hljs-comment">// 输出目标</span>
+};
+<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">g</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp;)</span></span>;    <span class="hljs-comment">// 使用返回值</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; vec1, vector&lt;<span class="hljs-keyword">double</span>&gt; vec2, vector&lt;<span class="hljs-keyword">double</span>&gt; vec3)</span>
+</span>{
+    <span class="hljs-keyword">double</span> res1;
+    <span class="hljs-keyword">double</span> res2;
+    <span class="hljs-keyword">double</span> res3;
+
+    thread t1 {f,<span class="hljs-built_in">cref</span>(vec1),&amp;res1};         <span class="hljs-comment">// f(vec1,&amp;res1) 在单独的线程里运行</span>
+    thread t2 {F{vec2,&amp;res2}};              <span class="hljs-comment">// F{vec2,&amp;res2}() 在单独的线程里运行</span>
+    thread t3 { [&amp;](){ res3 = <span class="hljs-built_in">g</span>(vec3); } }; <span class="hljs-comment">// 以引用的方式捕获局部变量</span>
+
+    t1.<span class="hljs-built_in">join</span>();
+    t2.<span class="hljs-built_in">join</span>();
+    t3.<span class="hljs-built_in">join</span>();
+
+    cout &lt;&lt; res1 &lt;&lt; <span class="hljs-string">&apos; &apos;</span> &lt;&lt; res2 &lt;&lt; <span class="hljs-string">&apos; &apos;</span> &lt;&lt; res3 &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+</code></pre>
+<p>此代码运行良好，并且该技术也很常见，但我觉得通过引用传回结果不够优雅，
+所以，§15.7.1会再聊到这个话题。</p>
+<p><a class="en-page-number" id="199"></a></p>
+<h2 id="15.5">15.5 共享数据 </h2>
+<p>有时候任务之间不得不共享数据。
+这种情况下，数据访问必须要同步，以便同一时刻最多只有一个任务访问数据。
+资深程序员会觉得这有点以偏概全（比如，多个任务同时读取不可变的数据就没问题），
+但请考虑这个问题：
+对于一组给定的对象，在同一时刻，如何确保至多只有一个任务进行访问。</p>
+<p>解决方案的基本要素是<code>mutex</code>（互斥量），
+一个“互斥对象（mutual exclusion object）”。
+<code>thread</code>执行<code>lock()</code>操作来获取<code>mutex</code>：</p>
+<pre><code class="lang-cpp">mutex m;    <span class="hljs-comment">// 参与控制的互斥量</span>
+<span class="hljs-keyword">int</span> sh;     <span class="hljs-comment">// 共享数据</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+</span>{
+    scoped_lock lck {m};    <span class="hljs-comment">// 获取互斥量</span>
+    sh += <span class="hljs-number">7</span>;                <span class="hljs-comment">// 操作共享数据</span>
+}   <span class="hljs-comment">// 隐式释放互斥量</span>
+</code></pre>
+<p><code>lck</code>的类型被推导为<code>scoped_lock&lt;mutex&gt;</code>（§6.2.3）。
+<code>scoped_lock</code>的构造函数负责获取互斥量（方法是调用<code>m.lock()</code>）。
+如果另一个线程已经获取了这个互斥量，
+当前线程就要等待（“阻塞”）到另一个线程访问结束。
+待某个线程访问共享数据结束，
+<code>scoped_lock</code>就会（调用<code>m.unlock()</code>）释放这个<code>mutex</code>。
+当<code>mutex</code>被释放，等待它的<code>thread</code>就恢复执行（被唤醒）。
+互斥量和锁构件的定义都在<code>&lt;mutex&gt;</code>里。</p>
+<p>请留意RAII（§5.3）的运用。
+使用<code>scoped_lock</code>、<code>unique_lock</code>之类的执柄，
+比显式锁定和解锁<code>mutex</code>简单而且安全得多。</p>
+<p>共享数据和<code>mutex</code>间的对应关系是约定俗成的：
+程序员只需要知道哪个<code>mutex</code>对应哪个数据即可。
+显而易见这容易出错，同样不言而喻的是，明确这种对应关系的方式也多种多样。
+例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Record</span> {</span>
+<span class="hljs-keyword">public</span>:
+    mutex rm;
+    <span class="hljs-comment">// ...</span>
+};
+</code></pre>
+<p>无需天赋异秉就能猜到，对于一个名为<code>rec</code>的<code>Record</code>，
+在访问<code>rec</code>的其余内容之前，应该先获取<code>rec.rm</code>，
+使用注释或更贴切的变量名，可以进一步提升可读性。</p>
+<p>同时访问多个资源的操作并不罕见。这可能导致死锁。
+例如，如果<code>thread1</code>获取了<code>mutex1</code>，然后试图再获取<code>mutex2</code>，
+而此时<code>thread2</code>已经获取了<code>mutex2</code>并试图获取<code>mutex1</code>，
+这样，二者就都无法继续执行了。
+这是<code>scoped_lock</code>的用武之地，它同时获取多个锁来解决这个问题：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+</span>{
+    scoped_lock lck {mutex1,mutex2,mutex3}; <span class="hljs-comment">// 三个锁全部获取</span>
+    <span class="hljs-comment">// ... 处理共享数据 ...</span>
+} <span class="hljs-comment">// 隐式释放所有的互斥量</span>
+</code></pre>
+<p><a class="en-page-number" id="200"></a></p>
+<p>只有在获取参数中的所有锁之后，这个<code>scoped_lock</code>才继续执行，
+并且在持有<code>mutex</code>的情况下绝不会阻塞（“进入休眠”）。
+当<code>thread</code>离开这个作用域时，<code>scoped_lock</code>的析构函数会确保释放这些<code>mutex</code>。</p>
+<p>使用共享数据通信是个非常低级的方法。
+尤其是，程序员还要搞清楚不同任务之间工作完成情况的各种组合。
+在这方面，共享数据的使用相较于调用与返回的概念可就逊色太多了。
+另一方面，有些人坚信数据共享比复制参数和返回的效率高。
+如果涉及的数据量非常大，可能的确如此，但锁定和解锁操作的代价都相对高昂。
+相反，现代的硬件都很擅长复制数据，尤其是紧凑的数据，比如<code>vector</code>那些元素。
+因此，不要出于“效率”原因而不假思索也不进行测量就选择共享数据进行通信。</p>
+<p>基础的<code>mutex</code>限定同一时刻仅有一个线程访问数据。
+有一个最普遍的方式，是在众多读取者和单一的写入者之间进行共享。
+<code>shared_mutex</code>支持这种“读写锁”。
+一个读取者会申请“共享的”互斥量，以便其它读取者仍然能够访问，
+而写入者则要求排他性的访问，比如：</p>
+<pre><code class="lang-cpp">shared_mutex mx;    <span class="hljs-comment">// 可共享的互斥量</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reader</span><span class="hljs-params">()</span>
+</span>{
+    shared_lock lck {mx};   <span class="hljs-comment">// 乐于同其它读取者分享访问权限</span>
+    <span class="hljs-comment">// ... 读取 ...</span>
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">writer</span><span class="hljs-params">()</span>
+</span>{
+    unique_lock lck {mx};   <span class="hljs-comment">// 需要排他性（唯一的）访问</span>
+    <span class="hljs-comment">// ... 写入 ...</span>
+}
+</code></pre>
+<h2 id="15.6">15.6 等待事件 </h2>
+<p>有些情况下，<code>thread</code>需要等待外部事件，比如另一个<code>thread</code>完成了某个任务，
+或者经过了特定长度的时间。最简单的“事件”是时间流逝。
+利用<code>&lt;chrono&gt;</code>中的时间相关功能，可以这么写：</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std::chrono;    <span class="hljs-comment">// 参见 §13.7</span>
+
+<span class="hljs-keyword">auto</span> t0 = high_resolution_clock::<span class="hljs-built_in">now</span>();
+this_thread::<span class="hljs-built_in">sleep_for</span>(milliseconds{<span class="hljs-number">20</span>});
+<span class="hljs-keyword">auto</span> t1 = high_resolution_clock::<span class="hljs-built_in">now</span>();
+
+cout &lt;&lt; duration_cast&lt;nanoseconds&gt;(t1-t0).<span class="hljs-built_in">count</span>() &lt;&lt; <span class="hljs-string">&quot; nanoseconds passed\n&quot;</span>;
+</code></pre>
+<p>请注意，我甚至不需要启动一个<code>thread</code>；
+默认情况下，<code>this_thread</code>指向当前唯一的线程。</p>
+<p><a class="en-page-number" id="201"></a></p>
+<p>此处用了<code>duration_cast</code>将时间单位调整为我想要的纳秒。</p>
+<p>对于利用外部事件进行通信的基本支持由<code>&lt;condition_variable&gt;</code>
+中的<code>condition_variable</code>提供。
+<code>condition_variable</code>是个允许一个<code>thread</code>等待其它线程的机制。
+确切地说，它允许<code>thread</code>等待某种<em>条件（condition）</em>
+（通常称为<em>事件（event）</em>）的发生，作为其它<code>thread</code>完成作业的结果。</p>
+<p>使用<code>condition_variable</code>可以支持许多优雅且高效的共享方式，但可能要费些周折。
+考虑经典的例子：两个<code>thread</code>借助一个<code>queue</code>传递消息进行通信。
+为叙述简洁，我把<code>queue</code>和避免它发生数据竞争的机制定义在全局作用域
+供生产者和消费者访问：</p>
+<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> {</span>     <span class="hljs-comment">// 通信中使用的对象</span>
+    <span class="hljs-comment">// ...</span>
+};
+
+queue&lt;Message&gt; mqueue;      <span class="hljs-comment">// 消息队列</span>
+condition_variable mcond;   <span class="hljs-comment">// 变量通信事件</span>
+mutex mmutex;               <span class="hljs-comment">// 用于同步对mcond的访问</span>
+</code></pre>
+<p><code>queue</code>、<code>condition_variable</code>、<code>mutex</code>这些类型都由标准库提供。</p>
+<p><code>consumer()</code>读取并处理<code>Message</code>：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">consumer</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) {
+        unique_lock lck {mmutex};       <span class="hljs-comment">// 申请 mmutex </span>
+        mcond.<span class="hljs-built_in">wait</span>(lck,[] { <span class="hljs-keyword">return</span> !mqueue.<span class="hljs-built_in">empty</span>(); }); <span class="hljs-comment">// 释放 lck 并进入等待</span>
+                                                        <span class="hljs-comment">// 在被唤醒时重新申请 lck</span>
+                                                        <span class="hljs-comment">// 只要mqueue是空的就不要唤醒</span>
+        <span class="hljs-keyword">auto</span> m = mqueue.<span class="hljs-built_in">front</span>();        <span class="hljs-comment">// 取消息</span>
+        mqueue.<span class="hljs-built_in">pop</span>();
+        lck.<span class="hljs-built_in">unlock</span>();                   <span class="hljs-comment">// 释放 lck </span>
+        <span class="hljs-comment">// ... 处理 m ...</span>
+    }
+}
+</code></pre>
+<p>此处，我把一个<code>unique_lock</code>用于<code>mutex</code>，
+显式为<code>queue</code>和<code>condition_variable</code>上的操作提供保护。
+<code>condition_variable</code>进入等待时释放它的锁参数，
+等待结束（即队列非空）时重新获取它。
+此处的<code>!mqueue.empty()</code>对条件进行显式查询，
+以防唤醒后发现其它任务已经“领先一步”，以至于该条件不再成立。</p>
+<p>此处选择<code>unique_lock</code>而非<code>scoped_lock</code>，出于两个原因：</p>
+<ul>
+<li>需要将锁传给<code>condition_variable</code>的<code>wait()</code>。
+  <code>scoped_lock</code>无法复制，而<code>unique_lock</code>可以。</li>
+<li>在处理消息之前，需要给<code>mutex</code>加锁以保护条件变量。<code>unique_lock</code>提供了
+  <code>lock()</code>、<code>unlock()</code>这些操作，用于低层次的同步控制。</li>
+</ul>
+<p>另外，<code>unique_lock</code>只能处理单个的<code>mutex</code>。</p>
+<p><a class="en-page-number" id="202"></a></p>
+<p>配套的<code>producer</code>是这样的：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) {
+        Message m;
+        <span class="hljs-comment">// ... 填写信息 ...</span>
+        scoped_lock lck {mmutex};   <span class="hljs-comment">// 保护下一条代码的操作</span>
+        mqueue.<span class="hljs-built_in">push</span>(m);
+        mcond.<span class="hljs-built_in">notify_one</span>();         <span class="hljs-comment">// 提示</span>
+    }                               <span class="hljs-comment">// 释放锁（在作用域结束处）</span>
+}
+</code></pre>
+<h2 id="15.7">15.7 通信任务 </h2>
+<p>标准库提供了几个构件，以便程序员能够在任务（可能需要并发的工作）的概念层级进行操作，
+而不必直面线程和锁这么低的层级：</p>
+<ul>
+<li><code>future</code>和<code>promise</code>从 在单独线程上生成的任务 里返回一个值</li>
+<li><code>package_task</code>协助启动任务并连接返回结果的机制</li>
+<li><code>async()</code>以酷似函数调用的方式启动一个任务</li>
+</ul>
+<p>这些构件都在头文件<code>&lt;future&gt;</code>内。</p>
+<h3 id="15.7.1">15.7.1 <code>future</code>和<code>promise</code> </h3>
+<p><code>future</code>和<code>promise</code>侧重点在于，两个任务之间传递值时，它们能避免锁的显式使用；
+“系统”高效地实现这个传递。
+基本思路很简单：一个任务需要给另一个任务传递值时，就把这个值放进<code>promise</code>。
+“大变活值”之后，具体实现会把这个值弄进对应的<code>future</code>里，
+（通常是该任务的启动者）就能从<code>future</code>里把值读出来了。
+此过程图示如下：</p>
+<p><img src="img/ch15_01.png" alt="future-and-promise"></p>
+<p>如果有个名为<code>fx</code>的<code>future&lt;X&gt;</code>，就能从里面<code>get()</code>到一个<code>X</code>类型的值：</p>
+<pre><code class="lang-cpp">X v = fx.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">// 必要的话，等待这个值被计算出来</span>
+</code></pre>
+<p>如果这个值尚未就绪，等待读取它的线程就会阻塞，直到它现身为止。
+如果这个值算不出来，<code>get()</code>可能会抛出异常
+（来自系统，或者从试图<code>get()</code>这个值的任务里传出来）。</p>
+<p><a class="en-page-number" id="203"></a></p>
+<p><code>promise</code>的作用是提供一个简洁的“放置（put）”操作
+（名称是<code>set_value()</code>和<code>set_exception()</code>），
+匹配<code>future</code>的<code>get()</code>。
+“future”和“promise”的命名是个历史遗留问题；
+所以，别让我代人受过，也别让我掠人之美。
+很多其它俏皮话儿也都是从它们这来的。</p>
+<p>如果你的<code>promise</code>需要发送<code>X</code>类型的结果给<code>future</code>，
+有两种选择：传一个值或者传一个异常。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(promise&lt;X&gt;&amp; px)</span>  <span class="hljs-comment">// 一个任务：把结果放进px</span>
+</span>{
+    <span class="hljs-comment">// ... </span>
+    <span class="hljs-keyword">try</span> {
+        X res;
+        <span class="hljs-comment">// ... 给res计算值 ... </span>
+        px.<span class="hljs-built_in">set_value</span>(res);
+    }
+    <span class="hljs-built_in"><span class="hljs-keyword">catch</span></span> (...) {       <span class="hljs-comment">// 矮油：res难产了</span>
+        px.<span class="hljs-built_in">set_exception</span>(<span class="hljs-built_in">current_exception</span>());  <span class="hljs-comment">// 把异常传给future所在的线程</span>
+    }
+}
+</code></pre>
+<p>此处的<code>current_exception()</code>指向被捕获的异常。</p>
+<p>要处理<code>future</code>发过来的异常，<code>get()</code>的调用者必须在某处做好准备捕捉它。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">(future&lt;X&gt;&amp; fx)</span>   <span class="hljs-comment">// 一个任务：从fx里提取结果</span>
+</span>{
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-keyword">try</span> {
+        X v = fx.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">// 必要的话，等待这个值被计算出来</span>
+        <span class="hljs-comment">// ... 使用 v ...</span>
+    }
+    <span class="hljs-built_in"><span class="hljs-keyword">catch</span></span> (...) {       <span class="hljs-comment">// 矮油：有银儿搞不定v了涅</span>
+        <span class="hljs-comment">// ... 处理错误 ...</span>
+    }
+}
+</code></pre>
+<p>如果<code>g()</code>无需自己处理错误，代码可以做到最精简：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">(future&lt;X&gt;&amp; fx)</span>   <span class="hljs-comment">// 一个任务：从fx里提取结果</span>
+</span>{
+    <span class="hljs-comment">// ...</span>
+    X v = fx.<span class="hljs-built_in">get</span>();     <span class="hljs-comment">// 必要的话，等待这个值被计算出来</span>
+    <span class="hljs-comment">// ... 使用 v ...</span>
+}
+</code></pre>
+<h3 id="15.7.2">15.7.2 <code>packaged_task</code> </h3>
+<p>怎么做才能把<code>future</code>放进等待结果的任务，
+并且把对应的<code>promise</code>放进那个产生结果的线程呢？
+想要把任务跟<code>future</code>对接，把<code>promise</code>跑在<code>thread</code>上，
+使用<code>packaged_task</code>类型可以简化设置操作。
+<code>packaged_task</code>封装了代码，能够把任务的返回值或异常放进<code>promise</code>
+（如§15.7.1中代码所示）。</p>
+<p><a class="en-page-number" id="204"></a></p>
+<p>如果调用<code>get_future()</code>对<code>packaged_task</code>进行查询，
+它会给你对应其<code>promise</code>的<code>future</code>。
+例如，可以设置两个任务，分别用<code>accumulate()</code>（§14.3）
+累加某个<code>vector&lt;double&gt;</code>一半的元素：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">accum</span><span class="hljs-params">(<span class="hljs-keyword">double</span>* beg, <span class="hljs-keyword">double</span>* end, <span class="hljs-keyword">double</span> init)</span>
+    <span class="hljs-comment">// 计算[beg:end)的和，初始值为init</span>
+</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">accumulate</span>(beg,end,init);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">comp2</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v)</span>
+</span>{
+    <span class="hljs-keyword">using</span> Task_type = <span class="hljs-built_in"><span class="hljs-keyword">double</span></span>(<span class="hljs-keyword">double</span>*,<span class="hljs-keyword">double</span>*,<span class="hljs-keyword">double</span>);           <span class="hljs-comment">// 任务的类型</span>
+
+    packaged_task&lt;Task_type&gt; pt0 {accum};                       <span class="hljs-comment">// 把任务（即accum）打包</span>
+    packaged_task&lt;Task_type&gt; pt1 {accum};
+
+    future&lt;<span class="hljs-keyword">double</span>&gt; f0 {pt0.<span class="hljs-built_in">get_future</span>()};                       <span class="hljs-comment">// 获取pt0的future</span>
+    future&lt;<span class="hljs-keyword">double</span>&gt; f1 {pt1.<span class="hljs-built_in">get_future</span>()};                       <span class="hljs-comment">// 获取pt1的future</span>
+
+    <span class="hljs-keyword">double</span>* first = &amp;v[<span class="hljs-number">0</span>];
+    thread t1 {<span class="hljs-built_in">move</span>(pt0),first,first+v.<span class="hljs-built_in">size</span>()/<span class="hljs-number">2</span>,<span class="hljs-number">0</span>};             <span class="hljs-comment">// 为pt0启动一个线程</span>
+    thread t2 {<span class="hljs-built_in">move</span>(pt1),first+v.<span class="hljs-built_in">size</span>()/<span class="hljs-number">2</span>,first+v.<span class="hljs-built_in">size</span>(),<span class="hljs-number">0</span>};    <span class="hljs-comment">// 为pt1启动一个线程</span>
+
+    <span class="hljs-comment">// ...</span>
+
+    <span class="hljs-keyword">return</span> f0.<span class="hljs-built_in">get</span>()+f1.<span class="hljs-built_in">get</span>();                                   <span class="hljs-comment">// 取结果</span>
+}
+</code></pre>
+<p><code>packaged_task</code>模板接收任务的类型作为其模板参数
+（此处是<code>Task_type</code>，为<code>double(double*,double*,double)</code>取的别名）
+并以任务作为构造函数的参数（此处是<code>accum</code>）。
+<code>move()</code>操作是必须的，因为<code>packaged_task</code>无法被复制。
+<code>packaged_task</code>无法复制的原因在于，它是个资源执柄：
+它拥有其<code>promise</code>并且（间接地）要对该任务占有的资源负责。</p>
+<p>请留意，这份代码中并未显式用到锁：
+现在可以把精力集中在业务上，而不必费神去管理通信机制。
+这两个任务将运行在两个独立的线程上，因此可能会并行。</p>
+<h3 id="15.7.3">15.7.3 <code>async()</code> </h3>
+<p>本章追寻的思考轨迹，导向这个我认为是最简单但且可跻身于最强大技术之列的良策：
+把任务当作可能凑巧跟其它任务同时运行的函数。
+它绝非C++标准库支持的唯一模型，但它面对诸多需求都能游刃有余。
+必要的时候，还有更微妙更诡秘的模型（比方依赖共享内存的编程样式）可用。</p>
+<p>想发起一个可能异步执行的任务，可以用<code>async()</code>：</p>
+<p><a class="en-page-number" id="205"></a></p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">comp4</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v)</span>
+    <span class="hljs-comment">// 如果v足够大，就触发多个任务</span>
+</span>{
+    <span class="hljs-keyword">if</span> (v.<span class="hljs-built_in">size</span>()&lt;<span class="hljs-number">10000</span>)     <span class="hljs-comment">// 值得采用并发吗？</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">accum</span>(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),<span class="hljs-number">0.0</span>);
+
+    <span class="hljs-keyword">auto</span> v0 = &amp;v[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">auto</span> sz = v.<span class="hljs-built_in">size</span>();
+
+    <span class="hljs-keyword">auto</span> f0 = <span class="hljs-built_in">async</span>(accum,v0,v0+sz/<span class="hljs-number">4</span>,<span class="hljs-number">0.0</span>);          <span class="hljs-comment">// 第一份</span>
+    <span class="hljs-keyword">auto</span> f1 = <span class="hljs-built_in">async</span>(accum,v0+sz/<span class="hljs-number">4</span>,v0+sz/<span class="hljs-number">2</span>,<span class="hljs-number">0.0</span>);     <span class="hljs-comment">// 第二份</span>
+    <span class="hljs-keyword">auto</span> f2 = <span class="hljs-built_in">async</span>(accum,v0+sz/<span class="hljs-number">2</span>,v0+sz*<span class="hljs-number">3</span>/<span class="hljs-number">4</span>,<span class="hljs-number">0.0</span>);   <span class="hljs-comment">// 第三份</span>
+    <span class="hljs-keyword">auto</span> f3 = <span class="hljs-built_in">async</span>(accum,v0+sz*<span class="hljs-number">3</span>/<span class="hljs-number">4</span>,v0+sz,<span class="hljs-number">0.0</span>);     <span class="hljs-comment">// 最后一份</span>
+
+    <span class="hljs-keyword">return</span> f0.<span class="hljs-built_in">get</span>()+f1.<span class="hljs-built_in">get</span>()+f2.<span class="hljs-built_in">get</span>()+f3.<span class="hljs-built_in">get</span>();     <span class="hljs-comment">// 收集并求和结果</span>
+}
+</code></pre>
+<p>基本上，<code>async()</code>把函数调用的“调用部分”和“获取结果部分”拆开，
+并把它们都与实际执行的任务分离开。
+使用<code>async()</code>，就不用再去操心线程和锁，
+相反，你需要考虑的就只是那个有可能异步执行的任务。
+这有个明显的限制：想把用于需要对共享资源加锁的任务，门儿都没有。
+采用<code>async()</code>，你甚至不知道有多少个<code>thread</code>，
+因为这取决于<code>async()</code>，而它依据调用时刻的系统资源状况决定。
+比方说，在决定用多少个<code>thread</code>之前，
+<code>async()</code>可能会查询是否有空闲的核（处理器）可用。</p>
+<p>用运行成本与启动<code>thread</code>成本间的关系，
+比如<code>v.size()&lt;10000</code>，进行揣摩，
+相当粗略，而且关于性能优劣的结论往往错得离谱。
+只是，此处的着眼点不在于<code>thread</code>管理方面的技术。
+这是个简略且大概率有失偏颇的臆测，因此你就姑妄听之，别拿它太当真。</p>
+<p>需要对标准库算法，比方说<code>accumulate()</code>，手动并行处理的情况凤毛麟角，
+因为并行算法，比如<code>reduce(par_unseq,/*...*/)</code>通常都是出类拔萃的（§14.3.1）。
+但是，这此处的技术是通用的。</p>
+<p>请注意，<code>async()</code>不仅是专门用来提升性能的并行计算机制。
+比如，还可以用它生成一个任务，用于获取来自用户的信息，
+以便“主程序”保持活动状态去处理其它事物（§15.7.3）。</p>
+<h2 id="15.8">15.8 忠告 </h2>
+<ul>
+<li>[1] 用并发提升响应能力或者提升吞吐量；§15.1。</li>
+<li>[2] 在可承受范围内的最高抽象级别作业；§15.1。</li>
+<li>[3] 把进程视作线程的替代方案；§15.1。</li>
+<li>[4] 标准库的并发构件是类型安全的；§15.1。</li>
+<li>[5] 内存模型存在的意义，是让大多数程序员不必在计算机硬件架构层级兜圈子；§15.1。</li>
+</ul>
+<p><a class="en-page-number" id="206"></a></p>
+<ul>
+<li>[6] 内存模型让内存表现得大致符合稚朴的预期；§15.1。</li>
+<li>[7] 原子操作成全了无锁编程；§15.1。</li>
+<li>[8] 让专家们去跟无锁编程斗智斗勇吧；§15.1。</li>
+<li>[9] 有时候，顺序执行的方案比并发方案更简单、更快速；§15.1。</li>
+<li>[10] 避免数据竞争；§15.1，§15.2。</li>
+<li>[11] 与并发相比，优先考虑并行算法；§15.1，§15.7.3。</li>
+<li>[12] <code>thread</code>是系统线程的类型安全接口；§15.2。</li>
+<li>[13] 用<code>join()</code>等待<code>thread</code>完成；§15.2。</li>
+<li>[14] 请竭力避免显式使用共享数据；§15.2。</li>
+<li>[15] 优先采用RAII，而非显式的加锁/解锁；§15.5；[CG: CP.20]。</li>
+<li>[16] 使用<code>scoped_lock</code>管理<code>mutex</code>；§15.5。</li>
+<li>[17] 使用<code>scoped_lock</code>申请多个锁；§15.5； [CG: CP.21]。</li>
+<li>[18] 使用<code>scoped_lock</code>实现读写锁；§15.5。</li>
+<li>[19] 把<code>mutex</code>跟它保护的数据定义在一起；§15.5；[CG: CP.50]。</li>
+<li>[20] 使用<code>condition_variable</code>管理<code>thread</code>间的通信；§15.6。</li>
+<li>[21] 在需要复制一个锁或者在较低层次进行同步操作的时候，
+  采用<code>unique_lock</code>（而非<code>scoped_lock</code>）；§15.6。</li>
+<li>[22] 针对<code>condition_variable</code>采用
+  <code>unique_lock</code>（而非<code>scoped_lock</code>）；§15.6。</li>
+<li>[23] 不要无条件的等待（wait）；§15.6；[CG: CP.42]。</li>
+<li>[24] 最小化加锁代码（critical section）的运行时间；§15.6；[CG: CP.43]。</li>
+<li>[25] 把任务看作是可并发执行的，而不要直接以<code>thread</code>方式看待它；§15.7。</li>
+<li>[26] 别忽视了简单性的价值；§15.7。</li>
+<li>[27] 优先采用<code>packaged_task</code>和<code>promise</code>，
+  而非直接死磕<code>thread</code>和<code>mutex</code>；§15.7。</li>
+<li>[28] 用<code>promise</code>返回结果，并用<code>future</code>去提取它；§15.7.1；[CG: CP.60]。</li>
+<li>[29] 用<code>packaged_task</code>处理任务抛出的异常和值返回；§15.7.2。</li>
+<li>[30] 用<code>packaged_task</code>和<code>future</code>表示针对外部服务的请求并等待它的响应；
+  §15.7.2。</li>
+<li>[31] 用<code>async()</code>去启动简单的任务；§15.7.3；[CG: CP.61]。</li>
+</ul>
+<blockquote id="fn_1">
+<sup>1</sup>. 没有明确证据证明爱因斯坦说过这句话，但是也没有证据证明他没说过，有一个考据在这个页面： <a href="https://quoteinvestigator.com/2011/05/13/einstein-simple/" target="_blank">https://quoteinvestigator.com/2011/05/13/einstein-simple/</a> ，我参考了网络上的一些翻译，感觉这样译合理，但也没有足够论据。 —— 译者注<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
+</blockquote>
+
+                                
+    
+
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch14.html" class="navigation navigation-prev " aria-label="Previous page: 14 数值">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch16.html" class="navigation navigation-next " aria-label="Next page: 16 历史及兼容性">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"ch":15,"title":"15 并发","level":"1.17","depth":1,"next":{"title":"16 历史及兼容性","level":"1.18","depth":1,"path":"ch16.md","ref":"ch16.md","articles":[]},"previous":{"title":"14 数值","level":"1.16","depth":1,"path":"ch14.md","ref":"ch14.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch15.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

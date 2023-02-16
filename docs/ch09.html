@@ -1,0 +1,1173 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>9 字符串和正则表达式 · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.23">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch10.html" />
+    
+    
+    <link rel="prev" href="ch08.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="translation_note.html">
+            
+                <a href="translation_note.html">
+            
+                    
+                    译者言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ch01.html">
+            
+                <a href="ch01.html">
+            
+                    
+                    1 基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ch02.html">
+            
+                <a href="ch02.html">
+            
+                    
+                    2 用户定义类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ch03.html">
+            
+                <a href="ch03.html">
+            
+                    
+                    3 模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch04.html">
+            
+                <a href="ch04.html">
+            
+                    
+                    4 类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ch05.html">
+            
+                <a href="ch05.html">
+            
+                    
+                    5 基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch06.html">
+            
+                <a href="ch06.html">
+            
+                    
+                    6 模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ch07.html">
+            
+                <a href="ch07.html">
+            
+                    
+                    7 概束和泛型编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="ch08.html">
+            
+                <a href="ch08.html">
+            
+                    
+                    8 标准库概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11" data-path="ch09.html">
+            
+                <a href="ch09.html">
+            
+                    
+                    9 字符串和正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="ch10.html">
+            
+                <a href="ch10.html">
+            
+                    
+                    10 输入输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="ch11.html">
+            
+                <a href="ch11.html">
+            
+                    
+                    11 容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="ch12.html">
+            
+                <a href="ch12.html">
+            
+                    
+                    12 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="ch13.html">
+            
+                <a href="ch13.html">
+            
+                    
+                    13 实用功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="ch14.html">
+            
+                <a href="ch14.html">
+            
+                    
+                    14 数值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="ch15.html">
+            
+                <a href="ch15.html">
+            
+                    
+                    15 并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="ch16.html">
+            
+                <a href="ch16.html">
+            
+                    
+                    16 历史及兼容性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="idx.html">
+            
+                <a href="idx.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >9 字符串和正则表达式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+
+    
+        
+                                <p><a class="en-page-number" id="111"></a></p>
+<div class="chapter-number"><p class="chapter-number">9</p></div>
+
+<h1 id="strings-and-regular-expressions">字符串和正则表达式 </h1>
+<blockquote>
+<p>使用规范的语言。</p>
+<p><span title="出自 上海译文出版社 1992年12月 出版的《英文写作指南》 由 陈一鸣 译，出自该书第157页的“提示二十一”。" 。>—— 斯特伦克 和 怀特</span><sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
+</blockquote>
+<h2 id="9.1">9.1 导言 </h2>
+<p>文本操占据了多数程序的大部分工作。
+C++标准库提供了一个 <code>string</code> 类型以解救大多数用户，
+不必再通过指针进行字符串数组的 C 风格字符串操作。
+<code>string_view</code>类型可以操作字符序列，无论其存储方式如何
+（比如：在<code>std::string</code>或<code>char[]</code>中）。
+此外还提供了正则表达式匹配，以便在文本中寻找模式。
+正则表达式的形式与大多数现代语言中呈现的方式类似。
+无论<code>string</code>还是<code>regex</code>对象，都可以使用多种字符类型（例如：Unicode）。</p>
+<h2 id="9.2">9.2 字符串 </h2>
+<p>标准库提供了<code>string</code>类型，用以弥补字符串文本(§1.2.1)的不足；
+<code>string</code>是个<code>Regulae</code>类型(§7.2, §12.7)，
+用于持有并操作一个某种类型字符的序列。
+<code>string</code>提供了丰富有用的字符串操作，比方说连接字符串。例如：</p>
+<p><a class="en-page-number" id="112"></a></p>
+<pre><code class="lang-cpp"><span class="hljs-function">string <span class="hljs-title">compose</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; name, <span class="hljs-keyword">const</span> string&amp; domain)</span>
+</span>{
+    <span class="hljs-keyword">return</span> name + <span class="hljs-string">&apos;@&apos;</span> + domain;
+}
+
+<span class="hljs-keyword">auto</span> addr = <span class="hljs-built_in">compose</span>(<span class="hljs-string">&quot;dmr&quot;</span>,<span class="hljs-string">&quot;bell−labs.com&quot;</span>);
+</code></pre>
+<p>此处，<code>addr</code>被初始化为字符序列<code>dmr@bell−labs.com</code>。
+<code>string</code>“加法”的意思是连接操作。
+你可以把一个<code>string</code>、一个字符串文本、C-风格字符串或者一个字符连接到<code>string</code>上。
+标准<code>string</code>有个转移构造函数，所以就算是传值返回长的<code>string</code>也很高效(§5.2.2)。</p>
+<p>在大量应用中，最常见的字符串连接形式是把什么东西添加到某个<code>string</code>的末尾。
+此功能可以直接使用<code>+=</code>操作。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">m2</span><span class="hljs-params">(string&amp; s1, string&amp; s2)</span>
+</span>{
+    s1 = s1 + <span class="hljs-string">&apos;\n&apos;</span>; <span class="hljs-comment">// 追加换行</span>
+    s2 += <span class="hljs-string">&apos;\n&apos;</span>;     <span class="hljs-comment">// 追加换行</span>
+}
+</code></pre>
+<p>这两种附加到<code>string</code>末尾的方式语意等价，但我更青睐后者，
+对于所执行的内容来说，它更明确、简练并可能更高效。</p>
+<p><code>string</code>是可变的，除了<code>=</code>、<code>+=</code>，还支持取下标（使用 <code>[]</code>）、取自字符串操作。
+例如：</p>
+<pre><code class="lang-cpp">string name = <span class="hljs-string">&quot;Niels Stroustrup&quot;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">m3</span><span class="hljs-params">()</span>
+</span>{
+    string s = name.<span class="hljs-built_in">substr</span>(<span class="hljs-number">6</span>,<span class="hljs-number">10</span>);   <span class="hljs-comment">// s = &quot;Stroustrup&quot;</span>
+    name.<span class="hljs-built_in">replace</span>(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-string">&quot;nicholas&quot;</span>);   <span class="hljs-comment">// name 变成 &quot;nicholas Stroustrup&quot;</span>
+    name[<span class="hljs-number">0</span>] = <span class="hljs-built_in">toupper</span>(name[<span class="hljs-number">0</span>]);     <span class="hljs-comment">// name 变成 &quot;Nicholas Stroustrup&quot;</span>
+}
+</code></pre>
+<p><code>substr()</code>操作返回一个<code>string</code>，该<code>string</code>是其参数标示出的子字符串的副本。
+第一个参数是指向<code>string</code>的下标（一个位置），第二个参数是所需子字符串的长度。
+由于下标从<code>0</code>开始，<code>s</code>的值便是<code>Stroustrup</code>。</p>
+<p><code>replace()</code>操作以某个值替换一个子字符串。
+本例中，子字符串是始自<code>0</code>，长度<code>5</code>的<code>Niels</code>；它被替换为<code>nicholas</code>。
+最后，我将首字符替换为对应的大写字符。
+因此，<code>name</code>最终的值便是<code>Nicholas Stroustrup</code>。
+请留意，替代品字符串无需与被替换的子字符串长度相同。</p>
+<p><code>string</code>有诸多便利操作，诸如赋值（使用<code>=</code>），
+取下标（使用<code>[]</code>或像<code>vecor</code>那样使用<code>at()</code>；§11.2.2），
+相等性比较（使用<code>==</code>和<code>!=</code>），以及字典序比较（使用<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>和<code>&gt;=</code>），
+遍历（像<code>vector</code>那样使用迭代器；§12.2），输入（§10.3）和流（§10.8）。</p>
+<p>显然，<code>string</code>可以相互之间比较，与C-风格字符串比较（§1。7.1），
+与字符串文本比较，例如：</p>
+<p><a class="en-page-number" id="113"></a></p>
+<pre><code class="lang-cpp">string incantation;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">respond</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; answer)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (answer == incantation) {
+        <span class="hljs-comment">// 施放魔法</span>
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (answer == <span class="hljs-string">&quot;yes&quot;</span>) {
+        <span class="hljs-comment">// ...</span>
+    }
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>如果你需要一个C-风格字符串（零结尾的<code>char</code>数组），
+<code>string</code>为其持有的字符提供一个只读访问。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s)</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;For people who like printf: %s\n&quot;</span>,s.<span class="hljs-built_in">c_str</span>());   <span class="hljs-comment">// s.c_str() 返回一个指针，指向 s 持有的那些字符</span>
+    cout &lt;&lt; <span class="hljs-string">&quot;For people who like streams: &quot;</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+</code></pre>
+<p>从定义方面讲，字符串文本就是一个 <code>const char*</code>。
+要获取一个<code>std::string</code>类型的文本，请用<code>s</code>后缀。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> s = <span class="hljs-string">&quot;Cat&quot;</span>s;    <span class="hljs-comment">// 一个 std::string</span>
+<span class="hljs-keyword">auto</span> p = <span class="hljs-string">&quot;Dog&quot;</span>;     <span class="hljs-comment">// 一个C-风格字符串，也就是： const char*</span>
+</code></pre>
+<p>要启用<code>s</code>后缀，
+你需要使用命名空间<code>std::literals::string_literals</code>（§5.4.4）。</p>
+<h3 id="9.2.1">9.2.1 <code>string</code>的实现 </h3>
+<p>实现一个字符串类，是个很受欢迎并有益的练习。
+不过，对于广泛的用途来说，就算费尽心力打磨的处女作，
+也罕能与标准库的<code>sting</code>便利及性能匹敌。
+如今，<code>string</code>通常使用 <em>短字符串优化(short-string optimization)</em>来实现。
+就是说，较短的字符串值保留在<code>string</code>对象内部，只有较长的字符串会置于自由存储区。
+考虑此例：</p>
+<pre><code class="lang-cpp">string s1 {<span class="hljs-string">&quot;Annemarie&quot;</span>};                <span class="hljs-comment">// 短字符串</span>
+string s2 {<span class="hljs-string">&quot;Annemarie Stroustrup&quot;</span>};     <span class="hljs-comment">// 长字符串</span>
+</code></pre>
+<p>其内存配置将类似于这样：</p>
+<p><img src="img/ch09_01.png" alt="two-string-memory-layout"></p>
+<p>当某个<code>string</code>的值从短字符串变成长字符串（或相反），其内存配置也将相应调整。
+一个“短”字符串应该有多少个字符呢？这由实现定义，但是“14个字符左右”当相去不远。</p>
+<p><a class="en-page-number" id="114"></a></p>
+<p><code>string</code>的具体性能严重依赖运行时环境。
+尤其在多线程实现中，内存分配的代价相对高昂。
+并且在使用大量长度参差不齐的字符串时将产生内存碎片。
+这些因素就是短字符串优化如此普遍应用的原因。</p>
+<p>为处理多种字符集，<code>string</code>实际上是采用字符类型<code>char</code>
+的通用模板<code>basic_string</code>的别名：</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Char&gt;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">basic_string</span> 
+{</span>
+    <span class="hljs-comment">// ... string of Char ...</span>
+};
+
+<span class="hljs-keyword">using</span> string = basic_string&lt;<span class="hljs-keyword">char</span>&gt;;
+</code></pre>
+<p>用户可定义任意字符类型的字符串。
+例如：假设我们有个日文字符类型<code>Jchar</code>，就可以这么写：</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> Jstring = basic_string&lt;Jchar&gt;;
+</code></pre>
+<p>现在，就可以针对<code>Jstring</code>——日文字符的字符串——进行所有常规操作了。</p>
+<h2 id="9.3">9.3 字符串视图 </h2>
+<p>针对字符串序列，最常见的用途是将其传给某个函数去读取。
+此操作可以有多种方式达成，将<code>string</code>传值，传字符串的引用，或者是C-风格字符串。
+在许多系统中，还有进一步的替代方案，例如标准之外的字符串类型。
+所有这些情形中，当我们想传递一个子字符串，就要涉及额外的复杂度。
+为了解决这个问题，标准库提供了<code>string_view</code>；
+<code>string_view</code>基本上是个(指针，长度)对，以表示一个字符序列：</p>
+<p><img src="img/ch09_02.png" alt="string_view"></p>
+<p><code>string_view</code>为一段连续的字符序列提供了访问方式。
+这些字符可采用多种方式储存，包括在<code>string</code>中以及C-风格字符串中。
+<code>string_view</code>像是一个指针或引用，就是说，它不拥有其指向的那些字符。
+在这一点上，它与一个由迭代器（§12.3）构成的STL pair相似。</p>
+<p>考虑以下这个简单的函数，它连接两个字符串：</p>
+<p><a class="en-page-number" id="115"></a></p>
+<pre><code class="lang-cpp"><span class="hljs-function">string <span class="hljs-title">cat</span><span class="hljs-params">(string_view sv1, string_view sv2)</span> 
+</span>{
+    <span class="hljs-function">string <span class="hljs-title">res</span><span class="hljs-params">(sv1.length()+sv2.length())</span></span>;
+    <span class="hljs-keyword">char</span>* p = &amp;res[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> c : sv1)              <span class="hljs-comment">// 一种复制方式</span>
+        *p++ = c;
+    <span class="hljs-built_in">copy</span>(sv2.<span class="hljs-built_in">begin</span>(),sv2.<span class="hljs-built_in">end</span>(),p);  <span class="hljs-comment">// 另一种方式</span>
+    <span class="hljs-keyword">return</span> res;
+}
+</code></pre>
+<p>可以这样调用<code>cat()</code>：</p>
+<pre><code class="lang-cpp">string king = <span class="hljs-string">&quot;Harold&quot;</span>;
+<span class="hljs-keyword">auto</span> s1 = <span class="hljs-built_in">cat</span>(king,<span class="hljs-string">&quot;William&quot;</span>);              <span class="hljs-comment">// 字符串和 const char*</span>
+<span class="hljs-keyword">auto</span> s2 = <span class="hljs-built_in">cat</span>(king,king);                   <span class="hljs-comment">// 字符串和字符串</span>
+<span class="hljs-keyword">auto</span> s3 = <span class="hljs-built_in">cat</span>(<span class="hljs-string">&quot;Edward&quot;</span>,<span class="hljs-string">&quot;Stephen&quot;</span>sv);        <span class="hljs-comment">// const char * 和 string_view</span>
+<span class="hljs-keyword">auto</span> s4 = <span class="hljs-built_in">cat</span>(<span class="hljs-string">&quot;Canute&quot;</span>sv,king);
+<span class="hljs-keyword">auto</span> s5 = <span class="hljs-built_in">cat</span>({&amp;king[<span class="hljs-number">0</span>],<span class="hljs-number">2</span>},<span class="hljs-string">&quot;Henry&quot;</span>sv);      <span class="hljs-comment">// HaHenry</span>
+<span class="hljs-keyword">auto</span> s6 = <span class="hljs-built_in">cat</span>({&amp;king[<span class="hljs-number">0</span>],<span class="hljs-number">2</span>},{&amp;king[<span class="hljs-number">2</span>],<span class="hljs-number">4</span>});   <span class="hljs-comment">// Harold</span>
+</code></pre>
+<p>跟接收<code>const string&amp;</code>参数的<code>compose()</code>（§9.2）相比，
+这个<code>cat()</code>具有三个优势：</p>
+<ul>
+<li>它可被用于多种不同方式管理的字符序列。</li>
+<li>不会为C-风格字符串参数创建临时的<code>string</code>参数。</li>
+<li>可以轻松的传入子字符串。</li>
+</ul>
+<p>请注意<code>sv</code>(“string_view”)后缀，要启用它，需要：</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std::literals::string_view_literals;    <span class="hljs-comment">// § 5.4.4</span>
+</code></pre>
+<p>何必要多此一举？原因是，当我们传入<code>Edward</code>时，
+需要从<code>const char*</code>构建出<code>string_view</code>，因而就需要给这些字符串计数。
+而对于<code>&quot;Stephen&quot;sv</code>，其长度在编译期就计算。</p>
+<p>当返回<code>string_view</code>时，请谨记这与指针非常相像；它需要指向某个东西：</p>
+<pre><code class="lang-cpp"><span class="hljs-function">string_view <span class="hljs-title">bad</span><span class="hljs-params">()</span>
+</span>{
+    string s = <span class="hljs-string">&quot;Once upon a time&quot;</span>;
+    <span class="hljs-keyword">return</span> {&amp;s[<span class="hljs-number">5</span>],<span class="hljs-number">4</span>};       <span class="hljs-comment">// 糟糕：返回了指向局部变量的指针</span>
+}
+</code></pre>
+<p>此处返回了一个指针，指向一些位于某个<code>string</code>内的字符，
+在我们用到这些字符之前，这个<code>string</code>就会被销毁。</p>
+<p><code>string_view</code>有个显著的限制，它是其中那些字符的一个只读视图。
+例如，对于一个将其参数修改为小写字符的函数，你无法使用<code>string_view</code>。
+这种情况下，请考虑采用<code>gsl::span</code>或<code>gsl::string_span</code>(§13.3)。</p>
+<p><code>string_view</code>越界访问的行为是 未指明的(unspecified)。
+如果你需要一个确定性的越界检查，请使用<code>at()</code>，
+它为越界访问抛出<code>out_of_range</code>异常，
+也可以使用<code>gsl::string_span</code>(§13.3)，或者“加点儿小心”就是了。</p>
+<p><a class="en-page-number" id="116"></a></p>
+<h2 id="9.4">9.4 正则表达式 </h2>
+<p>正则表达式是文本处理的强大工具。
+它提供一个容易而简洁方式来描述文本中的模式
+（例如：诸如<code>TX 77845</code>的美国邮编，或者诸如<code>2009-06-07</code>的ISO-风格日期）
+并能够高效地发现这些模式。
+在<code>regex</code>中，标准库为正则表达式提供了支持，其形式是<code>std::regex</code>类和配套函数。
+作为<code>regex</code>风格的浅尝，我们定义并打印出一个模式：</p>
+<pre><code class="lang-cpp">regex pat {<span class="hljs-string">R&quot;(\w{2}\s*\d{5}(-\d{4})?)&quot;</span>}; <span class="hljs-comment">// 美国邮编模式: XXddddd-dddd 及变体</span>
+</code></pre>
+<p>在任何语言中用过正则表达式的人都能发现<code>\w{2}\s*\d{5}(-\d{4})?</code>很眼熟。
+它指定了一个模式，以两个字母<code>\w{2}</code>开头，其后紧跟的一些空格<code>\s*</code>是可选的，
+接下来是五位数字<code>\d{5}</code>以及可选的连接号加四位数字<code>-\d{4}</code>。
+如果你不熟悉正则表达式，这应该是个学习它的好时机
+（[Stroustrup,2009], [Maddock,2009], [Friedl,1997]）。</p>
+<p>为了表示这个模式，我用了个以<code>R&quot;(</code>开头和<code>)</code>结尾的
+<em>原始字符串文本（raw string literal）</em>。
+这使得反斜杠和引号可直接用在字符串中(无需转义——译注)。
+原始字符串特别适用于正则表达式，因为正则表达式往往包含大量的反斜杠。
+如果我用了传统字符串，该模式的定义就会是：</p>
+<pre><code class="lang-cpp">regex pat {<span class="hljs-string">&quot;\\w{2}\\s*\\d{5}(-\\d{4})?&quot;</span>}; <span class="hljs-comment">// 美国邮编模式</span>
+</code></pre>
+<p>在<code>&lt;regex&gt;</code>中，标准库为正则表达式提供了如下支持：</p>
+<ul>
+<li><code>regex_match()</code>：针对一个（长度已知的）字符串进行匹配（§9.4.2）。</li>
+<li><code>regex_search()</code>：
+  在一个（任意长度的）数据流中查找匹配某个正则表达式的一个字符串（§9.4.1）。</li>
+<li><code>regex_replace()</code>：
+  在一个（任意长度的）数据流中查找匹配某个正则表达式的那些字符串并替换之。</li>
+<li><code>regex_iterator()</code>：在匹配和子匹配中进行遍历（§9.4.3）。</li>
+<li><code>regex_token_iterator()</code>：在未匹配中进行遍历。</li>
+</ul>
+<h3 id="9.4.1">9.4.1 查找 </h3>
+<p>对一个模式最简单的应用就是在某个流中进行查找：</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> lineno = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span> (string line; <span class="hljs-built_in">getline</span>(cin,line); ) {    <span class="hljs-comment">// 读进行缓冲区</span>
+    ++lineno;
+    smatch matches;                         <span class="hljs-comment">// 保存匹配到的字符串</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">regex_search</span>(line,matches,pat))     <span class="hljs-comment">// 在 line 中查找 pat</span>
+        cout &lt;&lt; lineno &lt;&lt; <span class="hljs-string">&quot;: &quot;</span> &lt;&lt; matches[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+</code></pre>
+<p><code>regex_search(line,matches,pat)</code>在<code>line</code>中进行查找，
+查找任何能够匹配存储于正则表达式<code>pat</code>中的内容，
+并将匹配到的任何内容保存在<code>matches</code>里。
+如果未发现匹配，<code>regex_search(line,matches,pat)</code>返回<code>false</code>。
+<code>matches</code>变量的类型是<code>smatch</code>。
+其中的“s”代表“子（sub）”或者“字符串（string）”，
+一个<code>smatch</code>是个承载<code>string</code>类型子匹配的<code>vector</code>。
+第一个元素，此处为<code>matches[0]</code>，是完整的匹配。
+<code>regex_match()</code>的结果是一个匹配内容的集合，通常以<code>smatch</code>表示：</p>
+<p><a class="en-page-number" id="117"></a></p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-function">ifstream <span class="hljs-title">in</span><span class="hljs-params">(<span class="hljs-string">&quot;file.txt&quot;</span>)</span></span>;    <span class="hljs-comment">// 输入文件</span>
+    <span class="hljs-keyword">if</span> (!in)                    <span class="hljs-comment">// 检查文件是否打开</span>
+        cerr &lt;&lt; <span class="hljs-string">&quot;no file\n&quot;</span>;
+    regex pat {<span class="hljs-string">R&quot;(\w{2}\s*\d{5}(-\d{4})?)&quot;</span>};    <span class="hljs-comment">// 美国邮编模式</span>
+
+    <span class="hljs-keyword">int</span> lineno = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (string line; <span class="hljs-built_in">getline</span>(in,line); ) {
+        ++lineno;
+        smatch matches;     <span class="hljs-comment">// 保存匹配到的字符串</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">regex_search</span>(line, matches, pat)) {
+            cout &lt;&lt; lineno &lt;&lt; <span class="hljs-string">&quot;: &quot;</span> &lt;&lt; matches[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;   <span class="hljs-comment">// 完整匹配</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-number">1</span>&lt;matches.<span class="hljs-built_in">size</span>() &amp;&amp; matches[<span class="hljs-number">1</span>].matched)     <span class="hljs-comment">// 如果有子模式</span>
+                                                            <span class="hljs-comment">// 并且匹配成功</span>
+                cout &lt;&lt; <span class="hljs-string">&quot;\t: &quot;</span> &lt;&lt; matches[<span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;       <span class="hljs-comment">// 子匹配</span>
+        } 
+    }
+}
+</code></pre>
+<p>此函数读取一个文件并寻找美国邮编，例如<code>TX77845</code>和<code>DC 20500-0001</code>。
+<code>smatch</code>类型是个正则表达式匹配结果的容器。
+此处，<code>matches[0]</code>是整个匹配，而<code>matches[1]</code>是可选的四位数字子模式。</p>
+<p>换行符<code>\n</code>可以是模式的组成部分，因此可以查找多行模式。
+显而易见，如果要查找多行模式，就不该每次只读取一行。</p>
+<p>正则表达式的语法和语意是有意这样设计的，目的是编译成状态机以便高效执行[Cox,2007]。
+<code>regex</code>类型在运行时执行该编译过程。</p>
+<h3 id="9.4.2">9.4.2 正则表达式表示法 </h3>
+<p><code>regex</code>库可以识别正则表达式表示法的多个变体。
+此处，我使用默认的表示法，ECMA标准用于ECMAScript（俗称JavaScript）的一个变体。</p>
+<p>正则表达式的语法基于具备特殊意义的字符们：</p>
+<table style="width:90%;margin-left:auto;margin-right:auto;">
+    <tbody>
+        <tr>
+            <th colspan="2" style="text-align: center"><strong>正则表达式特殊字符</strong></th>
+        </tr>
+        <tr>
+            <td style="width:50%"><code>.</code>任意单个字符（“通配符”）</td>
+            <td style="width:50%"><code>\</code>下一个字符具有特殊意义</td>
+        </tr>
+        <tr>
+            <td><code>[</code>字符类起始</td>
+            <td><code>*</code>零个或更多（后缀操作）</td>
+        </tr>
+        <tr>
+            <td><code>]</code>字符类终止</td>
+            <td><code>+</code>一个或更多（后缀操作）</td>
+        </tr>
+        <tr>
+            <td><code>{</code>计数起始</td>
+            <td><code>?</code>可选的（零或一个）（后缀操作）</td>
+        </tr>
+        <tr>
+            <td><code>}</code>计数终止</td>
+            <td><code>|</code>可替换的（或）</td>
+        </tr>
+        <tr>
+            <td><code>(</code>分组起始</td>
+            <td><code>^</code>行首；取反</td>
+        </tr>
+        <tr>
+            <td><code>)</code>分组终止</td>
+            <td><code>$</code>行尾</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>例如，可以指定一行文本以零或多个<code>A</code>开头，后跟一或多个<code>B</code>，</p>
+<p><a class="en-page-number" id="118"></a></p>
+<p>再跟一个可选的<code>C</code>，就像这样：</p>
+<pre><code class="lang-cpp">ˆA*B+C?$
+</code></pre>
+<p>可匹配的范例如下：</p>
+<pre><code class="lang-text">AAAAAAAAAAAABBBBBBBBBC
+BC
+B
+</code></pre>
+<p>不可匹配的范例如下：</p>
+<pre><code class="lang-cpp">AAAAA       <span class="hljs-comment">// 没有 B</span>
+ AAAABC     <span class="hljs-comment">// 以空格开头</span>
+AABBCC      <span class="hljs-comment">// C 太多了</span>
+</code></pre>
+<p>模式的一部分若被括在小括号中，则被当作子模式（可单独从<code>smatch</code>中提取）。例如：</p>
+<pre><code class="lang-cpp">\d+-\d+         <span class="hljs-comment">// 无子模式</span>
+\d+(-\d+)       <span class="hljs-comment">// 一个子模式</span>
+(\d+)(-\d+)     <span class="hljs-comment">// 两个子模式</span>
+</code></pre>
+<p>模式可借助后缀设置为可选的或者重复多次（默认有且只能有一次）：</p>
+<table>
+<thead>
+<tr>
+<th>重复</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{n}</code> 恰好<code>n</code>次</td>
+</tr>
+<tr>
+<td><code>{n,}</code> <code>n</code>或更多次</td>
+</tr>
+<tr>
+<td><code>{n,m}</code> 至少<code>n</code>次并且不超过<code>m</code>次</td>
+</tr>
+<tr>
+<td><code>*</code> 零或多次，即<code>{0,}</code></td>
+</tr>
+<tr>
+<td><code>+</code> 一或多次，即<code>{1,}</code></td>
+</tr>
+<tr>
+<td><code>?</code> 可选的（零或一次），即<code>{0,1}</code></td>
+</tr>
+</tbody>
+</table>
+<p>例如：</p>
+<pre><code class="lang-cpp">A{<span class="hljs-number">3</span>}B{<span class="hljs-number">2</span>,<span class="hljs-number">4</span>}C*
+</code></pre>
+<p>可匹配范例如：</p>
+<pre><code class="lang-text">AAABBC
+AAABBB
+</code></pre>
+<p>不可匹配范例如：</p>
+<pre><code class="lang-cpp">AABBC           <span class="hljs-comment">// A 不够</span>
+AAABC           <span class="hljs-comment">// B 不够</span>
+AAABBBBBCCC     <span class="hljs-comment">// B 太多了</span>
+</code></pre>
+<p>在任意的重复符号（<code>?</code>、<code>*</code>、<code>+</code>和<code>{}</code>）后添加后缀<code>?</code>，
+可令该模式匹配行为“懒惰”或者“不贪婪”。
+就是说，在寻找模式的时候，它将寻找最短而非最长的匹配。
+默认情况下，模式匹配总是寻找最长匹配；这被称为<em>最长匹配规则（Max Munch rule）</em>，
+考虑：</p>
+<pre><code class="lang-cpp">ababab
+</code></pre>
+<p><a class="en-page-number" id="119"></a></p>
+<p>模式<code>(ab)+</code>匹配整个<code>ababab</code>，而<code>(ab)+?</code>仅匹配第一个<code>ab</code>。</p>
+<p>最常见的字符分类如下：</p>
+<table>
+<thead>
+<tr>
+<th>字符分类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alnum</code> 任意字母和数字字符</td>
+</tr>
+<tr>
+<td><code>alpha</code> 任意字母字符</td>
+</tr>
+<tr>
+<td><code>blank</code> 除了行分割符以外的任意空白字符</td>
+</tr>
+<tr>
+<td><code>cntrl</code> 任意控制字符</td>
+</tr>
+<tr>
+<td><code>d</code> 任意十进制数字字符</td>
+</tr>
+<tr>
+<td><code>digit</code> 任意十进制数字字符</td>
+</tr>
+<tr>
+<td><code>graph</code> 任意绘图字符</td>
+</tr>
+<tr>
+<td><code>lower</code> 任意小写字符</td>
+</tr>
+<tr>
+<td><code>print</code> 任意可打印字符</td>
+</tr>
+<tr>
+<td><code>punct</code> 任意标点符号</td>
+</tr>
+<tr>
+<td><code>s</code> 任意空白字符</td>
+</tr>
+<tr>
+<td><code>space</code> 任意空白字符</td>
+</tr>
+<tr>
+<td><code>upper</code> 任意大写字符</td>
+</tr>
+<tr>
+<td><code>w</code> 任意成词字符（字母数字字符外加下划线）</td>
+</tr>
+<tr>
+<td><code>xdigit</code> 任意十六进制数字字符</td>
+</tr>
+</tbody>
+</table>
+<p>在正则表达式中，字符分类的类名必须用中括号<code>[:</code> <code>:]</code>括起来。
+例如<code>[:digit:]</code>匹配一个十进制数字字符。
+另外，要代表一个字符分类，它们必须被置于一对中括号<code>[]</code>中。</p>
+<p>有多个字符串分类支持速记表示法：</p>
+<table style="width:90%;margin-left:auto;margin-right:auto;">
+    <tbody>
+        <tr>
+            <th colspan="3" style="text-align: center"><strong>字符分类简写</strong></th>
+        </tr>
+        <tr>
+            <td style="width:10%"><code>\d</code></td>
+            <td style="width:70%">一个十进制数字字符</td>
+            <td style="width:20%"><code>[[:digit:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\s</code></td>
+            <td>一个空白字符（空格、制表符等等）</td>
+            <td><code>[[:space:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\w</code></td>
+            <td>一个字母（<code>a-z</code>）或数字字符（<code>0-9</code>）或下划线（<code>_</code>）</td>
+            <td><code>[_[:alnum:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\D</code></td>
+            <td>非<code>\d</code></td>
+            <td><code>[^[:digit:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\S</code></td>
+            <td>非<code>\s</code></td>
+            <td><code>[^[:space:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\W</code></td>
+            <td>非<code>\w</code></td>
+            <td><code>[^_[:alnum:]]</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>此外，支持正则表达式的语言常常会提供：</p>
+<table style="width:50%;margin-left:auto;margin-right:auto;">
+    <tbody>
+        <tr>
+            <th colspan="3" style="text-align: center"><strong>字符分类简写</strong></th>
+        </tr>
+        <tr>
+            <td style="width:10%"><code>\l</code></td>
+            <td>一个小写字符</td>
+            <td style="width:20%"><code>[[:lower:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\u</code></td>
+            <td>一个大写字符</td>
+            <td><code>[[:upper:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\L</code></td>
+            <td>非<code>\l</code></td>
+            <td><code>[^[:lower:]]</code></td>
+        </tr>
+        <tr>
+            <td><code>\U</code></td>
+            <td>非<code>\u</code></td>
+            <td><code>[^[:upper:]]</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>为了最优的可移植性，请使用字符分类名而非这些简写。</p>
+<p>作为一个例子，请考虑写一个模式以描述C++的标志符：
+一个下划线或字母，后跟一个可能为空的序列，该序列由字母、数字字符或下划线组成。
+为阐明细微的差异，我列出了几个错误的范例：</p>
+<p><a class="en-page-number" id="120"></a></p>
+<pre><code class="lang-cpp">[:alpha:][:alnum:]*             <span class="hljs-comment">// 错误： &quot;:alpha:&quot;集合中的字符后跟...</span>
+[[:alpha:]][[:alnum:]]*         <span class="hljs-comment">// 错误： 不接受下划线 （&apos;_&apos; 不是字母）</span>
+([[:alpha:]]|_)[[:alnum:]]*     <span class="hljs-comment">// 错误： 下划线也不属于 alnum</span>
+
+([[:alpha:]]|_)([[:alnum:]]|_)*     <span class="hljs-comment">// OK：但略显笨拙</span>
+[[:alpha:]_][[:alnum:]_]*           <span class="hljs-comment">// OK：在字符分类里包括了下划线</span>
+[_[:alpha:]][_[:alnum:]]*           <span class="hljs-comment">// 也 OK</span>
+[_[:alpha:]]\w*                     <span class="hljs-comment">// \w 等价于 [_[:alnum:]]</span>
+</code></pre>
+<p>最后，这里有个函数使用<code>regex_match()</code>（§9.4.1）的最简形式测试某字符串是否标志符：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">is_identifier</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s)</span>
+</span>{
+    regex pat {<span class="hljs-string">&quot;[_[:alpha:]]\\w*&quot;</span>}; <span class="hljs-comment">// 下划线或字母</span>
+                                    <span class="hljs-comment">// 后跟零或多个下划线、字母、数字字符</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">regex_match</span>(s,pat);
+}
+</code></pre>
+<p>注意，使用在常规字符串文本里的双反斜杠用于引入一个反斜杠。
+可用原始字符串文本以缓解特殊字符带来的麻烦。例如：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">is_identifier</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s)</span>
+</span>{
+    regex pat {<span class="hljs-string">R&quot;([_[:alpha:]]\w*)&quot;</span>};
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">regex_match</span>(s,pat);
+}
+</code></pre>
+<p>以下是一些模式的范例：</p>
+<pre><code class="lang-cpp">Ax*             <span class="hljs-comment">// A, Ax, Axxxx</span>
+Ax+             <span class="hljs-comment">// Ax, Axxx     而非 A</span>
+\d-?\d          <span class="hljs-comment">// 1-2, 12      而非 1--2</span>
+\w{<span class="hljs-number">2</span>}-\d{<span class="hljs-number">4</span>,<span class="hljs-number">5</span>}   <span class="hljs-comment">// Ab-1234, XX-54321, 22-5432   数字字符包含在\w中</span>
+(\d*:)?(\d+)    <span class="hljs-comment">// 12:3, 1:23, 123, :123    而非 123:</span>
+(bs|BS)         <span class="hljs-comment">// bs, BS       而非 bS</span>
+[aeiouy]        <span class="hljs-comment">// a, o, u      英文元音字母, 而非 x</span>
+[ˆaeiouy]       <span class="hljs-comment">// x, k         不是英文元音字母, 而非 e</span>
+[aˆeiouy]       <span class="hljs-comment">// a, ˆ, o, u   英文元音字母或者 ˆ</span>
+</code></pre>
+<p>潜在的以<code>sub_match</code>形式表示的<code>group</code>（子模式）由小括号界定。
+如果你需要一对小括号但却不想定义一个子模式，要使用<code>(?:</code>而非常规的<code>(</code>。例如：</p>
+<pre><code class="lang-cpp">(\s|:|,)*(\d*)      <span class="hljs-comment">// 可选的空白字符、冒号、和/或逗号，其后跟随一个可选的数字</span>
+</code></pre>
+<p>假设我们不关心数字之前那些字符（比方说是分隔符之类的），就可以这么写：</p>
+<pre><code class="lang-cpp">(?:\s|:|,)*(\d*)    <span class="hljs-comment">// 可选的空白字符、冒号、和/或逗号，其后跟随一个可选的数字</span>
+</code></pre>
+<p>这样可以避免正则表达式引擎存储第一个字符：采用<code>(?:</code>的这个版本只有一个子模式。</p>
+<p><a class="en-page-number" id="121"></a></p>
+<table style="width:80%;margin-left:auto;margin-right:auto;">
+    <tbody>
+        <tr>
+            <th colspan="2" style="text-align: center"><strong>正则表达式群组示例</strong></th>
+        </tr>
+        <tr>
+            <td style="width:30%"><code>\d*\s\w+</code></td>
+            <td>无群组（子模式）</td>
+        </tr>
+        <tr>
+            <td><code>(\d*)\s(\w+)</code></td>
+            <td>两个群组</td>
+        </tr>
+        <tr>
+            <td><code>(\d*)(\s(\w+))+</code></td>
+            <td>两个群组（群组不能嵌套）</td>
+        </tr>
+        <tr>
+            <td><code>(\s*\w*)+</code></td>
+            <td>一个群组；一个或更多子模式；<br>只有最后一个子模式保存为<code>sub_match</code></td>
+        </tr>
+        <tr>
+            <td><code>&lt;(.*?)&gt;(.*?)&lt;/\1&gt;</code></td>
+            <td>三个群组；<code>\1</code>的意思是（同群组1）</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>表中最后一个模式在解析XML的时候非常好用。它查找 标签/尾标签 的记号。
+注意，我为标签和尾标签间的子模式用了一个不贪婪匹配（懒惰匹配），<code>.*?</code>。
+如果我用了常规的<code>.*</code>，以下输入将引发一个问题：</p>
+<pre><code class="lang-xml">Always look on the <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>bright<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> side of <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>life<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>.
+</code></pre>
+<p>针对第一个子模式的<em>贪婪匹配</em>将匹配到第一个<code>&lt;</code>和最后一个<code>&gt;</code>。
+那也是正确的行为，但却不太可能是程序员想要的。</p>
+<p>有关正则表达式更详尽的阐述，请见 [Friedl,1997]。</p>
+<h3 id="9.4.3">9.4.3 迭代器 </h3>
+<p>可以定义一个<code>regex_iterator</code>去遍历一个字符序列，寻找符合某个模式的匹配。
+例如，可使用<code>sregex_iterator</code>（即<code>regex_iterator&lt;string&gt;</code>），
+去输出某个<code>string</code>中所有空白字符分割的单词：</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>
+</span>{
+    string input = <span class="hljs-string">&quot;aa as; asd ++eˆasdf asdfg&quot;</span>;
+    regex pat {<span class="hljs-string">R&quot;(\s+(\w+))&quot;</span>};
+    <span class="hljs-keyword">for</span> (sregex_iterator <span class="hljs-built_in">p</span>(input.<span class="hljs-built_in">begin</span>(),input.<span class="hljs-built_in">end</span>(),pat); p!=sregex_iterator{}; ++p)
+        cout &lt;&lt; (*p)[<span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
+}
+</code></pre>
+<p>输出是：</p>
+<pre><code class="lang-text">as
+asd
+asdfg
+</code></pre>
+<p>我们丢掉了第一个单词，<code>aa</code>，因为它前面没有空白字符。
+如果把模式简化成<code>R&quot;((\w+))&quot;</code>，就会得到：</p>
+<pre><code class="lang-text">aa
+as
+asd
+e
+asdf
+asdfg
+</code></pre>
+<p><code>regex_iterator</code>是双向迭代器，
+故无法将其在（仅提供输入迭代器的）<code>istream</code>上直接遍历。
+另外，也无法借助<code>regex_iterator</code>执行写操作，
+<code>regex_iterator</code>默认值（<code>regex_iterator{}</code>）是唯一可能的序列末尾。</p>
+<p><a class="en-page-number" id="122"></a></p>
+<h2 id="9.5">9.5 忠告 </h2>
+<ul>
+<li>[1] 用<code>std::string</code>去持有字符序列；§9.2；[CG: SL.str.1]。</li>
+<li>[2] 多用<code>string</code>，而非C-风格的字符串函数；§9.1。</li>
+<li>[3] 用<code>string</code>去声明变量和成员，而非用作基类；§9.2。</li>
+<li>[4] 以传值方式返回<code>string</code>（依赖转移语意）；§9.2，§9.2.1。</li>
+<li>[5] 以直接或间接的方式，通过<code>substr()</code>读子字符串，
+  <code>replace()</code>写子字符串；§9.2。</li>
+<li>[6] <code>string</code>可按需变长或缩短；§9.2。</li>
+<li>[7] 当你需要越界检查的时候，用<code>at()</code>而非迭代器或<code>[]</code>；§9.2。</li>
+<li>[8] 当你需要优化速度，用迭代器和<code>[]</code>，而非<code>at()</code>；§9.2。</li>
+<li>[9] <code>string</code>输入不会溢出；§9.2，§10.3。</li>
+<li>[10] （仅）在你迫不得已的时候，
+  使用<code>c_str()</code>为<code>string</code>生成一个C风格字符串的形式；§9.2。</li>
+<li>[11] 用<code>stringstream</code>或者通用的值提取函数（如<code>to&lt;X&gt;</code>）
+  做字符串的数值转换；§10.8。</li>
+<li>[12] <code>basic_string</code>可用于生成任意类型字符的字符串；§9.2.1。</li>
+<li>[13] 把<code>s</code>后缀用于字符串文本的意思是使之成为标准库的<code>string</code>；
+  §9.3 [CG: SL.str.12]。</li>
+<li>[14] 在待读取的字符序列存储方式多种多样的时候，
+  以<code>string_view</code>作为函数参数；§9.3 [CG: SL.str.2]。</li>
+<li>[15] 在待写入的字符序列存储方式多种多样的时候，以<code>gsl::string_span</code>
+  作为函数参数；§9.3 [CG: SL.str.2] [CG: SL.str.2]。</li>
+<li>[16] 把<code>string_view</code>看作附有长度的指针；它并不拥有那些字符；§9.3。</li>
+<li>[17] 把<code>sv</code>后缀用于字符串文本的意思是使之成为标准库的<code>string_view</code>；§9.3。</li>
+<li>[18] 对于绝大多数常规的正则表达式，请使用<code>regex</code>;§9.4。</li>
+<li>[19] 除了最简单的模式，请采用原始字符串文本；§9.4。</li>
+<li>[20] 用<code>regex_match()</code>去匹配完整的输入；§9.4，§9.4.2。</li>
+<li>[21] 用<code>regex_search()</code>在输入流中查找模式；§9.4.1。</li>
+<li>[22] 正则表达式的写法可以针对多种标准进行调整；§9.4.2。</li>
+<li>[23] 默认的正则表达式写法遵循 ECMAScript；§9.4.2。</li>
+<li>[24] 请保持克制，正则表达式很容易沦为<a href="https://zh.m.wikipedia.org/zh-cn/%E5%8F%AA%E5%86%99%E8%AF%AD%E8%A8%80" target="_blank">只写语言</a>；§9.4.2。</li>
+<li>[25] 记住，<code>\i</code>可以表示同前面某个子模式；§9.4.2。</li>
+<li>[26] 可以用<code>?</code>把模式变得“懒惰”；§9.4.2。</li>
+<li>[27] 可以用<code>regex_iterator</code>在流中遍历查找模式；§9.4.3。</li>
+</ul>
+<blockquote id="fn_1">
+<sup>1</sup>. 出自 上海译文出版社 1992年12月 出版的《英文写作指南》（陈一鸣 译），引用内容出现在该书第157页的“提示二十一”。 —— 译者注<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
+</blockquote>
+
+                                
+    
+
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch08.html" class="navigation navigation-prev " aria-label="Previous page: 8 标准库概览">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch10.html" class="navigation navigation-next " aria-label="Next page: 10 输入输出">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"ch":9,"title":"9 字符串和正则表达式","level":"1.11","depth":1,"next":{"title":"10 输入输出","level":"1.12","depth":1,"path":"ch10.md","ref":"ch10.md","articles":[]},"previous":{"title":"8 标准库概览","level":"1.10","depth":1,"path":"ch08.md","ref":"ch08.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch09.md","mtime":"2023-02-12T09:24:45.892Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
