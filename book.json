@@ -6,17 +6,23 @@
     "language": "zh-hans",
     "links": {
         "sidebar": {
-            "Github": "https://github.com/"
+            "Github Link": "https://github.com/windsting/a-tour-of-cpp-2nd-cn"
         }
     },
     "plugins": [
         "@dogatana/page-toc-button",
         "@dogatana/back-to-top-button",
+        "copy-code-button",
+        "forkmegithub",
         "disqus-legacy"
     ],
     "pluginsConfig": {
         "disqus-legacy": {
             "shortname": "a-tour-of-cpp-2nd-cn"
+        },
+        "forkmegithub": {
+            "color": "orange",
+            "url": "https://github.com/windsting/a-tour-of-cpp-2nd-cn"
         },
         "styles": {
             "website": "styles/website.css"

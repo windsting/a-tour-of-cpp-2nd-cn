@@ -17,6 +17,11 @@
     /* margin-right: 1em; */
 }
 
+/* Adjust icon position for plugin: page-toc-button */
+.page-toc-button{
+    right: 55px;
+}
+
 
 /* chapter number spliter start */
 
