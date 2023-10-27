@@ -1,13 +1,13 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>13 实用功能 · HonKit</title>
+        <title>13 实用功能 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.6.23">
-        
+        <meta name="generator" content="HonKit 5.1.1">
+        <meta name="author" content="Windsting">
         
         
     
@@ -16,7 +16,19 @@
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
                 
             
                 
@@ -72,7 +84,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -83,7 +95,16 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://github.com/windsting/a-tour-of-cpp-2nd-cn" target="_blank" class="custom-link">Github Link</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -344,7 +365,7 @@
 
     <li>
         <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
-            Published with HonKit
+            本书使用 HonKit 发布
         </a>
     </li>
 </ul>
@@ -418,7 +439,7 @@
 例如，以下技法用于标准库的锁类：</p>
 <pre><code class="lang-cpp">mutex m;    <span class="hljs-comment">// used to protect access to shared data</span>
 <span class="hljs-comment">// ...</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
 </span>{
     scoped_lock&lt;mutex&gt; lck {m}; <span class="hljs-comment">// acquire the mutex m</span>
     <span class="hljs-comment">// ... manipulate shared data ...</span>
@@ -441,7 +462,7 @@ RAII是C++中约定俗成管理资源方式的基础。
 <li>[2] <code>shared_ptr</code>用于共享所有权</li>
 </ul>
 <p>这些“智能指针”最基本的用途是避免粗心大意导致的内存泄漏。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span> <span class="hljs-comment">// X* vs. unique_ptr&lt;X&gt;</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> <span class="hljs-comment">// X* vs. unique_ptr&lt;X&gt;</span>
 </span>{
     X* p = <span class="hljs-keyword">new</span> X;               <span class="hljs-comment">// new一个X</span>
     unique_ptr&lt;X&gt; sp {<span class="hljs-keyword">new</span> X};   <span class="hljs-comment">// new一个X，并将其指针交给unique_ptr</span>
@@ -458,7 +479,7 @@ RAII是C++中约定俗成管理资源方式的基础。
 另一方面，无论以怎样的方式离开<code>f()</code>（抛出异常、执行<code>return</code>或“经由函数末尾”），
 <code>unique_ptr</code>都会确保其对象妥善销毁。
 搞笑的是，这个问题本可以轻易就解决掉，只要<em>不</em>使用指针且<em>不</em>使用<code>new</code>就行：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span> <span class="hljs-comment">// 使用局部变量</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> <span class="hljs-comment">// 使用局部变量</span>
 </span>{
     X x;
     <span class="hljs-comment">// ...</span>
@@ -468,7 +489,7 @@ RAII是C++中约定俗成管理资源方式的基础。
 <p>无论如何，在你切实需要使用指针语意的时候，与努力把裸指针用对相比，
 <code>unique_ptr</code>是个轻量级机制，没有额外空间和时间开销。
 它的一个进阶用法是，把分配在自由存储区的对象传入或传出函数：</p>
-<pre><code class="lang-cpp"><span class="hljs-function">unique_ptr&lt;X&gt; <span class="hljs-title">make_X</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span>
+<pre><code class="lang-cpp"><span class="hljs-function">unique_ptr&lt;X&gt; <span class="hljs-title">make_X</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span>
     <span class="hljs-comment">// 分配一个X并直接交给一个unique_ptr</span>
 </span>{
     <span class="hljs-comment">// ... 检查i，以及其它操作. ...</span>
@@ -481,10 +502,10 @@ RAII是C++中约定俗成管理资源方式的基础。
 <p><code>shared_ptr</code>跟<code>unique_ptr</code>相似，区别是<code>shared_ptr</code>被复制而非被转移。
 某个对象的所有<code>shared_ptr</code>共享其所有权；这些<code>shared_ptr</code>全部销毁时，
 该对象也随之销毁。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(shared_ptr&lt;fstream&gt;)</span></span>;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">(shared_ptr&lt;fstream&gt;)</span></span>;
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(shared_ptr&lt;fstream&gt;)</span></span>;
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">g</span><span class="hljs-params">(shared_ptr&lt;fstream&gt;)</span></span>;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; name, ios_base::openmode mode)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; name, ios_base::openmode mode)</span>
 </span>{
     shared_ptr&lt;fstream&gt; fp {<span class="hljs-keyword">new</span> <span class="hljs-built_in">fstream</span>(name,mode)};
     <span class="hljs-keyword">if</span> (!*fp)   <span class="hljs-comment">// 确保文件打开正常</span>
@@ -510,15 +531,15 @@ RAII是C++中约定俗成管理资源方式的基础。
 或者把非自由存储区上的对象指针传给了<code>shared_ptr</code>。
 为避免这些问题，标准库（在<code>&lt;memory&gt;</code>中）为 构造对象并返回相应智能指针
 提供了函数<code>make_shared()</code>和<code>make_unique()</code>。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">S</span> {</span>
-    <span class="hljs-keyword">int</span> i;
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">S</span> {
+    <span class="hljs-type">int</span> i;
     string s;
-    <span class="hljs-keyword">double</span> d;
+    <span class="hljs-type">double</span> d;
     <span class="hljs-comment">// ...</span>
 };
 
-<span class="hljs-keyword">auto</span> p1 = make_shared&lt;S&gt;(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;Ankh Morpork&quot;</span>,<span class="hljs-number">4.65</span>);    <span class="hljs-comment">// p1是个shared_ptr&lt;S&gt;</span>
-<span class="hljs-keyword">auto</span> p2 = make_unique&lt;S&gt;(<span class="hljs-number">2</span>,<span class="hljs-string">&quot;Oz&quot;</span>,<span class="hljs-number">7.62</span>);              <span class="hljs-comment">// p2是个unique_ptr&lt;S&gt;</span>
+<span class="hljs-keyword">auto</span> p1 = <span class="hljs-built_in">make_shared</span>&lt;S&gt;(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;Ankh Morpork&quot;</span>,<span class="hljs-number">4.65</span>);    <span class="hljs-comment">// p1是个shared_ptr&lt;S&gt;</span>
+<span class="hljs-keyword">auto</span> p2 = <span class="hljs-built_in">make_unique</span>&lt;S&gt;(<span class="hljs-number">2</span>,<span class="hljs-string">&quot;Oz&quot;</span>,<span class="hljs-number">7.62</span>);              <span class="hljs-comment">// p2是个unique_ptr&lt;S&gt;</span>
 </code></pre>
 <p>此处<code>p2</code>是个<code>unique_ptr&lt;S&gt;</code>，指向分配在自由存储区上的<code>S</code>类型对象，
 该对象的值为<code>{2,&quot;Oz&quot;s,7.62}</code>。</p>
@@ -551,17 +572,17 @@ RAII是C++中约定俗成管理资源方式的基础。
 因为这是更简洁、更高效的操作。
 不过，有时候不得不显式指定。例如：某个<code>unique_ptr</code>是一个对象的唯一所有者。
 因此，它无法被复制：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f1</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f1</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">auto</span> p = make_unique&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">2</span>);
+    <span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">make_unique</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">2</span>);
     <span class="hljs-keyword">auto</span> q = p;         <span class="hljs-comment">// 报错：无法复制 unique_ptr</span>
     <span class="hljs-comment">// ...</span>
 }
 </code></pre>
 <p>如果某个<code>unique_ptr</code>需要去在别处，就必须转移它。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f1</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f1</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">auto</span> p = make_unique&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">2</span>);
+    <span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">make_unique</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">2</span>);
     <span class="hljs-keyword">auto</span> q = <span class="hljs-built_in">move</span>(p);       <span class="hljs-comment">// p 现在持有 nullptr</span>
     <span class="hljs-comment">// ...</span>
 }
@@ -573,7 +594,7 @@ RAII是C++中约定俗成管理资源方式的基础。
 跟其它类型转换相似，它也容易出错，最好避免使用。
 它为某些特定情况而存在。参考以下这个简单的互换：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(T&amp; a, T&amp; b)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(T&amp; a, T&amp; b)</span>
 </span>{
     T tmp {<span class="hljs-built_in">move</span>(a)};    <span class="hljs-comment">// T 的构造函数见到右值并转移</span>
     a = <span class="hljs-built_in">move</span>(b);        <span class="hljs-comment">// T 的赋值见到右值并转移</span>
@@ -605,10 +626,10 @@ cout &lt;&lt; s2[<span class="hljs-number">2</span>]; <span class="hljs-comment"
 <p>参数转发是个转移操作的重要用途（§7.4.2）。
 有时候，我们需要把一套参数原封不动地传递给另一个函数
 （以达成“完美转发（perfect forwarding）”）：</p>
-<pre><code class="lang-cpp">template&lt;typename T, typename... Args&gt;
-unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
-{
-    return unique_ptr&lt;T&gt;{new T{std::forward&lt;Args&gt;(args)...}};   // 转发每个参数
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span>... Args&gt;
+unique_ptr&lt;T&gt; <span class="hljs-title">make_unique</span><span class="hljs-params">(Args&amp;&amp;... args)</span>
+</span>{
+    <span class="hljs-keyword">return</span> unique_ptr&lt;T&gt;{<span class="hljs-keyword">new</span> T{std::forward&lt;Args&gt;(args)...}};   <span class="hljs-comment">// 转发每个参数</span>
 }
 </code></pre>
 <p>标准库<code>std::forward()</code>与简易的<code>std::move()</code>区别在于，
@@ -641,9 +662,9 @@ unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
 在这方面，它与<code>string_view</code>（§9.3）和STL的迭代器对（§12.3）如出一辙。</p>
 <p><a class="en-page-number" id="169"></a></p>
 <p>考虑这个常见的接口风格：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fpn</span><span class="hljs-params">(<span class="hljs-keyword">int</span>* p, <span class="hljs-keyword">int</span> n)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fpn</span><span class="hljs-params">(<span class="hljs-type">int</span>* p, <span class="hljs-type">int</span> n)</span>
 </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i&lt;n; ++i)
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i&lt;n; ++i)
         p[i] = <span class="hljs-number">0</span>;
 }
 </code></pre>
@@ -651,9 +672,9 @@ unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
 遗憾的是，这种假设仅仅是个惯例，因此无法用于区间-<code>for</code>循环，
 编译器也没办法实现一个低消耗高性能的越界检查。
 此外，这个假设还会出错：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">use</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
 </span>{
-    <span class="hljs-keyword">int</span> a[<span class="hljs-number">100</span>];
+    <span class="hljs-type">int</span> a[<span class="hljs-number">100</span>];
     <span class="hljs-built_in">fpn</span>(a,<span class="hljs-number">100</span>);     <span class="hljs-comment">// OK</span>
     <span class="hljs-built_in">fpn</span>(a,<span class="hljs-number">1000</span>);    <span class="hljs-comment">// 我艹，手滑了！（fpn里越界错误）</span>
     <span class="hljs-built_in">fpn</span>(a+<span class="hljs-number">10</span>,<span class="hljs-number">100</span>);  <span class="hljs-comment">// fpn里越界错误</span>
@@ -661,16 +682,16 @@ unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
 }
 </code></pre>
 <p>可利用<code>span</code>对它进行改进：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fs</span><span class="hljs-params">(span&lt;<span class="hljs-keyword">int</span>&gt; p)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fs</span><span class="hljs-params">(span&lt;<span class="hljs-type">int</span>&gt; p)</span>
 </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span>&amp; x : p)
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>&amp; x : p)
         x = <span class="hljs-number">0</span>;
 }
 </code></pre>
 <p><code>fs</code>用法如下：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">use</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
 </span>{
-    <span class="hljs-keyword">int</span> a[<span class="hljs-number">100</span>];
+    <span class="hljs-type">int</span> a[<span class="hljs-number">100</span>];
     <span class="hljs-built_in">fs</span>(a);          <span class="hljs-comment">// 隐式创建一个 span&lt;int&gt;{a,100} </span>
     <span class="hljs-built_in">fs</span>(a,<span class="hljs-number">1000</span>);     <span class="hljs-comment">// 报错：需要一个 span</span>
     <span class="hljs-built_in">fs</span>({a+<span class="hljs-number">10</span>,<span class="hljs-number">100</span>}); <span class="hljs-comment">// fs里报越界访问错误</span>
@@ -682,9 +703,9 @@ unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
 至于其它情形，出错的概率也降低了，因为程序员不得不显式构造一个span。</p>
 <p>对于在函数间进行传递这种常见情形，<code>span</code>要比(指针,数量)接口简洁，
 而且很明显还无需额外的越界检查：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f1</span><span class="hljs-params">(span&lt;<span class="hljs-keyword">int</span>&gt; p)</span></span>;
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f1</span><span class="hljs-params">(span&lt;<span class="hljs-type">int</span>&gt; p)</span></span>;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f2</span><span class="hljs-params">(span&lt;<span class="hljs-keyword">int</span>&gt; p)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f2</span><span class="hljs-params">(span&lt;<span class="hljs-type">int</span>&gt; p)</span>
 </span>{
     <span class="hljs-comment">// ...</span>
     <span class="hljs-built_in">f1</span>(p);
@@ -775,14 +796,14 @@ unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
 <code>array</code>并<em>不</em>遵循STL容器模型的“元素执柄”模型。
 相反，<code>array</code>直接包含了它的元素。</p>
 <p><code>array</code>可以用初始化列表进行初始化：</p>
-<pre><code class="lang-cpp">array&lt;<span class="hljs-keyword">int</span>,3&gt; a1 = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>};
+<pre><code class="lang-cpp">array&lt;<span class="hljs-type">int</span>,3&gt; a1 = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>};
 </code></pre>
 <p>初始化列表中的元素数量必须等于或小于为<code>array</code>指定的数量。</p>
 <p>元素数量是必选项：</p>
-<pre><code class="lang-cpp">array&lt;<span class="hljs-keyword">int</span>&gt; ax = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}; <span class="hljs-comment">// 报错，未指定容量</span>
+<pre><code class="lang-cpp">array&lt;<span class="hljs-type">int</span>&gt; ax = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}; <span class="hljs-comment">// 报错，未指定容量</span>
 </code></pre>
 <p>元素数量必须是常量表达式：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>
 </span>{
     array&lt;string,n&gt; aa = {<span class="hljs-string">&quot;John&apos;s&quot;</span>, <span class="hljs-string">&quot;Queens&apos; &quot;</span>};    <span class="hljs-comment">// 报错：容量不是常量表达式</span>
     <span class="hljs-comment">//</span>
@@ -790,11 +811,11 @@ unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
 </code></pre>
 <p>如果需要用变量作为元素数量，请使用<code>vector</code>。</p>
 <p>在必要的时候，<code>array</code>可以被显式地传给要求指针的C-风格函数。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">int</span>* p, <span class="hljs-keyword">int</span> sz)</span></span>;     <span class="hljs-comment">// C-风格接口</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span>* p, <span class="hljs-type">int</span> sz)</span></span>;     <span class="hljs-comment">// C-风格接口</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">g</span><span class="hljs-params">()</span>
 </span>{
-    array&lt;<span class="hljs-keyword">int</span>,10&gt; a;
+    array&lt;<span class="hljs-type">int</span>,10&gt; a;
 
     <span class="hljs-built_in">f</span>(a,a.<span class="hljs-built_in">size</span>());          <span class="hljs-comment">// 报错：无隐式转换</span>
     <span class="hljs-built_in">f</span>(&amp;a[<span class="hljs-number">0</span>],a.<span class="hljs-built_in">size</span>());      <span class="hljs-comment">// C-风格用法</span>
@@ -813,7 +834,7 @@ unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args)
 <code>array</code>知悉其容量，因此易于搭配标准库算法使用，它还可以用<code>=</code>进行复制。
 不过，我用<code>array</code>的主要原因是避免意外且恶心地隐式转换为指针。考虑：</p>
 <pre><code class="lang-cpp">
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">h</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">h</span><span class="hljs-params">()</span>
 </span>{
     Circle a1[<span class="hljs-number">10</span>];
     array&lt;Circle,10&gt; a2;
@@ -848,9 +869,9 @@ bitset&lt;9&gt; bs5 = bs1&lt;&lt;<span class="hljs-number">2</span>;     <span c
 <p>移位运算符（此处的<code>&lt;&lt;</code>）会“移入（shift in）”零。</p>
 <p><code>to_ullong()</code>和<code>to_string()</code>运算提供构造函数的逆运算。
 例如，我们可以输出一个<code>int</code>的二进制表示：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">binary</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">binary</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span>
 </span>{
-    bitset&lt;8*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>)&gt; b = i;    <span class="hljs-comment">// 假设字节为8-bit（详见 §14.7）</span>
+    bitset&lt;8*<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>)&gt; b = i;    <span class="hljs-comment">// 假设字节为8-bit（详见 §14.7）</span>
     cout &lt;&lt; b.<span class="hljs-built_in">to_string</span>() &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;  <span class="hljs-comment">// 输出i的二进制位</span>
 }
 </code></pre>
@@ -860,9 +881,9 @@ bitset&lt;9&gt; bs5 = bs1&lt;&lt;<span class="hljs-number">2</span>;     <span c
 </code></pre>
 <p><a class="en-page-number" id="173"></a></p>
 <p>对此例而言，直接用<code>bitset</code>的输出运算符会更简洁：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">binary2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">binary2</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span>
 </span>{
-    bitset&lt;8*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>)&gt; b = i;    <span class="hljs-comment">// 假设字节为8-bit（详见 §14.7）</span>
+    bitset&lt;8*<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>)&gt; b = i;    <span class="hljs-comment">// 假设字节为8-bit（详见 §14.7）</span>
     cout &lt;&lt; b &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;              <span class="hljs-comment">// 输出i的二进制位</span>
 }
 </code></pre>
@@ -873,15 +894,15 @@ bitset&lt;9&gt; bs5 = bs1&lt;&lt;<span class="hljs-number">2</span>;     <span c
 或者说，还可以让标准库替我们写这个定义。
 例如，标准库算法<code>equal_range</code>返回一个表示符合某谓词子序列的迭代器<code>pair</code>：</p>
 <pre><code class="lang-cpp">
-template&lt;typename Forward_iterator, typename T, typename Compare&gt;
+<span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Forward_iterator, <span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> Compare&gt;
     pair&lt;Forward_iterator,Forward_iterator&gt;
-    equal_range(Forward_iterator first, Forward_iterator last, const T&amp; val, Compare cmp);
+    <span class="hljs-title">equal_range</span><span class="hljs-params">(Forward_iterator first, Forward_iterator last, <span class="hljs-type">const</span> T&amp; val, Compare cmp)</span></span>;
 </code></pre>
 <p>给定一个有序序列[<code>first</code>:<code>last</code>)，<code>equal_range</code>将返回一个<code>pair</code>，
 以表示符合谓词<code>cmp</code>的子序列。
 可以用它对一个承载<code>Record</code>的有序序列进行查找：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> less = [](<span class="hljs-keyword">const</span> Record&amp; r1, <span class="hljs-keyword">const</span> Record&amp; r2) { <span class="hljs-keyword">return</span> r1.name&lt;r2.name;}; <span class="hljs-comment">// compare names</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;Record&gt;&amp; v)</span> <span class="hljs-comment">// 假设v按照其“name”字段排序</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> less = [](<span class="hljs-type">const</span> Record&amp; r1, <span class="hljs-type">const</span> Record&amp; r2) { <span class="hljs-keyword">return</span> r1.name&lt;r2.name;}; <span class="hljs-comment">// compare names</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;Record&gt;&amp; v)</span> <span class="hljs-comment">// 假设v按照其“name”字段排序</span>
 </span>{
     <span class="hljs-keyword">auto</span> er = <span class="hljs-built_in">equal_range</span>(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),Record{<span class="hljs-string">&quot;Reg&quot;</span>},less);
 
@@ -893,7 +914,7 @@ template&lt;typename Forward_iterator, typename T, typename Compare&gt;
 该命名在创造力方面乏善可陈，乍看之下可能还有点怪异，
 但在编写通用代码的时候，却能够从这种一致的命名中受益匪浅。
 在<code>first</code>和<code>second</code>过于泛化的情况下，可借助结构化绑定（§3.6.3）：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f2</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;Record&gt;&amp; v)</span> <span class="hljs-comment">// 假设v按照其“name”字段排序</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f2</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;Record&gt;&amp; v)</span> <span class="hljs-comment">// 假设v按照其“name”字段排序</span>
 </span>{
     <span class="hljs-keyword">auto</span> [first,last] = <span class="hljs-built_in">equal_range</span>(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),Record{<span class="hljs-string">&quot;Reg&quot;</span>},less);
 
@@ -905,7 +926,7 @@ template&lt;typename Forward_iterator, typename T, typename Compare&gt;
 如果其元素允许，<code>pair</code>就提供诸如<code>=</code>、<code>==</code>和<code>&lt;</code>这些运算符。
 类型推导简化了<code>pair</code>的创建，使得无需再显式提及它的类型。例如：</p>
 <p><a class="en-page-number" id="174"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(vector&lt;string&gt;&amp; v)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(vector&lt;string&gt;&amp; v)</span>
 </span>{
     pair p1 {v.<span class="hljs-built_in">begin</span>(),<span class="hljs-number">2</span>};              <span class="hljs-comment">// 一种方式</span>
     <span class="hljs-keyword">auto</span> p2 = <span class="hljs-built_in">make_pair</span>(v.<span class="hljs-built_in">begin</span>(),<span class="hljs-number">2</span>);   <span class="hljs-comment">// 另一种方式</span>
@@ -915,27 +936,27 @@ template&lt;typename Forward_iterator, typename T, typename Compare&gt;
 <p><code>p1</code>和<code>p2</code>的类型都是<code>pair&lt;vector&lt;string&gt;::iterator,int&gt;</code>。</p>
 <p>如果所需的元素多于（或少于）两个，可以使用（来自<code>&lt;utility&gt;</code>的）<code>tuple</code>。
 <code>tuple</code>是个 元素的异质序列，例如：</p>
-<pre><code class="lang-cpp">tuple&lt;string,<span class="hljs-keyword">int</span>,<span class="hljs-keyword">double</span>&gt; t1 {<span class="hljs-string">&quot;Shark&quot;</span>,<span class="hljs-number">123</span>,<span class="hljs-number">3.14</span>};     <span class="hljs-comment">// 显式指定了类型</span>
+<pre><code class="lang-cpp">tuple&lt;string,<span class="hljs-type">int</span>,<span class="hljs-type">double</span>&gt; t1 {<span class="hljs-string">&quot;Shark&quot;</span>,<span class="hljs-number">123</span>,<span class="hljs-number">3.14</span>};     <span class="hljs-comment">// 显式指定了类型</span>
 <span class="hljs-keyword">auto</span> t2 = <span class="hljs-built_in">make_tuple</span>(string{<span class="hljs-string">&quot;Herring&quot;</span>},<span class="hljs-number">10</span>,<span class="hljs-number">1.23</span>);    <span class="hljs-comment">// 类型推导为tuple&lt;string,int,double&gt;</span>
 tuple t3 {<span class="hljs-string">&quot;Cod&quot;</span>s,<span class="hljs-number">20</span>,<span class="hljs-number">9.99</span>};                          <span class="hljs-comment">// 类型推导为tuple&lt;string,int,double&gt;</span>
 </code></pre>
 <p>较旧的代码往往用<code>make_tuple()</code>，因为从构造函数推导模板参数类型是C++17的内容。</p>
 <p>访问<code>tuple</code>成员需要用到<code>get()</code>函数模板：</p>
-<pre><code class="lang-cpp">string s = get&lt;<span class="hljs-number">0</span>&gt;(t1);  <span class="hljs-comment">// 获取第一个元素： &quot;Shark&quot;</span>
-<span class="hljs-keyword">int</span> x = get&lt;<span class="hljs-number">1</span>&gt;(t1);     <span class="hljs-comment">// 获取第二个元素： 123</span>
-<span class="hljs-keyword">double</span> d = get&lt;<span class="hljs-number">2</span>&gt;(t1);  <span class="hljs-comment">// 获取第三个元素： 3.14</span>
+<pre><code class="lang-cpp">string s = <span class="hljs-built_in">get</span>&lt;<span class="hljs-number">0</span>&gt;(t1);  <span class="hljs-comment">// 获取第一个元素： &quot;Shark&quot;</span>
+<span class="hljs-type">int</span> x = <span class="hljs-built_in">get</span>&lt;<span class="hljs-number">1</span>&gt;(t1);     <span class="hljs-comment">// 获取第二个元素： 123</span>
+<span class="hljs-type">double</span> d = <span class="hljs-built_in">get</span>&lt;<span class="hljs-number">2</span>&gt;(t1);  <span class="hljs-comment">// 获取第三个元素： 3.14</span>
 </code></pre>
 <p><code>tuple</code>的成员是数字编号的（从零开始），并且下标必须是常数。</p>
 <p>通过下标访问<code>tuple</code>很普遍、丑陋，还颇易出错。
 好在，<code>tuple</code>中具有唯一类型的元素可在该<code>tuple</code>中以其类型“命名（named）”：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> s = get&lt;string&gt;(t1);   <span class="hljs-comment">// 获取string： &quot;Shark&quot;</span>
-<span class="hljs-keyword">auto</span> x = get&lt;<span class="hljs-keyword">int</span>&gt;(t1);      <span class="hljs-comment">// 获取int： 123</span>
-<span class="hljs-keyword">auto</span> d = get&lt;<span class="hljs-keyword">double</span>&gt;(t1);   <span class="hljs-comment">// 获取double： 3.14</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> s = <span class="hljs-built_in">get</span>&lt;string&gt;(t1);   <span class="hljs-comment">// 获取string： &quot;Shark&quot;</span>
+<span class="hljs-keyword">auto</span> x = <span class="hljs-built_in">get</span>&lt;<span class="hljs-type">int</span>&gt;(t1);      <span class="hljs-comment">// 获取int： 123</span>
+<span class="hljs-keyword">auto</span> d = <span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(t1);   <span class="hljs-comment">// 获取double： 3.14</span>
 </code></pre>
 <p><code>get&lt;&gt;()</code>还可以进行写操作：</p>
-<pre><code class="lang-cpp">get&lt;string&gt;(t1) = <span class="hljs-string">&quot;Tuna&quot;</span>;   <span class="hljs-comment">// 写入到string</span>
-get&lt;<span class="hljs-keyword">int</span>&gt;(t1) = <span class="hljs-number">7</span>;           <span class="hljs-comment">// 写入到int</span>
-get&lt;<span class="hljs-keyword">double</span>&gt;(t1) = <span class="hljs-number">312</span>;      <span class="hljs-comment">// 写入到double</span>
+<pre><code class="lang-cpp"><span class="hljs-built_in">get</span>&lt;string&gt;(t1) = <span class="hljs-string">&quot;Tuna&quot;</span>;   <span class="hljs-comment">// 写入到string</span>
+<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">int</span>&gt;(t1) = <span class="hljs-number">7</span>;           <span class="hljs-comment">// 写入到int</span>
+<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">double</span>&gt;(t1) = <span class="hljs-number">312</span>;      <span class="hljs-comment">// 写入到double</span>
 </code></pre>
 <p>与<code>pair</code>类似，只要元素允许，<code>tuple</code>也可被赋值和进行算数比对。
 与<code>tuple</code>类似，<code>pair</code>也可以通过<code>get&lt;&gt;()</code>访问。</p>
@@ -953,25 +974,25 @@ get&lt;<span class="hljs-keyword">double</span>&gt;(t1) = <span class="hljs-numb
 <h3 id="13.5.1">13.5.1 <code>variant</code> </h3>
 <p><code>variant&lt;A,B,C&gt;</code>通常是<code>union</code>（§2.4）显式应用的更安全、更便捷的替代品。
 可能最简单的示例是在值和错误码之间返回其一：</p>
-<pre><code class="lang-cpp">variant&lt;string,int&gt; compose_message(istream&amp; s)
-{
+<pre><code class="lang-cpp"><span class="hljs-function">variant&lt;string,<span class="hljs-type">int</span>&gt; <span class="hljs-title">compose_message</span><span class="hljs-params">(istream&amp; s)</span>
+</span>{
     string mess;
-    // ... 从s读取并构造一个消息 ...
-    if (no_problems)
-        return mess;            // 返回一个string
-    else
-        return error_number;    // 返回一个int
+    <span class="hljs-comment">// ... 从s读取并构造一个消息 ...</span>
+    <span class="hljs-keyword">if</span> (no_problems)
+        <span class="hljs-keyword">return</span> mess;            <span class="hljs-comment">// 返回一个string</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> error_number;    <span class="hljs-comment">// 返回一个int</span>
 }
 </code></pre>
 <p>当你用一个值给<code>variant</code>赋值或初始化，它会记住此值的类型。
 后续可以查询这个<code>variant</code>持有的类型并提取此值。例如：</p>
 <pre><code class="lang-cpp">    <span class="hljs-keyword">auto</span> m = <span class="hljs-built_in">compose_message</span>(cin);
 
-    <span class="hljs-keyword">if</span> (holds_alternative&lt;string&gt;(m)) {
-        cout &lt;&lt; m.get&lt;string&gt;();
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">holds_alternative</span>&lt;string&gt;(m)) {
+        cout &lt;&lt; m.<span class="hljs-built_in">get</span>&lt;string&gt;();
     }
     <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">int</span> err = m.get&lt;<span class="hljs-keyword">int</span>&gt;();
+        <span class="hljs-type">int</span> err = m.<span class="hljs-built_in">get</span>&lt;<span class="hljs-type">int</span>&gt;();
         <span class="hljs-comment">// ... 处理错误 ...</span>
     }
 </code></pre>
@@ -979,14 +1000,14 @@ get&lt;<span class="hljs-keyword">double</span>&gt;(t1) = <span class="hljs-numb
 例如，某个简单的编译器可能需要以不同的表示形式区分不同的节点：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">using</span> Node = variant&lt;Expression,Statement,Declaration,Type&gt;;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">check</span><span class="hljs-params">(Node* p)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">check</span><span class="hljs-params">(Node* p)</span>
 </span>{
-    <span class="hljs-keyword">if</span> (holds_alternative&lt;Expression&gt;(*p)) {
-        Expression&amp; e = get&lt;Expression&gt;(*p);
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">holds_alternative</span>&lt;Expression&gt;(*p)) {
+        Expression&amp; e = <span class="hljs-built_in">get</span>&lt;Expression&gt;(*p);
         <span class="hljs-comment">// ...</span>
     }
-    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (holds_alternative&lt;Statement&gt;(*p)) {
-        Statement&amp; s = get&lt;Statement&gt;(*p);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">holds_alternative</span>&lt;Statement&gt;(*p)) {
+        Statement&amp; s = <span class="hljs-built_in">get</span>&lt;Statement&gt;(*p);
         <span class="hljs-comment">// ...</span>
     }
     <span class="hljs-comment">// ... Declaration 和 Type ...</span>
@@ -995,7 +1016,7 @@ get&lt;<span class="hljs-keyword">double</span>&gt;(t1) = <span class="hljs-numb
 <p>此模式通过检查待选项以决定适当的行为，它非常普遍且相对低效，
 故此有必要提供直接的支持：</p>
 <p><a class="en-page-number" id="176"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">check</span><span class="hljs-params">(Node* p)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">check</span><span class="hljs-params">(Node* p)</span>
 </span>{
     <span class="hljs-built_in">visit</span>(overloaded {
         [](Expression&amp; e) { <span class="hljs-comment">/* ... */</span> },
@@ -1010,13 +1031,13 @@ get&lt;<span class="hljs-keyword">double</span>&gt;(t1) = <span class="hljs-numb
 <p>很可惜，此处的<code>overloaded</code>是必须且不合标准的。
 它是个“小魔法（piece of magic）”，
 可以用一组（通常是lambda表达式）的参数构造出一个重载：</p>
-<pre><code class="lang-cpp">template&lt;class... Ts&gt;
-struct overloaded : Ts... {
-    using Ts::operator()...;
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span>... Ts&gt;
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">overloaded</span> : Ts... {
+    <span class="hljs-function"><span class="hljs-keyword">using</span> <span class="hljs-title">Ts::operator</span><span class="hljs-params">()</span>...</span>;
 };
 
-template&lt;class... Ts&gt;
-    overloaded(Ts...) -&gt; overloaded&lt;Ts...&gt;; // 推导指南（deduction guide）
+<span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span>... Ts&gt;
+    <span class="hljs-title">overloaded</span><span class="hljs-params">(Ts...)</span> -&gt; overloaded&lt;Ts...&gt;</span>; <span class="hljs-comment">// 推导指南（deduction guide）</span>
 </code></pre>
 <p>“访问者（visitor）”<code>visit</code>继而对<code>overloaded</code>应用<code>()</code>，
 后者依据重载规则选择最适合的lambda表达式进行调用。</p>
@@ -1048,17 +1069,17 @@ template&lt;class... Ts&gt;
 <p>这在不喜欢异常（参见 §3.5.3）的群体中颇受欢迎。请留意这个<code>*</code>古怪的用法。
 <code>optional</code>被视为指向对象的指针，而非对象本身。</p>
 <p>等效于<code>nullptr</code>的<code>optional</code>是空对象<code>{}</code>。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">cat</span><span class="hljs-params">(optional&lt;<span class="hljs-keyword">int</span>&gt; a, optional&lt;<span class="hljs-keyword">int</span>&gt; b)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cat</span><span class="hljs-params">(optional&lt;<span class="hljs-type">int</span>&gt; a, optional&lt;<span class="hljs-type">int</span>&gt; b)</span>
 </span>{
-    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">if</span> (a) res+=*a;
     <span class="hljs-keyword">if</span> (b) res+=*b;
     <span class="hljs-keyword">return</span> res;
 }
 
-<span class="hljs-keyword">int</span> x = <span class="hljs-built_in">cat</span>(<span class="hljs-number">17</span>,<span class="hljs-number">19</span>);
-<span class="hljs-keyword">int</span> y = <span class="hljs-built_in">cat</span>(<span class="hljs-number">17</span>,{});
-<span class="hljs-keyword">int</span> z = <span class="hljs-built_in">cat</span>({},{});
+<span class="hljs-type">int</span> x = <span class="hljs-built_in">cat</span>(<span class="hljs-number">17</span>,<span class="hljs-number">19</span>);
+<span class="hljs-type">int</span> y = <span class="hljs-built_in">cat</span>(<span class="hljs-number">17</span>,{});
+<span class="hljs-type">int</span> z = <span class="hljs-built_in">cat</span>({},{});
 </code></pre>
 <p>如果试图访问无值的<code>optional</code>，其结果未定义；而且<em>不</em>会抛出异常。
 因此<code>optional</code>无法确保类型安全。</p>
@@ -1078,7 +1099,7 @@ template&lt;class... Ts&gt;
 <p>在你用某个值为一个<code>any</code>赋值或初始化的时候，它会记住该值的类型。
 随后可以查询此<code>any</code>持有何种类型并提取其值。例如：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> m = <span class="hljs-built_in">compose_message</span>(cin);
-string&amp; s = any_cast&lt;string&gt;(m);
+string&amp; s = <span class="hljs-built_in">any_cast</span>&lt;string&gt;(m);
 cout &lt;&lt; s;
 </code></pre>
 <p>如果试图以某个类型访问<code>any</code>，但与其中保存的类型不符时，
@@ -1098,16 +1119,16 @@ cout &lt;&lt; s;
 不过，我还是要举一个例子，它基于实际的问题，解决方案使用了内存池分配器。</p>
 <p>某个重要、长期运行的系统使用事件队列（参见 §15.6），该队列以<code>vector</code>表示事件，
 这些事件以<code>shared_ptr</code>的形式传递。因此，一个事件最后的用户隐式地删除了它：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Event</span> {</span>
-    vector&lt;<span class="hljs-keyword">int</span>&gt; data = vector&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">512</span>);
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Event</span> {
+    vector&lt;<span class="hljs-type">int</span>&gt; data = <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">512</span>);
 };
 
 list&lt;shared_ptr&lt;Event&gt;&gt; q;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> n = <span class="hljs-number">0</span>; n!=LOTS; ++n) {
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> n = <span class="hljs-number">0</span>; n!=LOTS; ++n) {
         lock_guardlk{m};    <span class="hljs-comment">// m 是个 mutex （§15.5）</span>
-        q.<span class="hljs-built_in">push_back</span>(make_shared&lt;Event&gt;());
+        q.<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">make_shared</span>&lt;Event&gt;());
         cv.<span class="hljs-built_in">notify_one</span>();
     }
 }
@@ -1122,14 +1143,14 @@ list&lt;shared_ptr&lt;Event&gt;&gt; q;
 内存池分配器定义在<code>std</code>的子命名空间
 <code>pmr</code>（“polymorphic memory resource”）中：</p>
 <pre><code class="lang-cpp">pmr::synchronized_pool_resource pool;           <span class="hljs-comment">// 创建内存池</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Event</span> {</span>
-    vector&lt;<span class="hljs-keyword">int</span>&gt; data = vector&lt;<span class="hljs-keyword">int</span>&gt;{<span class="hljs-number">512</span>,&amp;pool};  <span class="hljs-comment">// 让 Events 使用内存池</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Event</span> {
+    vector&lt;<span class="hljs-type">int</span>&gt; data = vector&lt;<span class="hljs-type">int</span>&gt;{<span class="hljs-number">512</span>,&amp;pool};  <span class="hljs-comment">// 让 Events 使用内存池</span>
 };
 list&lt;shared_ptr&lt;Event&gt;&gt; q {&amp;pool};              <span class="hljs-comment">// 让 q 使用内存池</span>
 </code></pre>
 <p><a class="en-page-number" id="179"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> n = <span class="hljs-number">0</span>; n!=LOTS; ++n) {
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> n = <span class="hljs-number">0</span>; n!=LOTS; ++n) {
         scoped_locklk{m};       <span class="hljs-comment">// m 是个 mutex （§15.5）</span>
         q.<span class="hljs-built_in">push_back</span>(allocate_shared&lt;Event,pmr::polymorphic_allocator&lt;Event&gt;&gt;{&amp;pool});
         cv.<span class="hljs-built_in">notify_one</span>();
@@ -1150,7 +1171,7 @@ list&lt;shared_ptr&lt;Event&gt;&gt; q {&amp;pool};              <span class="hlj
 <span class="hljs-keyword">auto</span> t0 = high_resolution_clock::<span class="hljs-built_in">now</span>();
 <span class="hljs-built_in">do_work</span>();
 <span class="hljs-keyword">auto</span> t1 = high_resolution_clock::<span class="hljs-built_in">now</span>();
-cout &lt;&lt; duration_cast&lt;milliseconds&gt;(t1-t0).<span class="hljs-built_in">count</span>() &lt;&lt; <span class="hljs-string">&quot;msec\n&quot;</span>;
+cout &lt;&lt; <span class="hljs-built_in">duration_cast</span>&lt;milliseconds&gt;(t1-t0).<span class="hljs-built_in">count</span>() &lt;&lt; <span class="hljs-string">&quot;msec\n&quot;</span>;
 </code></pre>
 <p>时钟返回一个<code>time_point</code>（某个时间点）。
 把两个<code>time_point</code>相减就得到个<code>duration</code>（一个时间段）。
@@ -1182,7 +1203,7 @@ cout &lt;&lt; <span class="hljs-built_in">weekday</span>(spring_day) &lt;&lt; <s
 <p>还有些其它方法，但最佳方案通常是这三者之一。</p>
 <h3 id="13.8.1">13.8.1 lambda表达式适配 </h3>
 <p>琢磨一下这个经典的“绘制所有图形”的例子：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw_all</span><span class="hljs-params">(vector&lt;Shape*&gt;&amp; v)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">draw_all</span><span class="hljs-params">(vector&lt;Shape*&gt;&amp; v)</span>
 </span>{
     for_each(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),[](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); });
 }
@@ -1193,7 +1214,7 @@ lambda表达式轻而易举化解了二者写法的差异。</p>
 <h3 id="13.8.2">13.8.2 <code>mem_fn()</code> </h3>
 <p>给定一个成员函数，函数适配器<code>mem_fn(mf)</code>输出一个可按非成员函数调用的函数对象。
 例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw_all</span><span class="hljs-params">(vector&lt;Shape*&gt;&amp; v)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">draw_all</span><span class="hljs-params">(vector&lt;Shape*&gt;&amp; v)</span>
 </span>{
     for_each(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),<span class="hljs-built_in">mem_fn</span>(&amp;Shape::draw));
 }
@@ -1203,10 +1224,10 @@ lambda表达式轻而易举化解了二者写法的差异。</p>
 <h3 id="13.8.3">13.8.3 <code>function</code> </h3>
 <p>标准库的<code>function</code>是个可持有任何对象并通过调用操作符<code>()</code>调用的类型。
 就是说，一个<code>function</code>类型的对象是个函数对象（§6.3.2）。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">f1</span><span class="hljs-params">(<span class="hljs-keyword">double</span>)</span></span>;
-function&lt;<span class="hljs-built_in"><span class="hljs-keyword">int</span></span>(<span class="hljs-keyword">double</span>)&gt; fct1 {f1};                <span class="hljs-comment">// 初始化为 f1</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">f1</span><span class="hljs-params">(<span class="hljs-type">double</span>)</span></span>;
+function&lt;<span class="hljs-type">int</span>(<span class="hljs-type">double</span>)&gt; fct1 {f1};                <span class="hljs-comment">// 初始化为 f1</span>
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">f2</span><span class="hljs-params">(string)</span></span>;
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">f2</span><span class="hljs-params">(string)</span></span>;
 function fct2 {f2};                             <span class="hljs-comment">// fct2 的类型是 function&lt;int(string)&gt;</span>
 
 function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); };    <span class="hljs-comment">// fct3 的类型是 function&lt;void(Shape*)&gt;</span>
@@ -1225,10 +1246,10 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 能从语言本身、标准库以及普通代码中博采众长。</p>
 <p>对于数值类型，<code>&lt;limits&gt;</code>中的<code>numeric_limits</code>提供了诸多有用的信息（§14.7）。
 例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">float</span> min = numeric_limits&lt;<span class="hljs-keyword">float</span>&gt;::<span class="hljs-built_in">min</span>(); <span class="hljs-comment">// 最小的正浮点数</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">float</span> min = numeric_limits&lt;<span class="hljs-type">float</span>&gt;::<span class="hljs-built_in">min</span>(); <span class="hljs-comment">// 最小的正浮点数</span>
 </code></pre>
 <p>同样的，对象容量可以通过内建的<code>sizeof</code>运算符（§1.4）获取。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> szi = <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(<span class="hljs-keyword">int</span>);    <span class="hljs-comment">// int的字节数</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> szi = <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>);    <span class="hljs-comment">// int的字节数</span>
 </code></pre>
 <p>这些类型函数是C++编译期计算机制的一部分，跟其它方式相比，
 它们提供了更严格的类型检查和更好的性能。
@@ -1251,7 +1272,7 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 <p>标准库提供了一个名为<code>iterator_traits</code>的机制，可以对迭代器进行检查。
 有了它，就可以改进 §12.8 中的 区间<code>sort()</code>，
 使之同时接受<code>vector</code>和<code>forward_list</code>。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">(vector&lt;string&gt;&amp; v, forward_list&lt;<span class="hljs-keyword">int</span>&gt;&amp; lst)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test</span><span class="hljs-params">(vector&lt;string&gt;&amp; v, forward_list&lt;<span class="hljs-type">int</span>&gt;&amp; lst)</span>
 </span>{
     <span class="hljs-built_in">sort</span>(v);    <span class="hljs-comment">// 排序vector</span>
     <span class="hljs-built_in">sort</span>(lst);  <span class="hljs-comment">// 排序单链表</span>
@@ -1263,14 +1284,14 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 以标示当前用于随机访问迭代器还是前向迭代器。
 接收随机访问迭代器的版本无关紧要：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Ran&gt;                                          <span class="hljs-comment">// 用于随机访问迭代器</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sort_helper</span><span class="hljs-params">(Ran beg, Ran end, random_access_iterator_tag)</span>  <span class="hljs-comment">// 可在[beg:end)范围内取下标</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sort_helper</span><span class="hljs-params">(Ran beg, Ran end, random_access_iterator_tag)</span>  <span class="hljs-comment">// 可在[beg:end)范围内取下标</span>
 </span>{
     <span class="hljs-built_in">sort</span>(beg,end);  <span class="hljs-comment">// 直接排序</span>
 }
 </code></pre>
 <p>前向迭代器的版本仅仅将列表复制进<code>vector</code>、排序，然后复制回去：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> For&gt;                                      <span class="hljs-comment">// 用于前向迭代器</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sort_helper</span><span class="hljs-params">(For beg, For end, forward_iterator_tag)</span>    <span class="hljs-comment">// 可在[beg:end)范围内遍历</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sort_helper</span><span class="hljs-params">(For beg, For end, forward_iterator_tag)</span>    <span class="hljs-comment">// 可在[beg:end)范围内遍历</span>
 </span>{
     vector&lt;Value_type&lt;For&gt;&gt; v {beg,end};    <span class="hljs-comment">// 用[beg:end)初始化一个vector</span>
     <span class="hljs-built_in">sort</span>(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>());                <span class="hljs-comment">// 利用随机访问进行排序</span>
@@ -1285,7 +1306,7 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 </code></pre>
 <p>这样，对于<code>vector&lt;X&gt;</code>而言，<code>Value_type&lt;X&gt;</code>就是<code>X</code>。</p>
 <p>真正的“类型魔法”在辅助函数的选择上：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> C&gt; <span class="hljs-keyword">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(C&amp; c)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> C&gt; <span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(C&amp; c)</span>
 </span>{
     <span class="hljs-keyword">using</span> Iter = Iterator_type&lt;C&gt;;
     <span class="hljs-built_in">sort_helper</span>(c.<span class="hljs-built_in">begin</span>(),c.<span class="hljs-built_in">end</span>(),Iterator_category&lt;Iter&gt;{});
@@ -1309,9 +1330,9 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 标准库对标签分发的支持就要以<code>&lt;iterator&gt;</code>中的<code>iterator_traits</code>形式出现。
 为指针所做的特化会是这样：</p>
 <p><a class="en-page-number" id="183"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt;</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">iterator_traits</span>&lt;</span>T*&gt; {
-    <span class="hljs-keyword">using</span> difference_type = <span class="hljs-keyword">ptrdiff_t</span>;
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">iterator_traits</span>&lt;T*&gt; {
+    <span class="hljs-keyword">using</span> difference_type = <span class="hljs-type">ptrdiff_t</span>;
     <span class="hljs-keyword">using</span> value_type = T;
     <span class="hljs-keyword">using</span> pointer = T*;
     <span class="hljs-keyword">using</span> reference = T&amp;;
@@ -1327,10 +1348,10 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 <p>由于概束（§7.2）的出现，许多 trait 和基于 trait 的技术都变得多余了。
 琢磨一下<code>sort()</code>这个概束版本的例子：</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;RandomAccessIterator Iter&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(Iter p, Iter q)</span></span>; <span class="hljs-comment">// 用于 std::vector 和其它支持随机访问的类型</span>
+<span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(Iter p, Iter q)</span></span>; <span class="hljs-comment">// 用于 std::vector 和其它支持随机访问的类型</span>
 
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;ForwardIterator Iter&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(Iter p, Iter q)</span>
+<span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(Iter p, Iter q)</span>
     <span class="hljs-comment">// 用于 std::list 和其它仅支持前向遍历的类型</span>
 </span>{
     vector&lt;Value_type&lt;Iter&gt;&gt; v {p,q};
@@ -1338,7 +1359,7 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
     <span class="hljs-built_in">copy</span>(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),p);
 }
 
-<span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Range R&gt; <span class="hljs-keyword">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(R&amp; r)</span>
+<span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Range R&gt; <span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(R&amp; r)</span>
 </span>{
     <span class="hljs-built_in">sort</span>(r.<span class="hljs-built_in">begin</span>(),r.<span class="hljs-built_in">end</span>());    <span class="hljs-comment">// 以适宜的方式排序</span>
 }
@@ -1348,28 +1369,28 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 <p>标准库在<code>&lt;type_trait&gt;</code>里面提供了简单的类型函数，
 被称为<em>类型谓词（type predicates）</em>，
 为有关类型的一些基本问题提供应答。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> b1 = std::is_arithmetic&lt;<span class="hljs-keyword">int</span>&gt;();    <span class="hljs-comment">// 是，int是个算数类型</span>
-<span class="hljs-keyword">bool</span> b2 = std::is_arithmetic&lt;string&gt;(); <span class="hljs-comment">// 否，std::string 不是算数类型</span>
+<pre><code class="lang-cpp"><span class="hljs-type">bool</span> b1 = std::<span class="hljs-built_in">is_arithmetic</span>&lt;<span class="hljs-type">int</span>&gt;();    <span class="hljs-comment">// 是，int是个算数类型</span>
+<span class="hljs-type">bool</span> b2 = std::<span class="hljs-built_in">is_arithmetic</span>&lt;string&gt;(); <span class="hljs-comment">// 否，std::string 不是算数类型</span>
 </code></pre>
 <p>其它范例包括<code>is_class</code>、<code>is_pod</code>、<code>is_literal_type</code>、
 <code>has_virtual_destructor</code>，以及<code>is_base_of</code>。
 它们主要在编写模板的时候发挥作用。例如：</p>
 <p><a class="en-page-number" id="184"></a></p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Scalar&gt;
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">complex</span> {</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">complex</span> {
     Scalar re, im;
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(is_arithmetic&lt;Scalar&gt;(), <span class="hljs-string">&quot;Sorry, I only support complex of arithmetic types&quot;</span>);
+    <span class="hljs-built_in">static_assert</span>(<span class="hljs-built_in">is_arithmetic</span>&lt;Scalar&gt;(), <span class="hljs-string">&quot;Sorry, I only support complex of arithmetic types&quot;</span>);
     <span class="hljs-comment">// ...</span>
 };
 </code></pre>
 <p>为提高可读性，标准库定义了模板别名。例如：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
-    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">bool</span> is_arithmetic_v = std::is_arithmetic&lt;T&gt;();
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-type">bool</span> is_arithmetic_v = std::<span class="hljs-built_in">is_arithmetic</span>&lt;T&gt;();
 </code></pre>
 <p>我对<code>_v</code>后缀的写法不以为然，但这个定义别名的技术却大有作为。
 例如，标准库这样定义概束<code>Regular</code>（§12.7）：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt;</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;
     <span class="hljs-keyword">concept</span> Regular = Semiregular&lt;T&gt; &amp;&amp; EqualityComparable&lt;T&gt;;
 </code></pre>
 <h3 id="13.9.3">13.9.3 <code>enable_if</code> </h3>
@@ -1377,7 +1398,7 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 标准库的<code>enable_if</code>在 按需选择定义 方面应用广泛。
 考虑定义一个“智能指针”：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Smart_pointer</span> {</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Smart_pointer</span> {
     <span class="hljs-comment">// ...</span>
     T&amp; <span class="hljs-keyword">operator</span>*();
     T&amp; <span class="hljs-keyword">operator</span>-&gt;();    <span class="hljs-comment">// -&gt; 能且仅能在T是类的情况下正常工作</span>
@@ -1387,10 +1408,10 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 例如，<code>Smart_pointer&lt;vector&lt;T&gt;&gt;</code>就应该有<code>-&gt;</code>，
 而<code>Smart_pointer&lt;int&gt;</code>就不该有。</p>
 <p>这里没办法用编译期<code>if</code>，因为不在函数里。但可以这么写：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Smart_pointer</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">class</span> <span class="hljs-title class_">Smart_pointer</span> {
     <span class="hljs-comment">// ...</span>
     T&amp; <span class="hljs-keyword">operator</span>*();
-    std::enable_if&lt;is_class&lt;T&gt;(),T&amp;&gt; <span class="hljs-keyword">operator</span>-&gt;();  <span class="hljs-comment">// -&gt; 在且仅在T是类的情况下被定义</span>
+    std::enable_if&lt;<span class="hljs-built_in">is_class</span>&lt;T&gt;(),T&amp;&gt; <span class="hljs-keyword">operator</span>-&gt;();  <span class="hljs-comment">// -&gt; 在且仅在T是类的情况下被定义</span>
 };
 </code></pre>
 <p>如果<code>is_class&lt;T&gt;()</code>为<code>true</code>，<code>operator-&gt;()</code>的返回类型为<code>T&amp;</code>；
@@ -1443,6 +1464,27 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
 <sup>1</sup>. 此引言的出处略复杂，详情请见 <a href="https://quoteinvestigator.com/2010/06/11/time-you-enjoy/" target="_blank">https://quoteinvestigator.com/2010/06/11/time-you-enjoy/</a> ，译法取自网络。—— 译者注<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
 
+<script>console.log(window.location.pathname)</script>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = window.location.href;
+this.page.identifier = window.location.pathname;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://a-tour-of-cpp-2nd-cn.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank">comments powered by Disqus.</a></noscript>
                                 
     
 
@@ -1487,7 +1529,7 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":13,"title":"13 实用功能","level":"1.15","depth":1,"next":{"title":"14 数值","level":"1.16","depth":1,"path":"ch14.md","ref":"ch14.md","articles":[]},"previous":{"title":"12 算法","level":"1.14","depth":1,"path":"ch12.md","ref":"ch12.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch13.md","mtime":"2023-02-12T09:23:08.805Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":13,"title":"13 实用功能","level":"1.15","depth":1,"next":{"title":"14 数值","level":"1.16","depth":1,"path":"ch14.md","ref":"ch14.md","articles":[]},"previous":{"title":"12 算法","level":"1.14","depth":1,"path":"ch12.md","ref":"ch12.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch13.md","mtime":"2023-02-12T09:23:08.805Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1539,6 +1581,22 @@ function fct3 = [](Shape* p) { p-&gt;<span class="hljs-built_in">draw</span>(); 
     </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

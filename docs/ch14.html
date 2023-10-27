@@ -1,13 +1,13 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>14 数值 · HonKit</title>
+        <title>14 数值 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.6.23">
-        
+        <meta name="generator" content="HonKit 5.1.1">
+        <meta name="author" content="Windsting">
         
         
     
@@ -16,7 +16,19 @@
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
                 
             
                 
@@ -72,7 +84,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -83,7 +95,16 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://github.com/windsting/a-tour-of-cpp-2nd-cn" target="_blank" class="custom-link">Github Link</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -344,7 +365,7 @@
 
     <li>
         <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
-            Published with HonKit
+            本书使用 HonKit 发布
         </a>
     </li>
 </ul>
@@ -488,7 +509,7 @@
 以上函数的返回值类型与参数相同。</p>
 <p>错误报告的方式是将<code>errno</code>设置为<code>&lt;cerrno&gt;</code>中的值，
 定义域超出范围设为<code>EDOM</code>，值域超出范围设为<code>ERANGE</code>。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
 </span>{
     errno = <span class="hljs-number">0</span>; <span class="hljs-comment">// 清除错误状态</span>
     <span class="hljs-built_in">sqrt</span>(<span class="hljs-number">-1</span>);
@@ -496,7 +517,7 @@
         cerr &lt;&lt; <span class="hljs-string">&quot;sqrt() not defined for negative argument&quot;</span>;
 
     errno = <span class="hljs-number">0</span>; <span class="hljs-comment">// 清除错误状态</span>
-    <span class="hljs-built_in">pow</span>(numeric_limits&lt;<span class="hljs-keyword">double</span>&gt;::<span class="hljs-built_in">max</span>(),<span class="hljs-number">2</span>);
+    <span class="hljs-built_in">pow</span>(numeric_limits&lt;<span class="hljs-type">double</span>&gt;::<span class="hljs-built_in">max</span>(),<span class="hljs-number">2</span>);
     <span class="hljs-keyword">if</span> (errno == ERANGE)
         cerr &lt;&lt; <span class="hljs-string">&quot;result of pow() too large to represent as a double&quot;</span>;
 }
@@ -587,7 +608,7 @@
 <p>这些算法泛化了常见运算，比如求和运算被应用到所有类型的元素序列上了。
 也把应用在元素序列上的操作参数化了。
 对于每个算法，最常规的版本是将常规运算代入到通用版本得到的。例如：</p>
-<pre><code class="lang-cpp">list&lt;<span class="hljs-keyword">double</span>&gt; lst {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9999.99999</span>};
+<pre><code class="lang-cpp">list&lt;<span class="hljs-type">double</span>&gt; lst {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9999.99999</span>};
 <span class="hljs-keyword">auto</span> s = <span class="hljs-built_in">accumulate</span>(lst.<span class="hljs-built_in">begin</span>(),lst.<span class="hljs-built_in">end</span>(),<span class="hljs-number">0.0</span>); <span class="hljs-comment">// 求和得到：10014.9999</span>
 </code></pre>
 <p>这些算法适用于标准库中的所有元素序列，可以将操作以参数的形式传入
@@ -667,10 +688,10 @@
 <p>为简化叙述，此处没有提及那些采用仿函数参数替代<code>+</code>和<code>=</code>算法版本。
 除<code>reduce()</code>意外，采用默认（顺序）执行策略和缺省值的版本也未提及。</p>
 <p>此处的算法和<code>&lt;algorithm&gt;</code>里的并行算法一样，可以指定执行策略：</p>
-<pre><code class="lang-cpp">vector&lt;<span class="hljs-keyword">double</span>&gt; v {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9999.99999</span>};
+<pre><code class="lang-cpp">vector&lt;<span class="hljs-type">double</span>&gt; v {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9999.99999</span>};
 <span class="hljs-keyword">auto</span> s = <span class="hljs-built_in">reduce</span>(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>());     <span class="hljs-comment">// 以double的默认值为初值累加求和</span>
 
-vector&lt;<span class="hljs-keyword">double</span>&gt; large;
+vector&lt;<span class="hljs-type">double</span>&gt; large;
 <span class="hljs-comment">// ... 以大量的值填充large ...</span>
 <span class="hljs-keyword">auto</span> s2 = <span class="hljs-built_in">reduce</span>(par_unseq,large.<span class="hljs-built_in">begin</span>(),large.<span class="hljs-built_in">end</span>());  <span class="hljs-comment">// 求和，并行策略可用则用，不可用就顺序执行</span>
 </code></pre>
@@ -681,16 +702,16 @@ vector&lt;<span class="hljs-keyword">double</span>&gt; large;
 为了让其中的标量能支持单精度浮点数（<code>float</code>）、双精度浮点数（<code>double</code>）等类型，
 标准库的<code>complex</code>是个模板：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Scalar&gt;
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">complex</span> {</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">complex</span> {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">complex</span>(<span class="hljs-keyword">const</span> Scalar&amp; re ={}, <span class="hljs-keyword">const</span> Scalar&amp; im ={});    <span class="hljs-comment">// 函数参数缺省值；参见 §3.6.1</span>
+    <span class="hljs-built_in">complex</span>(<span class="hljs-type">const</span> Scalar&amp; re ={}, <span class="hljs-type">const</span> Scalar&amp; im ={});    <span class="hljs-comment">// 函数参数缺省值；参见 §3.6.1</span>
     <span class="hljs-comment">// ...</span>
 };
 </code></pre>
 <p>复数支持常见的算术操作和大多数的数学函数。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(complex&lt;<span class="hljs-keyword">float</span>&gt; fl, complex&lt;<span class="hljs-keyword">double</span>&gt; db)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(complex&lt;<span class="hljs-type">float</span>&gt; fl, complex&lt;<span class="hljs-type">double</span>&gt; db)</span>
 </span>{
-    complex&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span>&gt; ld {fl+<span class="hljs-built_in">sqrt</span>(db)};
+    complex&lt;<span class="hljs-type">long</span> <span class="hljs-type">double</span>&gt; ld {fl+<span class="hljs-built_in">sqrt</span>(db)};
     db += fl*<span class="hljs-number">3</span>;
     fl = <span class="hljs-built_in">pow</span>(<span class="hljs-number">1</span>/fl,<span class="hljs-number">2</span>);
     <span class="hljs-comment">// ...</span>
@@ -717,7 +738,7 @@ my_engine re {};                                    <span class="hljs-comment">/
 my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs-number">6</span>};                   <span class="hljs-comment">// 映射到整数 1..6 的分布器</span>
 <span class="hljs-keyword">auto</span> die = [](){ <span class="hljs-keyword">return</span> <span class="hljs-built_in">one_to_six</span>(re); }           <span class="hljs-comment">// 创建一个随机数生成器</span>
 
-<span class="hljs-keyword">int</span> x = <span class="hljs-built_in">die</span>();                                      <span class="hljs-comment">// 掷骰子：x的值在闭区间[1:6]内</span>
+<span class="hljs-type">int</span> x = <span class="hljs-built_in">die</span>();                                      <span class="hljs-comment">// 掷骰子：x的值在闭区间[1:6]内</span>
 </code></pre>
 <p>出于对标准库中随机数组件通用性和性能的持续关注，
 一位专家称其为“每个随机数程序库成长的榜样”。
@@ -726,15 +747,15 @@ my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs
 <p>对于（任何背景的）新手而言，随机数程序库那个完整的通用接口绝对是个大坑。
 一个简洁统一的随机数生成器往往就足以起步了。例如：</p>
 <pre><code class="lang-cpp">Rand_int rnd {<span class="hljs-number">1</span>,<span class="hljs-number">10</span>};    <span class="hljs-comment">// 创建一个[1:10]之间的随机数生成器</span>
-<span class="hljs-keyword">int</span> x = <span class="hljs-built_in">rnd</span>();          <span class="hljs-comment">// x是闭区间[1:10]内的一个值</span>
+<span class="hljs-type">int</span> x = <span class="hljs-built_in">rnd</span>();          <span class="hljs-comment">// x是闭区间[1:10]内的一个值</span>
 </code></pre>
 <p>但到哪儿去找这个东西呢？我们得弄个跟<code>die()</code>差不多的东西，
 把引擎和分布器撮合起来，装进一个<code>Rand_int</code>类：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rand_int</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Rand_int</span> {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">Rand_int</span>(<span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> high) :dist{low,high} { }
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(re); }       <span class="hljs-comment">// 抽一个 int</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">seed</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s)</span> </span>{ re.<span class="hljs-built_in">seed</span>(s); }            <span class="hljs-comment">// 设置新的随机数引擎种子</span>
+    <span class="hljs-built_in">Rand_int</span>(<span class="hljs-type">int</span> low, <span class="hljs-type">int</span> high) :dist{low,high} { }
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(re); }       <span class="hljs-comment">// 抽一个 int</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">seed</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>{ re.<span class="hljs-built_in">seed</span>(s); }            <span class="hljs-comment">// 设置新的随机数引擎种子</span>
 <span class="hljs-keyword">private</span>:
     default_random_engine re;
     uniform_int_distribution&lt;&gt; dist;
@@ -743,18 +764,18 @@ my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs
 <p>这个定义仍然是“专家级”的，但是<code>Rand_int()</code>的<em>使用</em>，
 学习C++第一周的新手就可以轻松掌握了。例如：</p>
 <p><a class="en-page-number" id="192"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> max = <span class="hljs-number">9</span>;
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> max = <span class="hljs-number">9</span>;
     Rand_int rnd {<span class="hljs-number">0</span>,max};           <span class="hljs-comment">// 创建一个统一的随机数生成器</span>
 
-    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">histogram</span><span class="hljs-params">(max+<span class="hljs-number">1</span>)</span></span>;   <span class="hljs-comment">// 创建一个容量合适的vector</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=<span class="hljs-number">200</span>; ++i)
+    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">histogram</span><span class="hljs-params">(max+<span class="hljs-number">1</span>)</span></span>;   <span class="hljs-comment">// 创建一个容量合适的vector</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=<span class="hljs-number">200</span>; ++i)
         ++histogram[<span class="hljs-built_in">rnd</span>()];         <span class="hljs-comment">// 以[0:max]之间的数字作为频率填充直方图</span>
 
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i!=histogram.<span class="hljs-built_in">size</span>(); ++i) { <span class="hljs-comment">// 绘制柱状图</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i!=histogram.<span class="hljs-built_in">size</span>(); ++i) { <span class="hljs-comment">// 绘制柱状图</span>
         cout &lt;&lt; i &lt;&lt; <span class="hljs-string">&apos;\t&apos;</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>; j!=histogram[i]; ++j) cout &lt;&lt; <span class="hljs-string">&apos;*&apos;</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>; j!=histogram[i]; ++j) cout &lt;&lt; <span class="hljs-string">&apos;*&apos;</span>;
         cout &lt;&lt; endl;
     }
 }
@@ -783,18 +804,18 @@ my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs
 因此，标准库（在<code>&lt;valarray&gt;</code>中）提供了一个类似<code>vector</code>的模板，
 被称为<code>valarray</code>，它的通用性不济，但在数值计算所需的优化方面却精益求精：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">valarray</span> {</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">valarray</span> {
     <span class="hljs-comment">// ...</span>
 };
 </code></pre>
 <p><code>valarray</code>支持常见的算术运算和大多数的数学函数，例如：</p>
 <p><a class="en-page-number" id="193"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(valarray&lt;<span class="hljs-keyword">double</span>&gt;&amp; a1, valarray&lt;<span class="hljs-keyword">double</span>&gt;&amp; a2)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(valarray&lt;<span class="hljs-type">double</span>&gt;&amp; a1, valarray&lt;<span class="hljs-type">double</span>&gt;&amp; a2)</span>
 </span>{
-    valarray&lt;<span class="hljs-keyword">double</span>&gt; a = a1*<span class="hljs-number">3.14</span>+a2/a1;         <span class="hljs-comment">// 数值数组运算符 *、+、/、和=</span>
+    valarray&lt;<span class="hljs-type">double</span>&gt; a = a1*<span class="hljs-number">3.14</span>+a2/a1;         <span class="hljs-comment">// 数值数组运算符 *、+、/、和=</span>
     a2 += a1*<span class="hljs-number">3.14</span>;
     a = <span class="hljs-built_in">abs</span>(a);
-    <span class="hljs-keyword">double</span> d = a2[<span class="hljs-number">7</span>];
+    <span class="hljs-type">double</span> d = a2[<span class="hljs-number">7</span>];
     <span class="hljs-comment">// ...</span>
 }
 </code></pre>
@@ -803,8 +824,8 @@ my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs
 <p>标准库在<code>&lt;limits&gt;</code>中提供了一些类，用于描述内建类型的属性——
 比如<code>float</code>指数部分的最大值，或者每个<code>int</code>的字节数。
 比如说，可以断言<code>char</code>是有符号的：</p>
-<pre><code class="lang-cpp"><span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(numeric_limits&lt;<span class="hljs-keyword">char</span>&gt;::is_signed,<span class="hljs-string">&quot;unsigned characters!&quot;</span>);
-<span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(<span class="hljs-number">100000</span>&lt;numeric_limits&lt;<span class="hljs-keyword">int</span>&gt;::<span class="hljs-built_in">max</span>(),<span class="hljs-string">&quot;small ints!&quot;</span>);
+<pre><code class="lang-cpp"><span class="hljs-built_in">static_assert</span>(numeric_limits&lt;<span class="hljs-type">char</span>&gt;::is_signed,<span class="hljs-string">&quot;unsigned characters!&quot;</span>);
+<span class="hljs-built_in">static_assert</span>(<span class="hljs-number">100000</span>&lt;numeric_limits&lt;<span class="hljs-type">int</span>&gt;::<span class="hljs-built_in">max</span>(),<span class="hljs-string">&quot;small ints!&quot;</span>);
 </code></pre>
 <p>请留意，第二个断言能够运行的原因，来（且仅来）自于
 <code>numeric_limits&lt;int&gt;::max()</code>是个<code>constexpr</code>函数（§1.6）这一事实。</p>
@@ -832,6 +853,27 @@ my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs
 <sup>2</sup>. Anthony Ralston 简介见 <a href="https://history.computer.org/pioneers/ralston.html" target="_blank">https://history.computer.org/pioneers/ralston.html</a> —— 译者注<a href="#reffn_2" title="Jump back to footnote [2] in the text."> ↩</a>
 </blockquote>
 
+<script>console.log(window.location.pathname)</script>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = window.location.href;
+this.page.identifier = window.location.pathname;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://a-tour-of-cpp-2nd-cn.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank">comments powered by Disqus.</a></noscript>
                                 
     
 
@@ -876,7 +918,7 @@ my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":14,"title":"14 数值","level":"1.16","depth":1,"next":{"title":"15 并发","level":"1.17","depth":1,"path":"ch15.md","ref":"ch15.md","articles":[]},"previous":{"title":"13 实用功能","level":"1.15","depth":1,"path":"ch13.md","ref":"ch13.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch14.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":14,"title":"14 数值","level":"1.16","depth":1,"next":{"title":"15 并发","level":"1.17","depth":1,"path":"ch15.md","ref":"ch15.md","articles":[]},"previous":{"title":"13 实用功能","level":"1.15","depth":1,"path":"ch13.md","ref":"ch13.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch14.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -928,6 +970,22 @@ my_distribution one_to_six {<span class="hljs-number">1</span>,<span class="hljs
     </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

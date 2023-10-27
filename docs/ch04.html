@@ -1,13 +1,13 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>4 类 · HonKit</title>
+        <title>4 类 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.6.23">
-        
+        <meta name="generator" content="HonKit 5.1.1">
+        <meta name="author" content="Windsting">
         
         
     
@@ -16,7 +16,19 @@
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
                 
             
                 
@@ -72,7 +84,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -83,7 +95,16 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://github.com/windsting/a-tour-of-cpp-2nd-cn" target="_blank" class="custom-link">Github Link</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -344,7 +365,7 @@
 
     <li>
         <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
-            Published with HonKit
+            本书使用 HonKit 发布
         </a>
     </li>
 </ul>
@@ -465,17 +486,17 @@
 它们可以被视为具有精心打造接口的资源操控器（resource handle）。</p>
 <h3 id="4.2.1">4.2.1 算术类型 </h3>
 <p>“经典的用户定义算术类型”是<code>complex</code>：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">complex</span> {</span>
-    <span class="hljs-keyword">double</span> re, im;      <span class="hljs-comment">// 表征数据：两个double</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">complex</span> {
+    <span class="hljs-type">double</span> re, im;      <span class="hljs-comment">// 表征数据：两个double</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">complex</span>(<span class="hljs-keyword">double</span> r, <span class="hljs-keyword">double</span> i) :re{r}, im{i} {}    <span class="hljs-comment">// 用两个标量构造complex</span>
-    <span class="hljs-built_in">complex</span>(<span class="hljs-keyword">double</span> r) :re{r}, im{<span class="hljs-number">0</span>} {}              <span class="hljs-comment">// 用一个标量构造complex</span>
+    <span class="hljs-built_in">complex</span>(<span class="hljs-type">double</span> r, <span class="hljs-type">double</span> i) :re{r}, im{i} {}    <span class="hljs-comment">// 用两个标量构造complex</span>
+    <span class="hljs-built_in">complex</span>(<span class="hljs-type">double</span> r) :re{r}, im{<span class="hljs-number">0</span>} {}              <span class="hljs-comment">// 用一个标量构造complex</span>
     <span class="hljs-built_in">complex</span>() :re{<span class="hljs-number">0</span>}, im{<span class="hljs-number">0</span>} {}                      <span class="hljs-comment">// complex的默认值：{0,0}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">real</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> re; }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">real</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d)</span> </span>{ re=d; }
-    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">imag</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> im; }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">imag</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d)</span> </span>{ im=d; }
+    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">real</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> re; }
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">real</span><span class="hljs-params">(<span class="hljs-type">double</span> d)</span> </span>{ re=d; }
+    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">imag</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> im; }
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">imag</span><span class="hljs-params">(<span class="hljs-type">double</span> d)</span> </span>{ im=d; }
 
     complex&amp; <span class="hljs-keyword">operator</span>+=(complex z)
     {
@@ -514,10 +535,10 @@
 <code>const</code>成员函数既可以通过<code>const</code>对象也可以通过非<code>const</code>对象调用，
 但是非<code>const</code>成员函数只能通过非<code>const</code>对象调用。例如：</p>
 <pre><code class="lang-cpp">complex z = {<span class="hljs-number">1</span>,<span class="hljs-number">0</span>};
-<span class="hljs-keyword">const</span> complex cz {<span class="hljs-number">1</span>,<span class="hljs-number">3</span>};
+<span class="hljs-type">const</span> complex cz {<span class="hljs-number">1</span>,<span class="hljs-number">3</span>};
 z = cz;                 <span class="hljs-comment">// OK：赋值给非const变量</span>
 cz = z;                 <span class="hljs-comment">// 错误：complex::operator=()是个非const成员函数</span>
-<span class="hljs-keyword">double</span> x = z.<span class="hljs-built_in">real</span>();    <span class="hljs-comment">// OK: complex::real() 是个const成员函数</span>
+<span class="hljs-type">double</span> x = z.<span class="hljs-built_in">real</span>();    <span class="hljs-comment">// OK: complex::real() 是个const成员函数</span>
 </code></pre>
 <p>很多有用的运算无需直接访问<code>complex</code>的表征数据，因此可以与类定义分开：</p>
 <pre><code class="lang-cpp">complex <span class="hljs-keyword">operator</span>+(complex a, complex b) { <span class="hljs-keyword">return</span> a+=b; }
@@ -529,11 +550,11 @@ complex <span class="hljs-keyword">operator</span>/(complex a, complex b) { <spa
 <p>这个例子利用了参数传值的特性，因此修改参数不会影响调用者（作为参数）使用的变量，
 还可以把结果用作返回值。</p>
 <p><code>==</code>和<code>!=</code>就很直白了：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>==(complex a, complex b)   <span class="hljs-comment">// 相等</span>
+<pre><code class="lang-cpp"><span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(complex a, complex b)   <span class="hljs-comment">// 相等</span>
 {
     <span class="hljs-keyword">return</span> a.<span class="hljs-built_in">real</span>()==b.<span class="hljs-built_in">real</span>() &amp;&amp; a.<span class="hljs-built_in">imag</span>()==b.<span class="hljs-built_in">imag</span>();
 }
-<span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>!=(complex a, complex b)   <span class="hljs-comment">// 不等</span>
+<span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>!=(complex a, complex b)   <span class="hljs-comment">// 不等</span>
 {
     <span class="hljs-keyword">return</span> !(a==b);
 }
@@ -541,7 +562,7 @@ complex <span class="hljs-keyword">operator</span>/(complex a, complex b) { <spa
 <span class="hljs-comment">// ...</span>
 </code></pre>
 <p><code>complex</code>类可以这样用：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(complex z)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(complex z)</span>
 </span>{
     complex a {<span class="hljs-number">2.3</span>};    <span class="hljs-comment">// 从 2.3 构造出 {2.3,0.0}</span>
     complex b {<span class="hljs-number">1</span>/a};
@@ -572,21 +593,21 @@ complex <span class="hljs-keyword">operator</span>/(complex a, complex b) { <spa
 出于逻辑和性能原因，你倾向于更精细地控制销毁行为。
 我们需要一个机制确保把构造函数分配的内存释放掉；
 这个机制就是<em>析构函数（destructor）</em>：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Vector</span> {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">Vector</span>(<span class="hljs-keyword">int</span> s) :elem{<span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[s]}, sz{s}   <span class="hljs-comment">// 构造函数：申请资源</span>
+    <span class="hljs-built_in">Vector</span>(<span class="hljs-type">int</span> s) :elem{<span class="hljs-keyword">new</span> <span class="hljs-type">double</span>[s]}, sz{s}   <span class="hljs-comment">// 构造函数：申请资源</span>
     {
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)    <span class="hljs-comment">// 初始化元素</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)    <span class="hljs-comment">// 初始化元素</span>
             elem[i]=<span class="hljs-number">0</span>;
     }
 
     ~<span class="hljs-built_in">Vector</span>() { <span class="hljs-keyword">delete</span>[] elem; }    <span class="hljs-comment">// 析构函数：释放资源</span>
 
-    <span class="hljs-keyword">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i);
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+    <span class="hljs-type">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-type">int</span> i);
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>;
 <span class="hljs-keyword">private</span>:
-    <span class="hljs-keyword">double</span>* elem;   <span class="hljs-comment">// elem指向一个数组，该数组承载sz个double</span>
-    <span class="hljs-keyword">int</span> sz;
+    <span class="hljs-type">double</span>* elem;   <span class="hljs-comment">// elem指向一个数组，该数组承载sz个double</span>
+    <span class="hljs-type">int</span> sz;
 };
 </code></pre>
 <p>析构函数的名称是取补运算符<code>~</code>后跟类名；它跟构造函数互补。
@@ -597,7 +618,7 @@ complex <span class="hljs-keyword">operator</span>/(complex a, complex b) { <spa
 <p>这些操作都不会干涉到<code>Vector</code>用户。
 用户仅仅创建并使用<code>Vector</code>，就像对内置类型一样。例如：</p>
 <p><a class="en-page-number" id="52"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fct</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fct</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>
 </span>{
     <span class="hljs-function">Vector <span class="hljs-title">v</span><span class="hljs-params">(n)</span></span>;
     <span class="hljs-comment">// ... 使用 v ...</span>
@@ -635,11 +656,11 @@ complex <span class="hljs-keyword">operator</span>/(complex a, complex b) { <spa
 <li><code>push_back()</code>：在序列的末尾（之后）添加一个新元素。</li>
 </ul>
 <p>它们可以这样声明：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Vector</span> {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">Vector</span>(std::initializer_list&lt;<span class="hljs-keyword">double</span>&gt;);  <span class="hljs-comment">// 用一个double列表初始化</span>
+    <span class="hljs-built_in">Vector</span>(std::initializer_list&lt;<span class="hljs-type">double</span>&gt;);  <span class="hljs-comment">// 用一个double列表初始化</span>
     <span class="hljs-comment">// ...</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">push_back</span><span class="hljs-params">(<span class="hljs-keyword">double</span>)</span></span>;                 <span class="hljs-comment">// 在末尾新增元素，把容量加一</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_back</span><span class="hljs-params">(<span class="hljs-type">double</span>)</span></span>;                 <span class="hljs-comment">// 在末尾新增元素，把容量加一</span>
     <span class="hljs-comment">// ...</span>
 };
 </code></pre>
@@ -648,7 +669,7 @@ complex <span class="hljs-keyword">operator</span>/(complex a, complex b) { <spa
 <pre><code class="lang-cpp"><span class="hljs-function">Vector <span class="hljs-title">read</span><span class="hljs-params">(istream&amp; is)</span>
 </span>{
     Vector v;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">double</span> d; is&gt;&gt;d; )     <span class="hljs-comment">// read floating-point values into d</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> d; is&gt;&gt;d; )     <span class="hljs-comment">// read floating-point values into d</span>
         v.<span class="hljs-built_in">push_back</span>(d);         <span class="hljs-comment">// add d to v return v;</span>
 }
 </code></pre>
@@ -670,8 +691,8 @@ complex <span class="hljs-keyword">operator</span>/(complex a, complex b) { <spa
 Vector v2 = {<span class="hljs-number">1.23</span>, <span class="hljs-number">3.45</span>, <span class="hljs-number">6.7</span>, <span class="hljs-number">8</span>};   <span class="hljs-comment">// v2有4个元素</span>
 </code></pre>
 <p><code>Vector</code>的初始化列表构造函数可能长这样：</p>
-<pre><code class="lang-cpp">Vector::<span class="hljs-built_in">Vector</span>(std::initializer_list&lt;<span class="hljs-keyword">double</span>&gt; lst)   <span class="hljs-comment">// 用列表初始化</span>
-    :elem{<span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[lst.<span class="hljs-built_in">size</span>()]}, sz{<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(lst.<span class="hljs-built_in">size</span>())}
+<pre><code class="lang-cpp">Vector::<span class="hljs-built_in">Vector</span>(std::initializer_list&lt;<span class="hljs-type">double</span>&gt; lst)   <span class="hljs-comment">// 用列表初始化</span>
+    :elem{<span class="hljs-keyword">new</span> <span class="hljs-type">double</span>[lst.<span class="hljs-built_in">size</span>()]}, sz{<span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(lst.<span class="hljs-built_in">size</span>())}
 {
     <span class="hljs-built_in">copy</span>(lst.<span class="hljs-built_in">begin</span>(),lst.<span class="hljs-built_in">end</span>(),elem);       <span class="hljs-comment">// 从lst复制到elem(§12.6)</span>
 }
@@ -703,10 +724,10 @@ Vector v2 = {<span class="hljs-number">1.23</span>, <span class="hljs-number">3.
 就只能把它的对象分配在自由存储区(§4.2.2)，
 并通过引用或指针访问它们(§1.7, §13.2.1)。</p>
 <p>首先，我们定义<code>Container</code>类的接口，它将被设计成<code>Vector</code>更抽象的版本：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Container</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Container</span> {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span>) = <span class="hljs-number">0</span>;    <span class="hljs-comment">// 纯虚函数</span>
-    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>= <span class="hljs-number">0</span>;           <span class="hljs-comment">// const 成员函数 (§4.2.1)</span>
+    <span class="hljs-keyword">virtual</span> <span class="hljs-type">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-type">int</span>) = <span class="hljs-number">0</span>;    <span class="hljs-comment">// 纯虚函数</span>
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>= <span class="hljs-number">0</span>;           <span class="hljs-comment">// const 成员函数 (§4.2.1)</span>
     <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">Container</span>() {}                 <span class="hljs-comment">// 析构函数 (§4.2.2)</span>
 };
 </code></pre>
@@ -724,11 +745,11 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 服务于那些给<code>operator[]()</code>和<code>size()</code>函数提供了实现的类。
 带有虚函数的类被称为<em>抽象类（abstract class）</em>。</p>
 <p><code>Container</code>可以这样用：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">(Container&amp; c)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">use</span><span class="hljs-params">(Container&amp; c)</span>
 </span>{
-    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sz = c.<span class="hljs-built_in">size</span>();
+    <span class="hljs-type">const</span> <span class="hljs-type">int</span> sz = c.<span class="hljs-built_in">size</span>();
 
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=sz; ++i)
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=sz; ++i)
         cout &lt;&lt; c[i] &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
@@ -744,13 +765,13 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 <p>抽象类<code>Container</code>仅仅定义接口，没有实现。
 想让它发挥作用，就需要弄一个容器去实现它接口规定的那些函数。
 为此，可以使用一个实体类<code>Vector</code>:</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector_container</span> :</span> <span class="hljs-keyword">public</span> Container { <span class="hljs-comment">// Vector_container 实现了 Container</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Vector_container</span> : <span class="hljs-keyword">public</span> Container { <span class="hljs-comment">// Vector_container 实现了 Container</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">Vector_container</span>(<span class="hljs-keyword">int</span> s) : <span class="hljs-built_in">v</span>(s) { }      <span class="hljs-comment">// s个元素的Vector</span>
+    <span class="hljs-built_in">Vector_container</span>(<span class="hljs-type">int</span> s) : <span class="hljs-built_in">v</span>(s) { }      <span class="hljs-comment">// s个元素的Vector</span>
     ~<span class="hljs-built_in">Vector_container</span>() {}
 
-    <span class="hljs-keyword">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i) <span class="hljs-keyword">override</span> { <span class="hljs-keyword">return</span> v[i]; }
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">override</span> </span>{ <span class="hljs-keyword">return</span> v.<span class="hljs-built_in">size</span>(); }
+    <span class="hljs-type">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-type">int</span> i) <span class="hljs-keyword">override</span> { <span class="hljs-keyword">return</span> v[i]; }
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> <span class="hljs-keyword">override</span> </span>{ <span class="hljs-keyword">return</span> v.<span class="hljs-built_in">size</span>(); }
 <span class="hljs-keyword">private</span>:
     Vector v;
 };
@@ -774,7 +795,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 被该类的析构函数（<code>~Vector_container()</code>）隐式调用了。</p>
 <p>对于<code>use(Container&amp;)</code>这类函数，使用<code>Container</code>时不必了解其实现细节，
 其它函数要创建具体对象供它操作的。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">g</span><span class="hljs-params">()</span>
 </span>{
     <span class="hljs-function">Vector_container <span class="hljs-title">vc</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>; <span class="hljs-comment">// 十个元素的Vector</span>
     <span class="hljs-comment">// ... 填充 vc ...</span>
@@ -783,20 +804,20 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 </code></pre>
 <p>由于<code>use()</code>只了解<code>Container</code>接口而非<code>Vector_container</code>，
 它就可以对<code>Container</code>的其它实现同样有效。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">List_container</span> :</span> <span class="hljs-keyword">public</span> Container { <span class="hljs-comment">// List_container implements Container</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">List_container</span> : <span class="hljs-keyword">public</span> Container { <span class="hljs-comment">// List_container implements Container</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-built_in">List_container</span>() { }    <span class="hljs-comment">// empty List</span>
-    <span class="hljs-built_in">List_container</span>(initializer_list&lt;<span class="hljs-keyword">double</span>&gt; il) : ld{il} { }
+    <span class="hljs-built_in">List_container</span>(initializer_list&lt;<span class="hljs-type">double</span>&gt; il) : ld{il} { }
     ~<span class="hljs-built_in">List_container</span>() {}
 </code></pre>
 <p><a class="en-page-number" id="56"></a></p>
-<pre><code class="lang-cpp">    <span class="hljs-keyword">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i) <span class="hljs-keyword">override</span>;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">override</span> </span>{ <span class="hljs-keyword">return</span> ld.<span class="hljs-built_in">size</span>(); }
+<pre><code class="lang-cpp">    <span class="hljs-type">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-type">int</span> i) <span class="hljs-keyword">override</span>;
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> <span class="hljs-keyword">override</span> </span>{ <span class="hljs-keyword">return</span> ld.<span class="hljs-built_in">size</span>(); }
 <span class="hljs-keyword">private</span>:
-    std::list&lt;<span class="hljs-keyword">double</span>&gt; ld;   <span class="hljs-comment">// double类型的（标准库）列表 (§11.3)</span>
+    std::list&lt;<span class="hljs-type">double</span>&gt; ld;   <span class="hljs-comment">// double类型的（标准库）列表 (§11.3)</span>
 };
 
-<span class="hljs-keyword">double</span>&amp; List_container::<span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i)
+<span class="hljs-type">double</span>&amp; List_container::<span class="hljs-keyword">operator</span>[](<span class="hljs-type">int</span> i)
 {
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; x : ld) {
         <span class="hljs-keyword">if</span> (i==<span class="hljs-number">0</span>)
@@ -811,7 +832,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 因为<code>list</code>取下标操作的性能比<code>vector</code>差得一塌糊涂。
 但我在这里只是展示一个略有点偏激的实现。</p>
 <p>某函数可以创建一个<code>List_container</code>，然后让<code>use()</code>去使用它：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">h</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">h</span><span class="hljs-params">()</span>
 </span>{
     List_container lc = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span> };
     <span class="hljs-built_in">use</span>(lc);
@@ -826,11 +847,11 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 <p>与这种灵活性密不可分的是：必须通过指针或引用去操作对象(§5.2, §13.2.1)。</p>
 <h2 id="4.4">4.4 虚函数 </h2>
 <p>复习一下<code>Container</code>的用法：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">(Container&amp; c)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">use</span><span class="hljs-params">(Container&amp; c)</span>
 </span>{
-    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sz = c.<span class="hljs-built_in">size</span>();
+    <span class="hljs-type">const</span> <span class="hljs-type">int</span> sz = c.<span class="hljs-built_in">size</span>();
 
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=sz; ++i)
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=sz; ++i)
         cout &lt;&lt; c[i] &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
 }
 </code></pre>
@@ -863,13 +884,13 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 <p><a class="en-page-number" id="58"></a></p>
 <p>习惯上，类层次把最基础的类作为根，自上而下朝向派生（定义更晚）类生长。
 为了用代码表示这个简单的图示，就必须先声明一个类，以定义所有类型的通用属性：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Shape</span> {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">virtual</span> Point <span class="hljs-title">center</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>=<span class="hljs-number">0</span>;    <span class="hljs-comment">// 纯虚函数</span>
-    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">move</span><span class="hljs-params">(Point to)</span> </span>=<span class="hljs-number">0</span>;
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> Point <span class="hljs-title">center</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>=<span class="hljs-number">0</span>;    <span class="hljs-comment">// 纯虚函数</span>
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">move</span><span class="hljs-params">(Point to)</span> </span>=<span class="hljs-number">0</span>;
 
-    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>= <span class="hljs-number">0</span>;      <span class="hljs-comment">// 在“画布”上绘制</span>
-    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-keyword">int</span> angle)</span> </span>= <span class="hljs-number">0</span>;
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>= <span class="hljs-number">0</span>;      <span class="hljs-comment">// 在“画布”上绘制</span>
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-type">int</span> angle)</span> </span>= <span class="hljs-number">0</span>;
 
     <span class="hljs-keyword">virtual</span> ～<span class="hljs-built_in">Shape</span>() {}                <span class="hljs-comment">// 析构函数</span>
     <span class="hljs-comment">// ...</span>
@@ -878,55 +899,55 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 <p>自然而然的，此接口是个抽象类：就表征数据而言，各种<code>Shape</code>之间
 （除指向<code>vtbl</code>位置的指针之外）<em>毫无（nothing）</em>共通之处。
 根据这个定义，可以写一个通用的函数操纵一个vector，其中的元素是指向图形的指针：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rotate_all</span><span class="hljs-params">(vector&lt;Shape*&gt;&amp; v, <span class="hljs-keyword">int</span> angle)</span>   <span class="hljs-comment">// 把v的元素旋转给定角度</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">rotate_all</span><span class="hljs-params">(vector&lt;Shape*&gt;&amp; v, <span class="hljs-type">int</span> angle)</span>   <span class="hljs-comment">// 把v的元素旋转给定角度</span>
 </span>{
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : v)
         p-&gt;<span class="hljs-built_in">rotate</span>(angle);
 }
 </code></pre>
 <p>要定义特定的图形，必须指明它是个<code>Shape</code>，定义它特有的属性（包括其虚函数）：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> :</span> <span class="hljs-keyword">public</span> Shape {
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Circle</span> : <span class="hljs-keyword">public</span> Shape {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">Circle</span>(Point p, <span class="hljs-keyword">int</span> rad);       <span class="hljs-comment">// 构造函数</span>
+    <span class="hljs-built_in">Circle</span>(Point p, <span class="hljs-type">int</span> rad);       <span class="hljs-comment">// 构造函数</span>
 
-    <span class="hljs-function">Point <span class="hljs-title">center</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">override</span>
+    <span class="hljs-function">Point <span class="hljs-title">center</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> <span class="hljs-keyword">override</span>
     </span>{
         <span class="hljs-keyword">return</span> x;
     }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">move</span><span class="hljs-params">(Point to)</span> <span class="hljs-keyword">override</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">move</span><span class="hljs-params">(Point to)</span> <span class="hljs-keyword">override</span>
     </span>{
         x = to;
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">override</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-keyword">int</span>)</span> <span class="hljs-keyword">override</span> </span>{}    <span class="hljs-comment">// 优美且简洁的算法</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> <span class="hljs-keyword">override</span></span>;
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-type">int</span>)</span> <span class="hljs-keyword">override</span> </span>{}    <span class="hljs-comment">// 优美且简洁的算法</span>
 <span class="hljs-keyword">private</span>:
     Point x;    <span class="hljs-comment">// 圆心</span>
-    <span class="hljs-keyword">int</span> r;      <span class="hljs-comment">// 半径</span>
+    <span class="hljs-type">int</span> r;      <span class="hljs-comment">// 半径</span>
 };
 </code></pre>
 <p>截至目前，<code>Shape</code>和<code>Circle</code>的例子跟<code>Container</code>相比还没有什么亮点，
 请接着往下看：</p>
 <p><a class="en-page-number" id="59"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Smiley</span> :</span> <span class="hljs-keyword">public</span> Circle {  <span class="hljs-comment">// 用圆圈作为笑脸的基类</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Smiley</span> : <span class="hljs-keyword">public</span> Circle {  <span class="hljs-comment">// 用圆圈作为笑脸的基类</span>
     <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">Smiley</span>(Point p, <span class="hljs-keyword">int</span> rad) : Circle{p,rad}, mouth{<span class="hljs-literal">nullptr</span>} { }
+    <span class="hljs-built_in">Smiley</span>(Point p, <span class="hljs-type">int</span> rad) : Circle{p,rad}, mouth{<span class="hljs-literal">nullptr</span>} { }
     ~<span class="hljs-built_in">Smiley</span>() {
         <span class="hljs-keyword">delete</span> mouth;
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : eyes)
             <span class="hljs-keyword">delete</span> p;
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">move</span><span class="hljs-params">(Point to)</span> <span class="hljs-keyword">override</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">override</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-keyword">int</span>)</span> <span class="hljs-keyword">override</span></span>;
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">move</span><span class="hljs-params">(Point to)</span> <span class="hljs-keyword">override</span></span>;
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> <span class="hljs-keyword">override</span></span>;
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-type">int</span>)</span> <span class="hljs-keyword">override</span></span>;
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add_eye</span><span class="hljs-params">(Shape* s)</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add_eye</span><span class="hljs-params">(Shape* s)</span>
     </span>{
         eyes.<span class="hljs-built_in">push_back</span>(s);
     }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_mouth</span><span class="hljs-params">(Shape* s)</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">wink</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>;   <span class="hljs-comment">// 让第i只眼做“飞眼”</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">set_mouth</span><span class="hljs-params">(Shape* s)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">wink</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span></span>;   <span class="hljs-comment">// 让第i只眼做“飞眼”</span>
     <span class="hljs-comment">// ...</span>
 <span class="hljs-keyword">private</span>:
     vector&lt;Shape*&gt; eyes;        <span class="hljs-comment">// 一般是两只眼睛</span>
@@ -937,7 +958,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 让它成为末尾的元素，并且把 vector 的容量增一。</p>
 <p>现在，可以利用<code>Smiley</code>的基类和成员函数<code>draw()</code>
 的调用来定义<code>Smiley::draw()</code>了：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Smiley::draw</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Smiley::draw</span><span class="hljs-params">()</span> <span class="hljs-type">const</span>
 </span>{
     Circle::<span class="hljs-built_in">draw</span>();
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : eyes)
@@ -978,13 +999,13 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 它们通常用<code>new</code>分配在自由存储区中，通过指针或引用访问它们。
 举个例子，有这么个函数，它从输入流读取描述图形的数据，
 然后构造对应的<code>Shape</code>对象：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Kind</span> {</span> circle, triangle, smiley };
+<pre><code class="lang-cpp"><span class="hljs-keyword">enum class</span> <span class="hljs-title class_">Kind</span> { circle, triangle, smiley };
 
 <span class="hljs-function">Shape* <span class="hljs-title">read_shape</span><span class="hljs-params">(istream&amp; is)</span>  <span class="hljs-comment">// 从输入流is读取图形描述</span>
 </span>{
     <span class="hljs-comment">// ... 从 is 读取图形概要信息，找到其类型（Kind） k ...</span>
 
-    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (k) {
+    <span class="hljs-keyword">switch</span> (k) {
     <span class="hljs-keyword">case</span> Kind::circle:
         <span class="hljs-comment">// 把圆圈的数据 {Point,int} 读取到p和r</span>
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Circle{p,r};
@@ -1003,7 +1024,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 </code></pre>
 <p>某个程序可以这样使用此图形读取器：</p>
 <p><a class="en-page-number" id="61"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
 </span>{
     std::vector&lt;Shape*&gt; v;
     <span class="hljs-keyword">while</span> (cin)
@@ -1040,7 +1061,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 “这个<code>Shape</code>对象是<code>Smiley</code>类型的吗？”：</p>
 <pre><code class="lang-cpp">Shape* ps {<span class="hljs-built_in">read_shape</span>(cin)};
 
-<span class="hljs-keyword">if</span> (Smiley* p = <span class="hljs-keyword">dynamic_cast</span>&lt;Smiley*&gt;(ps)) {    <span class="hljs-comment">// ... ps指向一个 Smiley 吗？ ...</span>
+<span class="hljs-keyword">if</span> (Smiley* p = <span class="hljs-built_in">dynamic_cast</span>&lt;Smiley*&gt;(ps)) {    <span class="hljs-comment">// ... ps指向一个 Smiley 吗？ ...</span>
     <span class="hljs-comment">// ... 是 Smiley；用它</span>
 }
 <span class="hljs-keyword">else</span> {
@@ -1056,7 +1077,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
 <p>如果其它类型不可接受，我们就直接把<code>dynamic_cast</code>用于引用类型。
 如果该对象不是期望的类型，<code>dynamic_cast</code>抛出一个<code>bad_cast</code>异常：</p>
 <pre><code class="lang-cpp">Shape* ps {<span class="hljs-built_in">read_shape</span>(cin)};
-Smiley&amp; r {<span class="hljs-keyword">dynamic_cast</span>&lt;Smiley&amp;&gt;(*ps)}; <span class="hljs-comment">// 某处可以捕捉到 std::bad_cast</span>
+Smiley&amp; r {<span class="hljs-built_in">dynamic_cast</span>&lt;Smiley&amp;&gt;(*ps)}; <span class="hljs-comment">// 某处可以捕捉到 std::bad_cast</span>
 </code></pre>
 <p>有节制地使用<code>dynamic_cast</code>可以让代码整洁。</p>
 <p><a class="en-page-number" id="62"></a></p>
@@ -1075,7 +1096,7 @@ Smiley&amp; r {<span class="hljs-keyword">dynamic_cast</span>&lt;Smiley&amp;&gt;
 </ul>
 <p>从这个意义上讲，指向自由存储区中对象的指针是危险的：
 “直白老旧的指针（plain old pointer）”不该用于表示所有权。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
 </span>{
     Shape* p = <span class="hljs-keyword">new</span> Circle{Point{<span class="hljs-number">0</span>,<span class="hljs-number">0</span>},<span class="hljs-number">10</span>};
     <span class="hljs-comment">// ...</span>
@@ -1089,7 +1110,7 @@ Smiley&amp; r {<span class="hljs-keyword">dynamic_cast</span>&lt;Smiley&amp;&gt;
 把<code>new</code>的结果赋值给“裸指针”就是自找麻烦。</p>
 <p>这类问题有一个简单的解决方案：在需要释放操作时，
 使用标准库的<code>unique_ptr</code>(§13.2.1) 而非“裸指针”：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Smiley</span> :</span> <span class="hljs-keyword">public</span> Circle {
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Smiley</span> : <span class="hljs-keyword">public</span> Circle {
     <span class="hljs-comment">// ...</span>
 <span class="hljs-keyword">private</span>:
     vector&lt;unique_ptr&lt;Shape&gt;&gt; eyes; <span class="hljs-comment">// 一般是两只眼睛</span>
@@ -1107,14 +1128,14 @@ Smiley&amp; r {<span class="hljs-keyword">dynamic_cast</span>&lt;Smiley&amp;&gt;
 </code></pre>
 <p><a class="en-page-number" id="63"></a></p>
 <pre><code class="lang-cpp">
-    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (k) {
+    <span class="hljs-keyword">switch</span> (k) {
     <span class="hljs-keyword">case</span> Kind::circle:
         <span class="hljs-comment">// 把圆圈的数据 {Point,int} 读取到p和r</span>
         <span class="hljs-keyword">return</span> unique_ptr&lt;Shape&gt;{<span class="hljs-keyword">new</span> Circle{p,r}};
     <span class="hljs-comment">// ...</span>
 }
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
 </span>{
     vector&lt;unique_ptr&lt;Shape&gt;&gt; v;
     <span class="hljs-keyword">while</span> (cin)
@@ -1169,6 +1190,27 @@ Smiley&amp; r {<span class="hljs-keyword">dynamic_cast</span>&lt;Smiley&amp;&gt;
 <sup>2</sup>. 一般翻译为“文件句柄”，我很讨厌“句柄”这词，它让我在初Windows编程时困惑了很久，我在实践了一段时间之后，慢慢理解到，这个英文<strong>handle</strong>是很直白的，意思就是“把手”，我觉得翻译成“把手”要比“句柄”好得多。参阅了<a href="https://www.zhihu.com/question/22950899/answer/25197413" target="_blank">[为什么handle会被翻译成句柄？ - 薛非的回答 - 知乎]</a>后，我决定改一个基本能望文生义的两字词汇去替代“句柄”，<strong>handle</strong>本义的“柄”作为名词词尾保留，同时不使用常见单词，因为会导致“难以作为关键词搜索”的问题。首字存在多个备选：1，“操”，取自“操作”一词，感觉最适宜，但因为有人把“操”污名化出“肏”的意义，为免给用户带来“解释吧，没必要；不解释吧，又让文盲耻笑”的困境，不得不忍痛放弃了；2，“持”，初望难免有“静止不动”的意味（例如“僵持”），不合适；3，“握”，太直白，容易跟常规词汇冲突。最后考虑了“执柄”，“执”乍看就是拿着，后续可以动也可以不动，有成词但不常见，故选它，希望初次接触这个概念的人不至于太过困惑。—— 译者注<a href="#reffn_2" title="Jump back to footnote [2] in the text."> ↩</a>
 </blockquote>
 
+<script>console.log(window.location.pathname)</script>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = window.location.href;
+this.page.identifier = window.location.pathname;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://a-tour-of-cpp-2nd-cn.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank">comments powered by Disqus.</a></noscript>
                                 
     
 
@@ -1213,7 +1255,7 @@ Smiley&amp; r {<span class="hljs-keyword">dynamic_cast</span>&lt;Smiley&amp;&gt;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":4,"title":"4 类","level":"1.6","depth":1,"next":{"title":"5 基本操作","level":"1.7","depth":1,"path":"ch05.md","ref":"ch05.md","articles":[]},"previous":{"title":"3 模块化","level":"1.5","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch04.md","mtime":"2023-02-12T09:23:08.805Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":4,"title":"4 类","level":"1.6","depth":1,"next":{"title":"5 基本操作","level":"1.7","depth":1,"path":"ch05.md","ref":"ch05.md","articles":[]},"previous":{"title":"3 模块化","level":"1.5","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch04.md","mtime":"2023-02-12T09:23:08.805Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1265,6 +1307,22 @@ Smiley&amp; r {<span class="hljs-keyword">dynamic_cast</span>&lt;Smiley&amp;&gt;
     </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

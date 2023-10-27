@@ -1,13 +1,13 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>2 用户定义类型 · HonKit</title>
+        <title>2 用户定义类型 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.6.23">
-        
+        <meta name="generator" content="HonKit 5.1.1">
+        <meta name="author" content="Windsting">
         
         
     
@@ -16,7 +16,19 @@
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
                 
             
                 
@@ -72,7 +84,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -83,7 +95,16 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://github.com/windsting/a-tour-of-cpp-2nd-cn" target="_blank" class="custom-link">Github Link</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -344,7 +365,7 @@
 
     <li>
         <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
-            Published with HonKit
+            本书使用 HonKit 发布
         </a>
     </li>
 </ul>
@@ -417,10 +438,10 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 <h2 id="2.2">2.2 结构体（structure） </h2>
 <p>构建新类型的第一步，通常是把它所需的要素组织到一个数据类型
 ——结构体（<code>struct</code>）里：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Vector</span>
-{</span>
-    <span class="hljs-keyword">int</span> sz;         <span class="hljs-comment">// 元素数量</span>
-    <span class="hljs-keyword">double</span>* elem;   <span class="hljs-comment">// 指向元素的指针</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Vector</span>
+{
+    <span class="hljs-type">int</span> sz;         <span class="hljs-comment">// 元素数量</span>
+    <span class="hljs-type">double</span>* elem;   <span class="hljs-comment">// 指向元素的指针</span>
 };
 </code></pre>
 <p>这<code>Vector</code>的第一个版本包含了一个<code>int</code>和一个<code>double*</code>。</p>
@@ -429,9 +450,9 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 </code></pre>
 <p>但是，光有它自己用处不大，因为<code>v</code>的指针<code>elem</code>没有指向任何东西。
 想让它有用，必须让<code>v</code>指向某些元素。比方说，可以这样构造<code>Vector</code>：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">vector_init</span><span class="hljs-params">(Vector&amp; v, <span class="hljs-keyword">int</span> s)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">vector_init</span><span class="hljs-params">(Vector&amp; v, <span class="hljs-type">int</span> s)</span>
 </span>{
-    v.elem = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[s]; <span class="hljs-comment">// 分配一个数组，里面有s个double</span>
+    v.elem = <span class="hljs-keyword">new</span> <span class="hljs-type">double</span>[s]; <span class="hljs-comment">// 分配一个数组，里面有s个double</span>
     v.sz = s;
 }
 </code></pre>
@@ -444,18 +465,18 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 分配在自由存储上的对象，与其被创建的作用域无关，
 而是会一直“存活”下去，直到用<code>delete</code>运算符(§4.2.2)把它销毁。</p>
 <p><code>Vector</code>可以简单应用如下：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">read_and_sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">read_and_sum</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span>
     <span class="hljs-comment">// 从cin读取s个整数，返回它们的和；假定s时正数</span>
 </span>{
     Vector v;
     <span class="hljs-built_in">vector_init</span>(v,s);           <span class="hljs-comment">// 给v分配s个元素</span>
 
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)
         cin&gt;&gt;v.elem[i];         <span class="hljs-comment">// 向元素中读入内容</span>
 </code></pre>
 <p><a class="en-page-number" id="23"></a></p>
-<pre><code class="lang-cpp">    <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)
+<pre><code class="lang-cpp">    <span class="hljs-type">double</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=s; ++i)
         sum+=v.elem[i];         <span class="hljs-comment">// 对元素求和</span>
     <span class="hljs-keyword">return</span> sum;
 }
@@ -472,11 +493,11 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 <p>对于<code>vector</code>和<code>string</code>这样的标准库组件，别造轮子；直接用。</p>
 <p>通过变量名（及引用）访问<code>struct</code>成员用<code>.</code>（点），
 而通过指针访问<code>struct</code>成员用<code>-&gt;</code>。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Vector v, Vector&amp; rv, Vector* pv)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Vector v, Vector&amp; rv, Vector* pv)</span>
 </span>{
-    <span class="hljs-keyword">int</span> i1 = v.sz;      <span class="hljs-comment">// 通过变量名访问</span>
-    <span class="hljs-keyword">int</span> i2 = rv.sz;     <span class="hljs-comment">// 通过引用访问</span>
-    <span class="hljs-keyword">int</span> i3 = pv-&gt;sz;    <span class="hljs-comment">// 通过指针访问</span>
+    <span class="hljs-type">int</span> i1 = v.sz;      <span class="hljs-comment">// 通过变量名访问</span>
+    <span class="hljs-type">int</span> i2 = rv.sz;     <span class="hljs-comment">// 通过引用访问</span>
+    <span class="hljs-type">int</span> i3 = pv-&gt;sz;    <span class="hljs-comment">// 通过指针访问</span>
 }
 </code></pre>
 <h2 id="2.3">2.3 类（class） </h2>
@@ -488,14 +509,14 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 这个语言机制叫做<em>类（class）</em>。
 类拥有一组<em>成员（member）</em>，成员可以是数据、函数或者类型成员。
 接口由类的<code>public</code>成员定义，而<code>private</code>成员仅允许通过接口访问。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector</span>{</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Vector</span>{
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">Vector</span>(<span class="hljs-keyword">int</span> s) :elem{<span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[s]}, sz{s} { }
-    <span class="hljs-keyword">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i) { <span class="hljs-keyword">return</span> elem[i]; }
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> sz; }
+    <span class="hljs-built_in">Vector</span>(<span class="hljs-type">int</span> s) :elem{<span class="hljs-keyword">new</span> <span class="hljs-type">double</span>[s]}, sz{s} { }
+    <span class="hljs-type">double</span>&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-type">int</span> i) { <span class="hljs-keyword">return</span> elem[i]; }
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> sz; }
 <span class="hljs-keyword">private</span>:
-    <span class="hljs-keyword">double</span>* elem;   <span class="hljs-comment">// 指向元素的指针</span>
-    <span class="hljs-keyword">int</span> sz;         <span class="hljs-comment">// 元素的数量</span>
+    <span class="hljs-type">double</span>* elem;   <span class="hljs-comment">// 指向元素的指针</span>
+    <span class="hljs-type">int</span> sz;         <span class="hljs-comment">// 元素的数量</span>
 };
 </code></pre>
 <p><a class="en-page-number" id="24"></a></p>
@@ -514,14 +535,14 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 <p>在这里，<code>Vector</code>的数据（成员<code>elem</code>及<code>sz</code>）只能通过接口访问，
 这些接口都是<code>public</code>成员：<code>Vector()</code>、<code>operator[]()</code>及<code>size()</code>。
 §2.2 中的示例<code>read_and_sum()</code>可简化为：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">read_and_sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">read_and_sum</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span>
 </span>{
     <span class="hljs-function">Vector <span class="hljs-title">v</span><span class="hljs-params">(s)</span></span>;                        <span class="hljs-comment">// 创建持有s个元素的vector</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=v.<span class="hljs-built_in">size</span>(); ++i)
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=v.<span class="hljs-built_in">size</span>(); ++i)
         cin&gt;&gt;v[i];                      <span class="hljs-comment">// 把数据读入元素</span>
 
-    <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i!=v.<span class="hljs-built_in">size</span>(); ++i)
+    <span class="hljs-type">double</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i!=v.<span class="hljs-built_in">size</span>(); ++i)
         sum+=v[i];                      <span class="hljs-comment">// 对元素求和</span>
     <span class="hljs-keyword">return</span> sum;
 }
@@ -535,7 +556,7 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 具体来说，它明确指出需要一个整数。
 该整数作为元素的数量使用。
 这个构造函数通过成员初始化列表来初始化<code>Vector</code>的成员：</p>
-<pre><code class="lang-cpp">:elem{<span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[s]}, sz{s}
+<pre><code class="lang-cpp">:elem{<span class="hljs-keyword">new</span> <span class="hljs-type">double</span>[s]}, sz{s}
 </code></pre>
 <p>意思是说，先用一个指针初始化<code>elem</code>，该指针指向<code>s</code>个<code>double</code>类型的元素，
 这些元素的空间取自自由存储区。
@@ -556,16 +577,16 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 因此联合所占据的空间，仅跟其容量最大的那个成员相同。
 自然而然，任何时候联合都只能持有其某一个成员的值。
 举例来说，有个符号表条目，它包含一个名称和一个值。其值可以是<code>Node*</code>或<code>int</code>：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Type</span> {</span> ptr, num }; <span class="hljs-comment">// 一个 Type 可以是ptr和num(§2.5)</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">Type</span> { ptr, num }; <span class="hljs-comment">// 一个 Type 可以是ptr和num(§2.5)</span>
 
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Entry</span> {</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Entry</span> {
     string name;    <span class="hljs-comment">// string是个标准库里的类型</span>
     Type t;
     Node* p;        <span class="hljs-comment">// 如果t==ptr，用p</span>
-    <span class="hljs-keyword">int</span> i;          <span class="hljs-comment">// 如果t==num，用i</span>
+    <span class="hljs-type">int</span> i;          <span class="hljs-comment">// 如果t==num，用i</span>
 };
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
 </span>{
     <span class="hljs-keyword">if</span> (pe-&gt;t == num)
         cout &lt;&lt; pe-&gt;i;
@@ -574,20 +595,20 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 </code></pre>
 <p>成员<code>p</code>和<code>i</code>永远不会同时使用，但这样空间就被浪费了。
 可以指定它们都是某个<code>union</code>的成员，这样空间就轻而易举地节省下来了，像这样：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">Value</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">union</span> <span class="hljs-title class_">Value</span> {
     Node* p;
-    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-type">int</span> i;
 };
 </code></pre>
 <p>语言并不会追踪<code>union</code>保持了哪种类型的值，所以程序员要亲力亲为：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Entry</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Entry</span> {
     string name;
     Type t;
     Value v;    <span class="hljs-comment">// 如果t==ptr，用v.p；如果t==num，用v.i</span>
 };
 </code></pre>
 <p><a class="en-page-number" id="26"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
 </span>{
     <span class="hljs-keyword">if</span> (pe-&gt;t == num)
         cout &lt;&lt; pe-&gt;v.i;
@@ -603,23 +624,23 @@ C++的内置类型和运算都很丰富，但有意地低级化了。
 <code>variant</code>存储一个值，该值的类型可以从一组类型中任选一个(§13.5.1)。
 举个例子，<code>variant&lt;Node*,int&gt;</code>的值，可以是<code>Node*</code>或者<code>int</code>。</p>
 <p>借助<code>variant</code>，<code>Entry</code>示例可以写成这样：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Entry</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Entry</span> {
     string name;
-    variant&lt;Node*,<span class="hljs-keyword">int</span>&gt; v;
+    variant&lt;Node*,<span class="hljs-type">int</span>&gt; v;
 };
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Entry* pe)</span>
 </span>{
-    <span class="hljs-keyword">if</span> (holds_alternative&lt;<span class="hljs-keyword">int</span>&gt;(pe-&gt;v))  <span class="hljs-comment">// *pe的值是int类型吗？（参见§13.5.1）</span>
-        cout &lt;&lt; get&lt;<span class="hljs-keyword">int</span>&gt;(pe-&gt;v);        <span class="hljs-comment">// 取（get）int值</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">holds_alternative</span>&lt;<span class="hljs-type">int</span>&gt;(pe-&gt;v))  <span class="hljs-comment">// *pe的值是int类型吗？（参见§13.5.1）</span>
+        cout &lt;&lt; <span class="hljs-built_in">get</span>&lt;<span class="hljs-type">int</span>&gt;(pe-&gt;v);        <span class="hljs-comment">// 取（get）int值</span>
     <span class="hljs-comment">// ...</span>
 }
 </code></pre>
 <p>很多情况下，使用<code>variant</code>都比<code>union</code>更简单也更安全。</p>
 <h2 id="2.5">2.5 枚举（enum） </h2>
 <p>除了类，C++还提供一种简单的用户定义类型，使用它可以把一组值逐一列举：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Color</span> {</span> red, blue, green };
-<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Traffic_light</span> {</span> green, yellow, red };
+<pre><code class="lang-cpp"><span class="hljs-keyword">enum class</span> <span class="hljs-title class_">Color</span> { red, blue, green };
+<span class="hljs-keyword">enum class</span> <span class="hljs-title class_">Traffic_light</span> { green, yellow, red };
 
 Color col = Color::red;
 Traffic_light light = Traffic_light::red;
@@ -638,7 +659,7 @@ Color y = Traffic_light::red;   <span class="hljs-comment">// 错误：此red并
 Color z = Color::red;           <span class="hljs-comment">// OK</span>
 </code></pre>
 <p>同样，<code>Color</code>的值也不能和整数值混用：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> i = Color::red; <span class="hljs-comment">// 错误：Color::red不是int类型</span>
+<pre><code class="lang-cpp"><span class="hljs-type">int</span> i = Color::red; <span class="hljs-comment">// 错误：Color::red不是int类型</span>
 
 Color c = <span class="hljs-number">2</span>;        <span class="hljs-comment">// 初始化错误：2不是Color类型</span>
 </code></pre>
@@ -652,7 +673,7 @@ Color y {<span class="hljs-number">6</span>};        <span class="hljs-comment">
 不过，既然枚举是用户定义类型，我们就可以给它定义运算符：</p>
 <pre><code class="lang-cpp">Traffic_light&amp; <span class="hljs-keyword">operator</span>++(Traffic_light&amp; t)     <span class="hljs-comment">// 前置自增：++</span>
 {
-    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (t) {
+    <span class="hljs-keyword">switch</span> (t) {
     <span class="hljs-keyword">case</span> Traffic_light::green:  <span class="hljs-keyword">return</span> t=Traffic_light::yellow;
     <span class="hljs-keyword">case</span> Traffic_light::yellow: <span class="hljs-keyword">return</span> t=Traffic_light::red;
     <span class="hljs-keyword">case</span> Traffic_light::red:    <span class="hljs-keyword">return</span> t=Traffic_light::green;
@@ -663,8 +684,8 @@ Traffic_light next = ++light;   <span class="hljs-comment">// next 将是 Traffi
 <p>如果你的枚举值不需要独立的作用域，并希望把它们作为<code>int</code>使用（无需显式类型转换），
 可以省掉<code>enum class</code>中的<code>class</code>，以获得一个“普通”<code>enum</code>。
 “普通”<code>enum</code>中的枚举值的作用域跟这个<code>enum</code>相同，还能隐式转换成整数值，例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Color</span> {</span> red, green, blue };
-<span class="hljs-keyword">int</span> col = green;
+<pre><code class="lang-cpp"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">Color</span> { red, green, blue };
+<span class="hljs-type">int</span> col = green;
 </code></pre>
 <p>此处的<code>col</code>值为<code>1</code>。
 默认情况下，枚举值的整数值从<code>0</code>开始，每增加一个新枚举值就递增一。
@@ -685,6 +706,27 @@ Traffic_light next = ++light;   <span class="hljs-comment">// next 将是 Traffi
 <li>[9] 给枚举定义运算，可以获得安全性和便利性；§2.5; [CG: Enum.4]。</li>
 </ul>
 
+<script>console.log(window.location.pathname)</script>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = window.location.href;
+this.page.identifier = window.location.pathname;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://a-tour-of-cpp-2nd-cn.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank">comments powered by Disqus.</a></noscript>
                                 
     
 
@@ -729,7 +771,7 @@ Traffic_light next = ++light;   <span class="hljs-comment">// next 将是 Traffi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":2,"title":"2 用户定义类型","level":"1.4","depth":1,"next":{"title":"3 模块化","level":"1.5","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"previous":{"title":"1 基础知识","level":"1.3","depth":1,"path":"ch01.md","ref":"ch01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch02.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":2,"title":"2 用户定义类型","level":"1.4","depth":1,"next":{"title":"3 模块化","level":"1.5","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"previous":{"title":"1 基础知识","level":"1.3","depth":1,"path":"ch01.md","ref":"ch01.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch02.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -781,6 +823,22 @@ Traffic_light next = ++light;   <span class="hljs-comment">// next 将是 Traffi
     </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -1,13 +1,13 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>7 概束和泛型编程 · HonKit</title>
+        <title>7 概束和泛型编程 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.6.23">
-        
+        <meta name="generator" content="HonKit 5.1.1">
+        <meta name="author" content="Windsting">
         
         
     
@@ -16,7 +16,19 @@
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
                 
             
                 
@@ -72,7 +84,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -83,7 +95,16 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://github.com/windsting/a-tour-of-cpp-2nd-cn" target="_blank" class="custom-link">Github Link</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -344,7 +365,7 @@
 
     <li>
         <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
-            Published with HonKit
+            本书使用 HonKit 发布
         </a>
     </li>
 </ul>
@@ -413,12 +434,12 @@
 模板提供了（编译期的）参数化多态。</p>
 <h2 id="7.2">7.2 概束(Concept)（C++20） </h2>
 <p>考虑来自 §6.3.1 的 <code>sum()</code>：</p>
-<pre><code class="lang-cpp">template&lt;typename Seq, typename Num&gt;
-Num sum(Seq s, Num v)
-{
-    for (const auto&amp; x : s)
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Seq, <span class="hljs-keyword">typename</span> Num&gt;
+Num <span class="hljs-title">sum</span><span class="hljs-params">(Seq s, Num v)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : s)
         v+=x;
-    return v;
+    <span class="hljs-keyword">return</span> v;
 }
 </code></pre>
 <p>它可以针对任何支持<code>begin()</code>和<code>end()</code>的数据结构调用，
@@ -440,12 +461,12 @@ Num sum(Seq s, Num v)
 就是说，多数模板都是受限模板(§6.2.1)。
 类型名称引入符号<code>typename</code>是最松散的约束，仅要求该参数是个类型。
 通常仍有改进空间，重新考虑<code>sum()</code>例子：</p>
-<pre><code class="lang-cpp">template&lt;Sequence Seq, Number Num&gt;
-Num sum(Seq s, Num v)
-{
-    for (const auto&amp; x : s)
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Sequence Seq, Number Num&gt;
+Num <span class="hljs-title">sum</span><span class="hljs-params">(Seq s, Num v)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : s)
         v+=x;
-    return v;
+    <span class="hljs-keyword">return</span> v;
 }
 </code></pre>
 <p>这样就明确多了。一旦我们定义了概束<code>Sequence</code>和<code>Number</code>的意义，
@@ -491,21 +512,21 @@ Num sum(Seq s, Num v)
 考虑一下标准库函数<code>advance()</code>(§12.3)的简化版本，它推进迭代器：</p>
 <p><a class="en-page-number" id="96"></a></p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Forward_iterator Iter&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">advance</span><span class="hljs-params">(Iter p, <span class="hljs-keyword">int</span> n)</span> <span class="hljs-comment">// 将p向前移动n个元素</span>
+<span class="hljs-type">void</span> <span class="hljs-title">advance</span><span class="hljs-params">(Iter p, <span class="hljs-type">int</span> n)</span> <span class="hljs-comment">// 将p向前移动n个元素</span>
 </span>{
     <span class="hljs-keyword">while</span> (n--)
         ++p;                <span class="hljs-comment">// 前向迭代器可以++，但不能+或+=</span>
 }
 
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Random_access_iterator Iter&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">advance</span><span class="hljs-params">(Iter p, <span class="hljs-keyword">int</span> n)</span> <span class="hljs-comment">// 将p向前移动n个元素</span>
+<span class="hljs-type">void</span> <span class="hljs-title">advance</span><span class="hljs-params">(Iter p, <span class="hljs-type">int</span> n)</span> <span class="hljs-comment">// 将p向前移动n个元素</span>
 </span>{
     p+=n;                   <span class="hljs-comment">// 随机访问迭代器可以+=</span>
 }
 </code></pre>
 <p>编译器会选择参数对需求匹配最紧密的模板。本例中，<code>list</code>仅有前向迭代器，
 而<code>vector</code>提供了随机访问迭代器，因此有：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;::iterator vip, list&lt;string&gt;::iterator lsp)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;::iterator vip, list&lt;string&gt;::iterator lsp)</span>
 </span>{
     <span class="hljs-built_in">advance</span>(vip,<span class="hljs-number">10</span>); <span class="hljs-comment">// 应用快速的 advance()</span>
     <span class="hljs-built_in">advance</span>(lsp,<span class="hljs-number">10</span>); <span class="hljs-comment">// 应用缓慢的 advance()</span>
@@ -532,24 +553,24 @@ Num sum(Seq s, Num v)
 <p>有关模板实参是否满足模板对形参的需求这个问题，归根结底是某些表达式有效与否的问题。</p>
 <p>使用<code>requires</code>表达式，可以检测一组表达式的有效性。例如：</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Forward_iterator Iter&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">advance</span><span class="hljs-params">(Iter p, <span class="hljs-keyword">int</span> n)</span> <span class="hljs-comment">// 将p向前移动n个元素</span>
+<span class="hljs-type">void</span> <span class="hljs-title">advance</span><span class="hljs-params">(Iter p, <span class="hljs-type">int</span> n)</span> <span class="hljs-comment">// 将p向前移动n个元素</span>
 </span>{
     <span class="hljs-keyword">while</span> (n--)
         ++p;                <span class="hljs-comment">// 前向迭代器可以++，但不能+或+=</span>
 }
 </code></pre>
 <p><a class="en-page-number" id="97"></a></p>
-<pre><code class="lang-cpp">template&lt;Forward_iterator Iter, int n&gt;
-    requires requires(Iter p, int i) { p[i]; p+i; } // Iter有取下标和加法操作
-void advance(Iter p, int n) // 将p向前移动n个元素
-{
-    p+=n;                   // 随机访问迭代器可以+=
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Forward_iterator Iter, <span class="hljs-type">int</span> n&gt;
+    <span class="hljs-keyword">requires</span> <span class="hljs-title">requires</span><span class="hljs-params">(Iter p, <span class="hljs-type">int</span> i)</span> </span>{ p[i]; p+i; } <span class="hljs-comment">// Iter有取下标和加法操作</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">advance</span><span class="hljs-params">(Iter p, <span class="hljs-type">int</span> n)</span> <span class="hljs-comment">// 将p向前移动n个元素</span>
+</span>{
+    p+=n;                   <span class="hljs-comment">// 随机访问迭代器可以+=</span>
 }
 </code></pre>
 <p>不，那个<code>requires requires</code>不是笔误。
 前面的<code>requires</code>发起了一个<code>requirements</code>从句，
 后面的<code>requires</code>发起了一个<code>requires</code>表达式</p>
-<pre><code class="lang-cpp"><span class="hljs-built_in"><span class="hljs-keyword">requires</span></span>(Iter p, <span class="hljs-keyword">int</span> i) { p[i]; p+i; }
+<pre><code class="lang-cpp"><span class="hljs-built_in">requires</span>(Iter p, <span class="hljs-type">int</span> i) { p[i]; p+i; }
 </code></pre>
 <p><code>requires</code>表达式是一个断言，若其内部的表达式是有效代码，
 它就为<code>true</code>，无效则为<code>false</code>。</p>
@@ -573,18 +594,18 @@ void advance(Iter p, int n) // 将p向前移动n个元素
 考虑这第一个最简单的例子：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
 <span class="hljs-keyword">concept</span> Equality_comparable =
-    <span class="hljs-built_in"><span class="hljs-keyword">requires</span></span> (T a, T b) {
-        { a == b } -&gt; <span class="hljs-keyword">bool</span>; <span class="hljs-comment">// 用==比较两个T</span>
-        { a != b } -&gt; <span class="hljs-keyword">bool</span>; <span class="hljs-comment">// 用!=比较两个T</span>
+    <span class="hljs-built_in">requires</span> (T a, T b) {
+        { a == b } -&gt; <span class="hljs-type">bool</span>; <span class="hljs-comment">// 用==比较两个T</span>
+        { a != b } -&gt; <span class="hljs-type">bool</span>; <span class="hljs-comment">// 用!=比较两个T</span>
     };
 </code></pre>
 <p><code>Equality_comparable</code>这个概束的用途是：
 确保能够对某个类型的值进行相等或不等比较。
 我们直白地说，给定某个类型的两个值，它们必须可以用<code>==</code>和<code>!=</code>进行比较，
 并且比较的结果必须能够转化到<code>bool</code>类型。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(Equality_comparable&lt;<span class="hljs-keyword">int</span>&gt;);    <span class="hljs-comment">// 成功</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">S</span> {</span> <span class="hljs-keyword">int</span> a; };
-<span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(Equality_comparable&lt;S&gt;);      <span class="hljs-comment">// 失败，因为结构体不会自动获得==和!=</span>
+<pre><code class="lang-cpp"><span class="hljs-built_in">static_assert</span>(Equality_comparable&lt;<span class="hljs-type">int</span>&gt;);    <span class="hljs-comment">// 成功</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">S</span> { <span class="hljs-type">int</span> a; };
+<span class="hljs-built_in">static_assert</span>(Equality_comparable&lt;S&gt;);      <span class="hljs-comment">// 失败，因为结构体不会自动获得==和!=</span>
 </code></pre>
 <p><a class="en-page-number" id="98"></a></p>
 <p>概束<code>Equality_comparable</code>的定义跟英语描述严格等同，并不冗长。
@@ -592,23 +613,23 @@ void advance(Iter p, int n) // 将p向前移动n个元素
 <p>定义<code>Equality_comparable</code>去处理不同类型的比较，几乎同样易如反掌：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> T2 =T&gt;
 <span class="hljs-keyword">concept</span> Equality_comparable =
-    <span class="hljs-built_in"><span class="hljs-keyword">requires</span></span> (T a, T2 b) {
-        { a == b } -&gt; <span class="hljs-keyword">bool</span>; <span class="hljs-comment">// 把一个 T 和一个 T2 用 == 进行比较</span>
-        { a != b } -&gt; <span class="hljs-keyword">bool</span>; <span class="hljs-comment">// 把一个 T 和一个 T2 用 != 进行比较</span>
-        { b == a } -&gt; <span class="hljs-keyword">bool</span>; <span class="hljs-comment">// 把一个 T2 和一个 T 用 == 进行比较</span>
-        { b != a } -&gt; <span class="hljs-keyword">bool</span>; <span class="hljs-comment">// 把一个 T2 和一个 T 用 != 进行比较</span>
+    <span class="hljs-built_in">requires</span> (T a, T2 b) {
+        { a == b } -&gt; <span class="hljs-type">bool</span>; <span class="hljs-comment">// 把一个 T 和一个 T2 用 == 进行比较</span>
+        { a != b } -&gt; <span class="hljs-type">bool</span>; <span class="hljs-comment">// 把一个 T 和一个 T2 用 != 进行比较</span>
+        { b == a } -&gt; <span class="hljs-type">bool</span>; <span class="hljs-comment">// 把一个 T2 和一个 T 用 == 进行比较</span>
+        { b != a } -&gt; <span class="hljs-type">bool</span>; <span class="hljs-comment">// 把一个 T2 和一个 T 用 != 进行比较</span>
     };
 </code></pre>
 <p><code>typename T2 =T</code>是说，如果没指明第二个模板参数，<code>T2</code>就和<code>T</code>一样，
 <code>T</code>是<em>默认模板参数（default template argument）</em>。</p>
 <p>可以这样测试<code>Equality_comparable</code>：</p>
-<pre><code class="lang-cpp"><span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(Equality_comparable&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">double</span>&gt;); <span class="hljs-comment">// 成功</span>
-<span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(Equality_comparable&lt;<span class="hljs-keyword">int</span>&gt;);        <span class="hljs-comment">// 成功(T2默认是int)</span>
-<span class="hljs-built_in"><span class="hljs-keyword">static_assert</span></span>(Equality_comparable&lt;<span class="hljs-keyword">int</span>,string&gt;); <span class="hljs-comment">// 失败</span>
+<pre><code class="lang-cpp"><span class="hljs-built_in">static_assert</span>(Equality_comparable&lt;<span class="hljs-type">int</span>,<span class="hljs-type">double</span>&gt;); <span class="hljs-comment">// 成功</span>
+<span class="hljs-built_in">static_assert</span>(Equality_comparable&lt;<span class="hljs-type">int</span>&gt;);        <span class="hljs-comment">// 成功(T2默认是int)</span>
+<span class="hljs-built_in">static_assert</span>(Equality_comparable&lt;<span class="hljs-type">int</span>,string&gt;); <span class="hljs-comment">// 失败</span>
 </code></pre>
 <p>对于更复杂的例子，考虑某个如下的序列：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> S&gt;
-<span class="hljs-keyword">concept</span> Sequence = <span class="hljs-built_in"><span class="hljs-keyword">requires</span></span>(S a) {
+<span class="hljs-keyword">concept</span> Sequence = <span class="hljs-built_in">requires</span>(S a) {
     <span class="hljs-keyword">typename</span> Value_type&lt;S&gt;;             <span class="hljs-comment">// S必须具备一个值类型</span>
     <span class="hljs-keyword">typename</span> Iterator_type&lt;S&gt;;          <span class="hljs-comment">// S必须具备一个迭代器类型</span>
 
@@ -663,9 +684,9 @@ void advance(Iter p, int n) // 将p向前移动n个元素
 必将导致粗鄙和代码膨胀。
 相反，应该以一个——最好是多个——实际使用的具体例子为开端，
 并努力去消除那些无关本质的细节。考虑：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; v)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;<span class="hljs-type">int</span>&gt;&amp; v)</span>
 </span>{
-    <span class="hljs-keyword">double</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-type">double</span> res = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> x : v)
         res += x;
     <span class="hljs-keyword">return</span> res;
@@ -683,12 +704,12 @@ void advance(Iter p, int n) // 将p向前移动n个元素
 <p>把具体类型换成模板参数，就可以回答前四个问题，
 得出标准库算法<code>accumulate</code>最简单的形式：</p>
 <p><a class="en-page-number" id="100"></a></p>
-<pre><code class="lang-cpp">template&lt;typename Iter, typename Val&gt;
-Val accumulate(Iter first, Iter last, Val res)
-{
-    for (auto p = first; p!=last; ++p)
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Iter, <span class="hljs-keyword">typename</span> Val&gt;
+Val <span class="hljs-title">accumulate</span><span class="hljs-params">(Iter first, Iter last, Val res)</span>
+</span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p = first; p!=last; ++p)
         res += *p;
-    return res;
+    <span class="hljs-keyword">return</span> res;
 }
 </code></pre>
 <p>这样就得到：</p>
@@ -700,7 +721,7 @@ Val accumulate(Iter first, Iter last, Val res)
 <p>一个快捷的检验或者——更靠谱的——评测表明，
 针对多种数据结构调用生成的代码与手动编码的原版一致。
 例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; vec, <span class="hljs-keyword">const</span> list&lt;<span class="hljs-keyword">double</span>&gt;&amp; lst)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">use</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;<span class="hljs-type">int</span>&gt;&amp; vec, <span class="hljs-type">const</span> list&lt;<span class="hljs-type">double</span>&gt;&amp; lst)</span>
 </span>{
     <span class="hljs-keyword">auto</span> sum = <span class="hljs-built_in">accumulate</span>(<span class="hljs-built_in">begin</span>(vec),<span class="hljs-built_in">end</span>(vec),<span class="hljs-number">0.0</span>); <span class="hljs-comment">// 累加在一个double上</span>
     <span class="hljs-keyword">auto</span> sum2 = <span class="hljs-built_in">accumulate</span>(<span class="hljs-built_in">begin</span>(lst),<span class="hljs-built_in">end</span>(lst),sum);
@@ -716,7 +737,7 @@ Val accumulate(Iter first, Iter last, Val res)
 </ul>
 <p>自然而然的，不断重复<code>begin()</code>和<code>end()</code>很烦冗，因此可以把用户接口简化一点：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;Range R, Number Val&gt;   <span class="hljs-comment">// Range是具有begin()和end()的东西</span>
-<span class="hljs-function">Val <span class="hljs-title">accumulate</span><span class="hljs-params">(<span class="hljs-keyword">const</span> R&amp; r, Val res = <span class="hljs-number">0</span>)</span>
+<span class="hljs-function">Val <span class="hljs-title">accumulate</span><span class="hljs-params">(<span class="hljs-type">const</span> R&amp; r, Val res = <span class="hljs-number">0</span>)</span>
 </span>{
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">begin</span>(r); p!=<span class="hljs-built_in">end</span>(r); ++p)
         res += *p;
@@ -729,7 +750,7 @@ Val accumulate(Iter first, Iter last, Val res)
 这样的模板叫<em>可变参数模板（variadic template）</em>。
 考虑一个简单的函数，对于具有<code>&lt;&lt;</code>运算符的任意类型，它都能输出该类型的值。</p>
 <p><a class="en-page-number" id="101"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
 </span>{
     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;first: &quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2.2</span>, <span class="hljs-string">&quot;hello\n&quot;</span>s); <span class="hljs-comment">// first: 1 2.2 hello</span>
 
@@ -738,17 +759,17 @@ Val accumulate(Iter first, Iter last, Val res)
 </code></pre>
 <p>习惯上，实现可变参数模板的时候，要把第一个参数跟其余的分离开来，
 然后为参数的尾部递归调用该可变参数模板：</p>
-<pre><code class="lang-cpp">void print()
-{
-    // 对于无参数的这份：什么都不做
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// 对于无参数的这份：什么都不做</span>
 }
 
-template&lt;typename T, typename... Tail&gt;
-void print(T head, Tail... tail)
-{
-    // 为每一个参数执行的，例如：
-    cout &lt;&lt; head &lt;&lt; &apos; &apos;;
-    print(tail...);
+<span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span>... Tail&gt;
+<span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(T head, Tail... tail)</span>
+</span>{
+    <span class="hljs-comment">// 为每一个参数执行的，例如：</span>
+    cout &lt;&lt; head &lt;&lt; <span class="hljs-string">&apos; &apos;</span>;
+    <span class="hljs-built_in">print</span>(tail...);
 }
 </code></pre>
 <p><code>typename...</code>表明<code>Tail</code>是一个类型多样的序列。
@@ -761,12 +782,12 @@ void print(T head, Tail... tail)
 头部会被输出，然后再为尾部调用<code>print()</code>。
 到最后，理所当然地，<code>tail</code>就空了，于是就需要一个无参版本的<code>print()</code>去处理。
 如果想避免 零参数 的情形，可以用一个编译期<code>if</code>去消除它：</p>
-<pre><code class="lang-cpp">template&lt;typename T, typename... Tail&gt;
-void print(T head, Tail... tail)
-{
-    cout &lt;&lt; head &lt;&lt; &apos; &apos;;
-    if constexpr(sizeof...(tail)&gt; 0)
-        print(tail...);
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span>... Tail&gt;
+<span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(T head, Tail... tail)</span>
+</span>{
+    cout &lt;&lt; head &lt;&lt; <span class="hljs-string">&apos; &apos;</span>;
+    <span class="hljs-function"><span class="hljs-keyword">if</span> <span class="hljs-title">constexpr</span><span class="hljs-params">(<span class="hljs-keyword">sizeof</span>...(tail)&gt; <span class="hljs-number">0</span>)</span>
+        <span class="hljs-title">print</span><span class="hljs-params">(tail...)</span></span>;
 }
 </code></pre>
 <p>我用了 编译期<code>if</code>(§6.4.3)，而非普通的 运行时<code>if</code>，
@@ -785,15 +806,15 @@ void print(T head, Tail... tail)
 <p>为简化简短变参模板的实现，C++17提供了一个针对参数包元素进行有限迭代的形式。
 例如：</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span>... T&gt;
-<span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(T... v)</span>
+<span class="hljs-type">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(T... v)</span>
 </span>{
     <span class="hljs-keyword">return</span> (v + ... + <span class="hljs-number">0</span>);   <span class="hljs-comment">// 以0为初值，把v的所有元素相加</span>
 }
 </code></pre>
 <p>此处，<code>sum()</code>可以接收任意类型的任意多个参数。
 假设<code>sum()</code>确实会将其参数相加，则有：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// x 成为 15</span>
-<span class="hljs-keyword">int</span> y = <span class="hljs-built_in">sum</span>(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-number">2.4</span>, x);   <span class="hljs-comment">// y 成为 114（2.4被截断了，&apos;a&apos;的值是97）</span>
+<pre><code class="lang-cpp"><span class="hljs-type">int</span> x = <span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// x 成为 15</span>
+<span class="hljs-type">int</span> y = <span class="hljs-built_in">sum</span>(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-number">2.4</span>, x);   <span class="hljs-comment">// y 成为 114（2.4被截断了，&apos;a&apos;的值是97）</span>
 </code></pre>
 <p><code>sum</code>的函数体使用了折叠表达式：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">return</span> (v + ... + <span class="hljs-number">0</span>);   <span class="hljs-comment">// 以0为初值，把v的所有元素相加</span>
@@ -804,7 +825,7 @@ void print(T head, Tail... tail)
 就是说，从右边，也就是<code>0</code>那个位置开始。这叫做<em>右叠（right fold）</em>。
 或者，也可以用<em>左叠（left fold）</em>：</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;Number... T&gt;
-<span class="hljs-keyword">int</span> <span class="hljs-title">sum2</span><span class="hljs-params">(T... v)</span>
+<span class="hljs-type">int</span> <span class="hljs-title">sum2</span><span class="hljs-params">(T... v)</span>
 </span>{
     <span class="hljs-keyword">return</span> (<span class="hljs-number">0</span> + ... + v);   <span class="hljs-comment">// 把v的所有元素加到0上</span>
 }
@@ -817,7 +838,7 @@ void print(T head, Tail... tail)
 在C++中，折叠表达式的使用，目前被限定在可变参数模板的简化方面。
 折叠涉及的操作可以不是数值计算。考虑这个著名的例子：</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> ...T&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(T&amp;&amp;... args)</span>
+<span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(T&amp;&amp;... args)</span>
 </span>{
     (std::cout &lt;&lt; ... &lt;&lt; args) &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>; <span class="hljs-comment">// 输出所有参数</span>
 }
@@ -826,24 +847,24 @@ void print(T head, Tail... tail)
 <p>很多用例仅涉及一组值，且可以转化为一个通用类型。
 这种情况下，直接把参数复制到一个vector或者期望的容器类型，通常可以简化后续使用：</p>
 <p><a class="en-page-number" id="103"></a></p>
-<pre><code class="lang-cpp">template&lt;typename Res, typename... Ts&gt;
-vector&lt;Res&gt; to_vector(Ts&amp;&amp;... ts)
-{
-    vector&lt;Res&gt; res; (res.push_back(ts) ...);   // 不需要初始值
-    return res;
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Res, <span class="hljs-keyword">typename</span>... Ts&gt;
+vector&lt;Res&gt; <span class="hljs-title">to_vector</span><span class="hljs-params">(Ts&amp;&amp;... ts)</span>
+</span>{
+    vector&lt;Res&gt; res; (res.<span class="hljs-built_in">push_back</span>(ts) ...);   <span class="hljs-comment">// 不需要初始值</span>
+    <span class="hljs-keyword">return</span> res;
 }
 </code></pre>
 <p>可以这样使用<code>to_vector</code>：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> x = to_vector&lt;<span class="hljs-keyword">double</span>&gt;(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4.5</span>,<span class="hljs-string">&apos;a&apos;</span>);
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> x = <span class="hljs-built_in">to_vector</span>&lt;<span class="hljs-type">double</span>&gt;(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4.5</span>,<span class="hljs-string">&apos;a&apos;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span>... Ts&gt;
-<span class="hljs-keyword">int</span> <span class="hljs-title">fct</span><span class="hljs-params">(Ts&amp;&amp;... ts)</span>
+<span class="hljs-type">int</span> <span class="hljs-title">fct</span><span class="hljs-params">(Ts&amp;&amp;... ts)</span>
 </span>{
-    <span class="hljs-keyword">auto</span> args = to_vector&lt;string&gt;(ts...);   <span class="hljs-comment">// args[i]是第i个参数</span>
+    <span class="hljs-keyword">auto</span> args = <span class="hljs-built_in">to_vector</span>&lt;string&gt;(ts...);   <span class="hljs-comment">// args[i]是第i个参数</span>
     <span class="hljs-comment">// ... 在这里使用 args ...</span>
 }
 
-<span class="hljs-keyword">int</span> y = <span class="hljs-built_in">fct</span>(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>, s);
+<span class="hljs-type">int</span> y = <span class="hljs-built_in">fct</span>(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>, s);
 </code></pre>
 <h3 id="7.4.2">7.4.2 参数转发 </h3>
 <p>通过接口把参数原封不动传递，是可变参数模板的重要用途。
@@ -851,7 +872,7 @@ vector&lt;Res&gt; to_vector(Ts&amp;&amp;... ts)
 不同的传送机制拥有各自的一套构造参数：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Transport&gt;
     <span class="hljs-keyword">requires</span> concepts::InputTransport&lt;Transport&gt;
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InputChannel</span> {</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">InputChannel</span> {
 <span class="hljs-keyword">public</span>:
     <span class="hljs-comment">// ...</span>
     <span class="hljs-built_in">InputChannel</span>(TransportArgs&amp;&amp;... transportArgs)
@@ -919,6 +940,27 @@ If it walks like a duck and it quacks like a duck, it’s a duck）”）
 <sup>1</sup>. 出自一份意大利杂志《INFOMEDIA》对 Alexander A. Stepanov 的访谈录，访谈内容全文位于 <a href="http://www.stlport.org/resources/StepanovUSA.html" target="_blank">http://www.stlport.org/resources/StepanovUSA.html</a>。—— 译者注<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
 
+<script>console.log(window.location.pathname)</script>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = window.location.href;
+this.page.identifier = window.location.pathname;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://a-tour-of-cpp-2nd-cn.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank">comments powered by Disqus.</a></noscript>
                                 
     
 
@@ -963,7 +1005,7 @@ If it walks like a duck and it quacks like a duck, it’s a duck）”）
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":7,"title":"7 概束和泛型编程","level":"1.9","depth":1,"next":{"title":"8 标准库概览","level":"1.10","depth":1,"path":"ch08.md","ref":"ch08.md","articles":[]},"previous":{"title":"6 模板","level":"1.8","depth":1,"path":"ch06.md","ref":"ch06.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch07.md","mtime":"2023-02-12T09:23:08.801Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2023-02-16T13:26:54.208Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":7,"title":"7 概束和泛型编程","level":"1.9","depth":1,"next":{"title":"8 标准库概览","level":"1.10","depth":1,"path":"ch08.md","ref":"ch08.md","articles":[]},"previous":{"title":"6 模板","level":"1.8","depth":1,"path":"ch06.md","ref":"ch06.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch07.md","mtime":"2023-02-12T09:23:08.801Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1015,6 +1057,22 @@ If it walks like a duck and it quacks like a duck, it’s a duck）”）
     </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/@dogatana/honkit-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
