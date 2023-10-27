@@ -6,6 +6,7 @@
     "scripts": {
         "serve": "npx honkit serve --reload",
         "build": "npm run rm-website && [ -d \"_book\" ] && mv _book docs || echo \"Please use 'serve' to generate _book first!\"",
+        "b": "npm run rm && npx honkit build . docs",
         "rm": "npm run rm-website",
         "rm-website": "rm -rf docs",
         "gen-idx": "tools/index_processor/index_processor.py src/idx_src.md -o src/idx.md",
@@ -23,6 +24,6 @@
         "gitbook-plugin-copy-code-button": "^0.0.2",
         "gitbook-plugin-disqus-legacy": "^1.2.3",
         "gitbook-plugin-forkmegithub": "^2.2.0",
-        "honkit": "^4.0.4"
+        "honkit": "^5.1.1"
     }
 }
