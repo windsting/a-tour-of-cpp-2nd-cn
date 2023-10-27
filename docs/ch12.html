@@ -6,7 +6,7 @@
         <title>12 算法 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="generator" content="HonKit 5.1.1">
         <meta name="author" content="Windsting">
         
         
@@ -422,7 +422,7 @@
 相应地，标准库里除了最常见的容器类型之外，还为这些容器提供了最常见的算法。
 例如，我们可以简单高效地把持有<code>Entry</code>的<code>vector</code>进行排序，
 并为<code>vector</code>中每个不重复的元素在<code>list</code>中创建副本：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(vector&lt;Entry&gt;&amp; vec, list&lt;Entry&gt;&amp; lst)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(vector&lt;Entry&gt;&amp; vec, list&lt;Entry&gt;&amp; lst)</span>
 </span>{
     <span class="hljs-built_in">sort</span>(vec.<span class="hljs-built_in">begin</span>(),vec.<span class="hljs-built_in">end</span>());                    <span class="hljs-comment">// 用 &lt; 进行排序</span>
     <span class="hljs-built_in">unique_copy</span>(vec.<span class="hljs-built_in">begin</span>(),vec.<span class="hljs-built_in">end</span>(),lst.<span class="hljs-built_in">begin</span>()); <span class="hljs-comment">// 不复制相邻的等值元素</span>
@@ -430,7 +430,7 @@
 </code></pre>
 <p><a class="en-page-number" id="150"></a></p>
 <p>要让这段代码运行，必须为<code>Entry</code>定义小于（<code>&lt;</code>）和等于（<code>==</code>）操作。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-keyword">const</span> Entry&amp; x, <span class="hljs-keyword">const</span> Entry&amp; y) <span class="hljs-comment">// 小于</span>
+<pre><code class="lang-cpp"><span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> Entry&amp; x, <span class="hljs-type">const</span> Entry&amp; y) <span class="hljs-comment">// 小于</span>
 {
     <span class="hljs-keyword">return</span> x.name&lt;y.name;           <span class="hljs-comment">// 用 name 给 Entry 排序</span>
 }
@@ -468,7 +468,7 @@
 另外，很多算法也会返回迭代器。
 例如，标准算法<code>find()</code>在某个序列中查找一个值并返回指向该元素的迭代器：</p>
 <p><a class="en-page-number" id="151"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">has_c</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s, <span class="hljs-keyword">char</span> c)</span>     <span class="hljs-comment">// s 是否包含字符 c ？</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">has_c</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; s, <span class="hljs-type">char</span> c)</span>     <span class="hljs-comment">// s 是否包含字符 c ？</span>
 </span>{
     <span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">find</span>(s.<span class="hljs-built_in">begin</span>(),s.<span class="hljs-built_in">end</span>(),c);
     <span class="hljs-keyword">if</span> (p!=s.<span class="hljs-built_in">end</span>())
@@ -479,7 +479,7 @@
 </code></pre>
 <p>与很多标准库查找算法相似，<code>find()</code>返回<code>end()</code>以表示“未找到（not found）”。
 一个等价且更简短的<code>has_c()</code>定义是：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">has_c</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s, <span class="hljs-keyword">char</span> c)</span>     <span class="hljs-comment">// s 是否包含字符 c ？</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">has_c</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; s, <span class="hljs-type">char</span> c)</span>     <span class="hljs-comment">// s 是否包含字符 c ？</span>
 </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(s.<span class="hljs-built_in">begin</span>(),s.<span class="hljs-built_in">end</span>(),c)!=s.<span class="hljs-built_in">end</span>();
 }
@@ -488,7 +488,7 @@
 我们可以返回以承载 <code>string</code>迭代器 的<code>vector</code>，以表示的出现位置集合。
 返回<code>vector</code>是高效的，因为它提供了转移语意（§5.2.1）。
 如果我们想对找到的位置进行修改，就需要传入 非-<code>const</code> 字符串：</p>
-<pre><code class="lang-cpp"><span class="hljs-function">vector&lt;string::iterator&gt; <span class="hljs-title">find_all</span><span class="hljs-params">(string&amp; s, <span class="hljs-keyword">char</span> c)</span>    <span class="hljs-comment">// 查找s中出现的所有c</span>
+<pre><code class="lang-cpp"><span class="hljs-function">vector&lt;string::iterator&gt; <span class="hljs-title">find_all</span><span class="hljs-params">(string&amp; s, <span class="hljs-type">char</span> c)</span>    <span class="hljs-comment">// 查找s中出现的所有c</span>
 </span>{
     vector&lt;string::iterator&gt; res;
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p = s.<span class="hljs-built_in">begin</span>(); p!=s.<span class="hljs-built_in">end</span>(); ++p)
@@ -500,7 +500,7 @@
 <p>我们用一个常规的循环在这个字符串中进行遍历，
 借助<code>++</code>每次把迭代器<code>p</code>向容器尾部移动一个元素，
 并借助解引用操作符<code>*</code>查看这些元素。可以这样测试<code>find_all()</code>：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
     string m {<span class="hljs-string">&quot;Mary had a little lamb&quot;</span>};
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : <span class="hljs-built_in">find_all</span>(m,<span class="hljs-string">&apos;a&apos;</span>))
         <span class="hljs-keyword">if</span> (*p!=<span class="hljs-string">&apos;a&apos;</span>)
@@ -512,13 +512,13 @@
 <p><a class="en-page-number" id="152"></a></p>
 <p>对于每个合乎情理的使用情形而言，迭代器和标准算法在所有标准容器上的应用都是等效的。
 因此，可以这样泛化<code>find_all()</code>：</p>
-<pre><code class="lang-cpp">template&lt;typename C, typename V&gt;
-vector&lt;typename C::iterator&gt; find_all(C&amp; c, V v) {  // 查找v中出现的所有c
-    vector&lt;typename C::iterator&gt; res;
-    for (auto p = c.begin(); p!=c.end(); ++p)
-        if (*p==v)
-            res.push_back(p);
-    return res;
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> C, <span class="hljs-keyword">typename</span> V&gt;
+vector&lt;<span class="hljs-keyword">typename</span> C::iterator&gt; <span class="hljs-title">find_all</span><span class="hljs-params">(C&amp; c, V v)</span> </span>{  <span class="hljs-comment">// 查找v中出现的所有c</span>
+    vector&lt;<span class="hljs-keyword">typename</span> C::iterator&gt; res;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p = c.<span class="hljs-built_in">begin</span>(); p!=c.<span class="hljs-built_in">end</span>(); ++p)
+        <span class="hljs-keyword">if</span> (*p==v)
+            res.<span class="hljs-built_in">push_back</span>(p);
+    <span class="hljs-keyword">return</span> res;
 }
 </code></pre>
 <p>为了让编译器知道<code>C</code>的<code>iterator</code>应该被推断为类型而非一个值，比方说整数<code>7</code>，
@@ -538,7 +538,7 @@ vector&lt;Iterator&lt;C&gt;&gt; <span class="hljs-built_in">find_all</span>(C&am
 }
 </code></pre>
 <p>现在可以这样写：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>
 </span>{
     string m {<span class="hljs-string">&quot;Mary had a little lamb&quot;</span>};
 
@@ -546,7 +546,7 @@ vector&lt;Iterator&lt;C&gt;&gt; <span class="hljs-built_in">find_all</span>(C&am
         <span class="hljs-keyword">if</span> (*p!=<span class="hljs-string">&apos;a&apos;</span>)
             cerr &lt;&lt; <span class="hljs-string">&quot;string bug!\n&quot;</span>;
 
-    list&lt;<span class="hljs-keyword">double</span>&gt; ld {<span class="hljs-number">1.1</span>, <span class="hljs-number">2.2</span>, <span class="hljs-number">3.3</span>, <span class="hljs-number">1.1</span>};
+    list&lt;<span class="hljs-type">double</span>&gt; ld {<span class="hljs-number">1.1</span>, <span class="hljs-number">2.2</span>, <span class="hljs-number">3.3</span>, <span class="hljs-number">1.1</span>};
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : <span class="hljs-built_in">find_all</span>(ld,<span class="hljs-number">1.1</span>))     <span class="hljs-comment">// p是个 list&lt;double&gt;::iterator</span>
         <span class="hljs-keyword">if</span> (*p!=<span class="hljs-number">1.1</span>)
             cerr &lt;&lt; <span class="hljs-string">&quot;list bug!\n&quot;</span>;
@@ -601,7 +601,7 @@ vector&lt;Iterator&lt;C&gt;&gt; <span class="hljs-built_in">find_all</span>(C&am
 <pre><code class="lang-cpp">ostream_iterator&lt;string&gt; oo {cout}; <span class="hljs-comment">// 向cout写入string</span>
 </code></pre>
 <p>给<code>*oo</code>赋值待结果就是把该值写入到<code>cout</code>。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
     *oo = <span class="hljs-string">&quot;Hello, &quot;</span>;    <span class="hljs-comment">// 意思是cout&lt;&lt;&quot;Hello, &quot;</span>
     ++oo;
@@ -623,7 +623,7 @@ vector&lt;Iterator&lt;C&gt;&gt; <span class="hljs-built_in">find_all</span>(C&am
 而是会作为参数传递给算法去使用。
 例如，可以写个简单的程序读取文件，把读到的单词排序、去重，
 然后把结果写入到另一个文件：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
     string from, to;
     cin &gt;&gt; from &gt;&gt; to;                      <span class="hljs-comment">// 获取源文件名和目标文件名</span>
@@ -658,7 +658,7 @@ vector&lt;Iterator&lt;C&gt;&gt; <span class="hljs-built_in">find_all</span>(C&am
 <span class="hljs-built_in">copy</span>(b.<span class="hljs-built_in">begin</span>(),b.<span class="hljs-built_in">end</span>(),oo);     <span class="hljs-comment">// 把缓存复制到输出流</span>
 </code></pre>
 <p><code>ii</code>、<code>eos</code>和<code>oo</code>都只用了一次，因此可以进一步缩减程序的代码量：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
     string from, to;
     cin &gt;&gt; from &gt;&gt; to;      <span class="hljs-comment">// 获取源文件名和目标文件名</span>
@@ -682,21 +682,21 @@ vector&lt;Iterator&lt;C&gt;&gt; <span class="hljs-built_in">find_all</span>(C&am
 <code>map</code>对其元素以<em>(key,value)</em>对的序列的方式提供访问，
 因此，可以在<code>map&lt;string,int&gt;</code>查找一个其<code>int</code>大于<code>42</code>的<code>pair&lt;const string,int&gt;</code>：</p>
 <p><a class="en-page-number" id="156"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(map&lt;string,<span class="hljs-keyword">int</span>&gt;&amp; m)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(map&lt;string,<span class="hljs-type">int</span>&gt;&amp; m)</span>
 </span>{
     <span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">find_if</span>(m.<span class="hljs-built_in">begin</span>(),m.<span class="hljs-built_in">end</span>(),Greater_than{<span class="hljs-number">42</span>});
     <span class="hljs-comment">// ...</span>
 }
 </code></pre>
 <p>此处，<code>Greater_than</code>是个函数对象（§6.3.2）持有<code>42</code>以便用于比对操作：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Greater_than</span> {</span>
-    <span class="hljs-keyword">int</span> val;
-    <span class="hljs-built_in">Greater_than</span>(<span class="hljs-keyword">int</span> v) : val{v} { }
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; r)</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> r.second&gt;val; }
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Greater_than</span> {
+    <span class="hljs-type">int</span> val;
+    <span class="hljs-built_in">Greater_than</span>(<span class="hljs-type">int</span> v) : val{v} { }
+    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; r)</span> <span class="hljs-type">const</span> </span>{ <span class="hljs-keyword">return</span> r.second&gt;val; }
 };
 </code></pre>
 <p>此外，还可以使用lambda表达式（§6.3.2）：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">find_if</span>(m.<span class="hljs-built_in">begin</span>(), m.<span class="hljs-built_in">end</span>(), [](<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; r) { <span class="hljs-keyword">return</span> r.second&gt;<span class="hljs-number">42</span>; });
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> p = <span class="hljs-built_in">find_if</span>(m.<span class="hljs-built_in">begin</span>(), m.<span class="hljs-built_in">end</span>(), [](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; r) { <span class="hljs-keyword">return</span> r.second&gt;<span class="hljs-number">42</span>; });
 </code></pre>
 <p>谓词不能对其访问的元素进行修改。</p>
 <h2 id="12.6">12.6 算法概览 </h2>
@@ -801,8 +801,8 @@ vector&lt;Iterator&lt;C&gt;&gt; <span class="hljs-built_in">find_all</span>(C&am
 要增加或删除元素，你需要某个了解该容器的事物（比方 <code>back_inserter</code>；§12.1）
 或者直接在容器上进行操作（即 <code>push_back()</code>或<code>erase()</code>；§11.2）。</p>
 <p>Lambda表达式经常作为操作以参数的形式传递，例如：</p>
-<pre><code class="lang-cpp">vector&lt;<span class="hljs-keyword">int</span>&gt; v = {<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
-for_each(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),[](<span class="hljs-keyword">int</span>&amp; x){ x=x*x; }); <span class="hljs-comment">// v=={0,1,4,9,16,25}</span>
+<pre><code class="lang-cpp">vector&lt;<span class="hljs-type">int</span>&gt; v = {<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>};
+for_each(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>(),[](<span class="hljs-type">int</span>&amp; x){ x=x*x; }); <span class="hljs-comment">// v=={0,1,4,9,16,25}</span>
 </code></pre>
 <p>相较于手工书写的循环，标准库算法通常更谨慎、更有针对性地进行设计和实现，
 因此，请了解并使用它们，以避免重复造轮子。</p>
@@ -825,7 +825,7 @@ for_each(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_
 后者是STL自1994年开始的使用方式。例如：</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;BoundedRange R&gt;
     <span class="hljs-keyword">requires</span> Sortable&lt;R&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(R&amp; r)</span>
+<span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(R&amp; r)</span>
 </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">sort</span>(<span class="hljs-built_in">begin</span>(r),<span class="hljs-built_in">end</span>(r));
 }
@@ -896,8 +896,8 @@ C++20就允许使用一个<code>Range</code>作为简化的替代写法。</p>
 例如，当我们可能想要把<code>std::string</code>跟C-风格字符串（<code>char*</code>），
 或者把<code>int</code>跟<code>double</code>进行比对，但不会把<code>std::string</code>和<code>int</code>进行比对。
 在用于定义<code>Common</code>时，为确定<code>common_type_t</code>的特化，适宜的方式为：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">common_type_t</span>&lt;std::string,<span class="hljs-keyword">char</span>*&gt; = std::string;
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">common_type_t</span>&lt;<span class="hljs-keyword">double</span>,<span class="hljs-keyword">int</span>&gt; = <span class="hljs-keyword">double</span>;
+<pre><code class="lang-cpp"><span class="hljs-keyword">using</span> <span class="hljs-type">common_type_t</span>&lt;std::string,<span class="hljs-type">char</span>*&gt; = std::string;
+<span class="hljs-keyword">using</span> <span class="hljs-type">common_type_t</span>&lt;<span class="hljs-type">double</span>,<span class="hljs-type">int</span>&gt; = <span class="hljs-type">double</span>;
 </code></pre>
 <p><code>Common</code>的定义略有点棘手，但解决了一个很难的基本问题。
 幸运的是，除非需要进行操作的混合类型在库中（尚）无适当的定义，
@@ -1143,7 +1143,7 @@ C++20就允许使用一个<code>Range</code>作为简化的替代写法。</p>
 这样，一个迭代器<code>p</code>和一个哨兵<code>s</code>就定义了一个区间<code>[p:s(*p)]</code>。
 例如，为了遍历以指针作为迭代器的C-风格字符串，
 可以为其哨兵定义一个谓词：</p>
-<pre><code class="lang-cpp">[](<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* p) {<span class="hljs-keyword">return</span> *p==<span class="hljs-number">0</span>; }
+<pre><code class="lang-cpp">[](<span class="hljs-type">const</span> <span class="hljs-type">char</span>* p) {<span class="hljs-keyword">return</span> *p==<span class="hljs-number">0</span>; }
 </code></pre>
 <p>与C++20中的定义相比，此处<code>Mergeable</code>和<code>Sortable</code>的介绍进行了简化。</p>
 <table style="width:90%;margin-left:auto;margin-right:auto;">
@@ -1196,22 +1196,22 @@ C++20就允许使用一个<code>Range</code>作为简化的替代写法。</p>
 <h2 id="12.8">12.8 容器算法 </h2>
 <p>在等不及 Range 概束的情况下，可以定义我们自己的简化版区间算法。
 例如，提供<code>sort(v)</code>这种简短写法取代<code>sort(v.begin(),v.end())</code>可谓易如反掌：</p>
-<pre><code class="lang-cpp">namespace Estd {
-    using namespace std;
+<pre><code class="lang-cpp"><span class="hljs-keyword">namespace</span> Estd {
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
 
-    template&lt;typename C&gt;
-    void sort(C&amp; c)
-    {
-        sort(c.begin(),c.end());
+    <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> C&gt;
+    <span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(C&amp; c)</span>
+    </span>{
+        <span class="hljs-built_in">sort</span>(c.<span class="hljs-built_in">begin</span>(),c.<span class="hljs-built_in">end</span>());
     }
 
-    template&lt;typename C, typename Pred&gt;
-    void sort(C&amp; c, Pred p)
-    {
-        sort(c.begin(),c.end(),p);
+    <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> C, <span class="hljs-keyword">typename</span> Pred&gt;
+    <span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(C&amp; c, Pred p)</span>
+    </span>{
+        <span class="hljs-built_in">sort</span>(c.<span class="hljs-built_in">begin</span>(),c.<span class="hljs-built_in">end</span>(),p);
     }
 
-    // ...
+    <span class="hljs-comment">// ...</span>
 }
 </code></pre>
 <p>我把容器版本的<code>sort()</code>（和其它算法）置于独有的命名空间<code>Estd</code></p>
@@ -1334,7 +1334,7 @@ s.setAttribute('data-timestamp', +new Date());
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":12,"title":"12 算法","level":"1.14","depth":1,"next":{"title":"13 实用功能","level":"1.15","depth":1,"path":"ch13.md","ref":"ch13.md","articles":[]},"previous":{"title":"11 容器","level":"1.13","depth":1,"path":"ch11.md","ref":"ch11.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy","livereload"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"livereload":{},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch12.md","mtime":"2023-02-11T10:19:36.097Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-03-02T08:10:08.247Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":12,"title":"12 算法","level":"1.14","depth":1,"next":{"title":"13 实用功能","level":"1.15","depth":1,"path":"ch13.md","ref":"ch13.md","articles":[]},"previous":{"title":"11 容器","level":"1.13","depth":1,"path":"ch11.md","ref":"ch11.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch12.md","mtime":"2023-02-11T10:19:36.097Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1401,10 +1401,6 @@ s.setAttribute('data-timestamp', +new Date());
     
         
         <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

@@ -6,7 +6,7 @@
         <title>16 历史及兼容性 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="generator" content="HonKit 5.1.1">
         <meta name="author" content="Windsting">
         
         
@@ -881,7 +881,7 @@ Herb Sutter提议委员会采取一个定期准时发布的规则，即“火车
 无论如何，那些添乱的特性还是移除了：</p>
 <ul>
 <li><p>C++17终于移除了异常说明：</p>
-<pre><code class="lang-cpp">  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> <span class="hljs-title">throw</span><span class="hljs-params">(X,Y)</span></span>; <span class="hljs-comment">// C++98; 现在会报错</span>
+<pre><code class="lang-cpp">  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> <span class="hljs-title">throw</span><span class="hljs-params">(X,Y)</span></span>; <span class="hljs-comment">// C++98; 现在会报错</span>
 </code></pre>
 <p>  为异常说明提供支持的构件，<code>unexcepted_handler</code>、<code>set_unexpected()</code>、
   <code>get_unexpected()</code>、<code>unexpected()</code>也一并移除了。
@@ -993,17 +993,17 @@ BCPL由[Richards,1980]定义，C89由[C1990]定义。</p>
 <p>在C里，<code>void*</code>可在赋值操作中作为右值操作数，
 或者用在任何指针类型变量的初始化中；
 这种做法在C++里行不通。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>
 </span>{
-    <span class="hljs-keyword">int</span>* p = <span class="hljs-built_in">malloc</span>(n*<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(<span class="hljs-keyword">int</span>)); <span class="hljs-comment">/* C++里不行；在C++里用“new”分配内存 */</span>
+    <span class="hljs-type">int</span>* p = <span class="hljs-built_in">malloc</span>(n*<span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>)); <span class="hljs-comment">/* C++里不行；在C++里用“new”分配内存 */</span>
     <span class="hljs-comment">// ...</span>
 }
 </code></pre>
 <p>这种不兼容通常是最难处理的。
 注意，<code>void*</code>隐式转换到不同的指针类型并<em>非</em>总是无害：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">char</span> ch;
-<span class="hljs-keyword">void</span>* pv = &amp;ch;
-<span class="hljs-keyword">int</span>* pi = pv;   <span class="hljs-comment">// C++里不行</span>
+<pre><code class="lang-cpp"><span class="hljs-type">char</span> ch;
+<span class="hljs-type">void</span>* pv = &amp;ch;
+<span class="hljs-type">int</span>* pi = pv;   <span class="hljs-comment">// C++里不行</span>
 *pi = <span class="hljs-number">666</span>;      <span class="hljs-comment">// 覆盖了ch和ch附近的其它字节</span>
 </code></pre>
 <p>在两种语言里，都要把<code>malloc()</code>的结果转化到正确的类型。
@@ -1015,7 +1015,7 @@ BCPL由[Richards,1980]定义，C89由[C1990]定义。</p>
 这必须反映在链接器运作的方式上。</p>
 <p>要给C++函数使用C链接（以便可以在C程序片段里面调用），
 或者让C函数可以在C++程序片段里被调用，使用<code>extern &quot;C&quot;</code>声明它。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">sqrt</span><span class="hljs-params">(<span class="hljs-keyword">double</span>)</span></span>;
+<pre><code class="lang-cpp"><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">sqrt</span><span class="hljs-params">(<span class="hljs-type">double</span>)</span></span>;
 </code></pre>
 <p>现在<code>sqrt(double)</code>就可以被C或者C++代码片段调用了。
 <code>sqrt(double)</code>的定义也可以按C函数或者C++函数进行编译。</p>
@@ -1236,7 +1236,7 @@ s.setAttribute('data-timestamp', +new Date());
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":16,"title":"16 历史及兼容性","level":"1.18","depth":1,"next":{"title":"索引","level":"1.19","depth":1,"path":"idx.md","ref":"idx.md","articles":[]},"previous":{"title":"15 并发","level":"1.17","depth":1,"path":"ch15.md","ref":"ch15.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy","livereload"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"livereload":{},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch16.md","mtime":"2023-02-16T08:55:08.074Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-03-02T08:10:08.247Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":16,"title":"16 历史及兼容性","level":"1.18","depth":1,"next":{"title":"索引","level":"1.19","depth":1,"path":"idx.md","ref":"idx.md","articles":[]},"previous":{"title":"15 并发","level":"1.17","depth":1,"path":"ch15.md","ref":"ch15.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch16.md","mtime":"2023-02-16T08:55:08.074Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1303,10 +1303,6 @@ s.setAttribute('data-timestamp', +new Date());
     
         
         <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

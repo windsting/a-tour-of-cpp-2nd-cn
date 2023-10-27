@@ -6,7 +6,7 @@
         <title>9 字符串和正则表达式 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="generator" content="HonKit 5.1.1">
         <meta name="author" content="Windsting">
         
         
@@ -429,7 +429,7 @@ C++标准库提供了一个 <code>string</code> 类型以解救大多数用户�
 用于持有并操作一个某种类型字符的序列。
 <code>string</code>提供了丰富有用的字符串操作，比方说连接字符串。例如：</p>
 <p><a class="en-page-number" id="112"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function">string <span class="hljs-title">compose</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; name, <span class="hljs-keyword">const</span> string&amp; domain)</span>
+<pre><code class="lang-cpp"><span class="hljs-function">string <span class="hljs-title">compose</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; name, <span class="hljs-type">const</span> string&amp; domain)</span>
 </span>{
     <span class="hljs-keyword">return</span> name + <span class="hljs-string">&apos;@&apos;</span> + domain;
 }
@@ -442,7 +442,7 @@ C++标准库提供了一个 <code>string</code> 类型以解救大多数用户�
 标准<code>string</code>有个转移构造函数，所以就算是传值返回长的<code>string</code>也很高效(§5.2.2)。</p>
 <p>在大量应用中，最常见的字符串连接形式是把什么东西添加到某个<code>string</code>的末尾。
 此功能可以直接使用<code>+=</code>操作。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">m2</span><span class="hljs-params">(string&amp; s1, string&amp; s2)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">m2</span><span class="hljs-params">(string&amp; s1, string&amp; s2)</span>
 </span>{
     s1 = s1 + <span class="hljs-string">&apos;\n&apos;</span>; <span class="hljs-comment">// 追加换行</span>
     s2 += <span class="hljs-string">&apos;\n&apos;</span>;     <span class="hljs-comment">// 追加换行</span>
@@ -454,7 +454,7 @@ C++标准库提供了一个 <code>string</code> 类型以解救大多数用户�
 例如：</p>
 <pre><code class="lang-cpp">string name = <span class="hljs-string">&quot;Niels Stroustrup&quot;</span>;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">m3</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">m3</span><span class="hljs-params">()</span>
 </span>{
     string s = name.<span class="hljs-built_in">substr</span>(<span class="hljs-number">6</span>,<span class="hljs-number">10</span>);   <span class="hljs-comment">// s = &quot;Stroustrup&quot;</span>
     name.<span class="hljs-built_in">replace</span>(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-string">&quot;nicholas&quot;</span>);   <span class="hljs-comment">// name 变成 &quot;nicholas Stroustrup&quot;</span>
@@ -478,7 +478,7 @@ C++标准库提供了一个 <code>string</code> 类型以解救大多数用户�
 <p><a class="en-page-number" id="113"></a></p>
 <pre><code class="lang-cpp">string incantation;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">respond</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; answer)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">respond</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; answer)</span>
 </span>{
     <span class="hljs-keyword">if</span> (answer == incantation) {
         <span class="hljs-comment">// 施放魔法</span>
@@ -491,7 +491,7 @@ C++标准库提供了一个 <code>string</code> 类型以解救大多数用户�
 </code></pre>
 <p>如果你需要一个C-风格字符串（零结尾的<code>char</code>数组），
 <code>string</code>为其持有的字符提供一个只读访问。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; s)</span>
 </span>{
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;For people who like printf: %s\n&quot;</span>,s.<span class="hljs-built_in">c_str</span>());   <span class="hljs-comment">// s.c_str() 返回一个指针，指向 s 持有的那些字符</span>
     cout &lt;&lt; <span class="hljs-string">&quot;For people who like streams: &quot;</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">&apos;\n&apos;</span>;
@@ -526,12 +526,12 @@ string s2 {<span class="hljs-string">&quot;Annemarie Stroustrup&quot;</span>};  
 <p>为处理多种字符集，<code>string</code>实际上是采用字符类型<code>char</code>
 的通用模板<code>basic_string</code>的别名：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Char&gt;
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">basic_string</span> 
-{</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">basic_string</span> 
+{
     <span class="hljs-comment">// ... string of Char ...</span>
 };
 
-<span class="hljs-keyword">using</span> string = basic_string&lt;<span class="hljs-keyword">char</span>&gt;;
+<span class="hljs-keyword">using</span> string = basic_string&lt;<span class="hljs-type">char</span>&gt;;
 </code></pre>
 <p>用户可定义任意字符类型的字符串。
 例如：假设我们有个日文字符类型<code>Jchar</code>，就可以这么写：</p>
@@ -555,8 +555,8 @@ string s2 {<span class="hljs-string">&quot;Annemarie Stroustrup&quot;</span>};  
 <pre><code class="lang-cpp"><span class="hljs-function">string <span class="hljs-title">cat</span><span class="hljs-params">(string_view sv1, string_view sv2)</span> 
 </span>{
     <span class="hljs-function">string <span class="hljs-title">res</span><span class="hljs-params">(sv1.length()+sv2.length())</span></span>;
-    <span class="hljs-keyword">char</span>* p = &amp;res[<span class="hljs-number">0</span>];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> c : sv1)              <span class="hljs-comment">// 一种复制方式</span>
+    <span class="hljs-type">char</span>* p = &amp;res[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : sv1)              <span class="hljs-comment">// 一种复制方式</span>
         *p++ = c;
     <span class="hljs-built_in">copy</span>(sv2.<span class="hljs-built_in">begin</span>(),sv2.<span class="hljs-built_in">end</span>(),p);  <span class="hljs-comment">// 另一种方式</span>
     <span class="hljs-keyword">return</span> res;
@@ -634,7 +634,7 @@ string s2 {<span class="hljs-string">&quot;Annemarie Stroustrup&quot;</span>};  
 </ul>
 <h3 id="9.4.1">9.4.1 查找 </h3>
 <p>对一个模式最简单的应用就是在某个流中进行查找：</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> lineno = <span class="hljs-number">0</span>;
+<pre><code class="lang-cpp"><span class="hljs-type">int</span> lineno = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span> (string line; <span class="hljs-built_in">getline</span>(cin,line); ) {    <span class="hljs-comment">// 读进行缓冲区</span>
     ++lineno;
     smatch matches;                         <span class="hljs-comment">// 保存匹配到的字符串</span>
@@ -652,14 +652,14 @@ string s2 {<span class="hljs-string">&quot;Annemarie Stroustrup&quot;</span>};  
 第一个元素，此处为<code>matches[0]</code>，是完整的匹配。
 <code>regex_match()</code>的结果是一个匹配内容的集合，通常以<code>smatch</code>表示：</p>
 <p><a class="en-page-number" id="117"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">use</span><span class="hljs-params">()</span>
 </span>{
     <span class="hljs-function">ifstream <span class="hljs-title">in</span><span class="hljs-params">(<span class="hljs-string">&quot;file.txt&quot;</span>)</span></span>;    <span class="hljs-comment">// 输入文件</span>
     <span class="hljs-keyword">if</span> (!in)                    <span class="hljs-comment">// 检查文件是否打开</span>
         cerr &lt;&lt; <span class="hljs-string">&quot;no file\n&quot;</span>;
     regex pat {<span class="hljs-string">R&quot;(\w{2}\s*\d{5}(-\d{4})?)&quot;</span>};    <span class="hljs-comment">// 美国邮编模式</span>
 
-    <span class="hljs-keyword">int</span> lineno = <span class="hljs-number">0</span>;
+    <span class="hljs-type">int</span> lineno = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">for</span> (string line; <span class="hljs-built_in">getline</span>(in,line); ) {
         ++lineno;
         smatch matches;     <span class="hljs-comment">// 保存匹配到的字符串</span>
@@ -929,7 +929,7 @@ AAABBBBBCCC     <span class="hljs-comment">// B 太多了</span>
 [_[:alpha:]]\w*                     <span class="hljs-comment">// \w 等价于 [_[:alnum:]]</span>
 </code></pre>
 <p>最后，这里有个函数使用<code>regex_match()</code>（§9.4.1）的最简形式测试某字符串是否标志符：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">is_identifier</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_identifier</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; s)</span>
 </span>{
     regex pat {<span class="hljs-string">&quot;[_[:alpha:]]\\w*&quot;</span>}; <span class="hljs-comment">// 下划线或字母</span>
                                     <span class="hljs-comment">// 后跟零或多个下划线、字母、数字字符</span>
@@ -938,7 +938,7 @@ AAABBBBBCCC     <span class="hljs-comment">// B 太多了</span>
 </code></pre>
 <p>注意，使用在常规字符串文本里的双反斜杠用于引入一个反斜杠。
 可用原始字符串文本以缓解特殊字符带来的麻烦。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">is_identifier</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_identifier</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; s)</span>
 </span>{
     regex pat {<span class="hljs-string">R&quot;([_[:alpha:]]\w*)&quot;</span>};
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">regex_match</span>(s,pat);
@@ -1004,7 +1004,7 @@ Ax+             <span class="hljs-comment">// Ax, Axxx     而非 A</span>
 <p>可以定义一个<code>regex_iterator</code>去遍历一个字符序列，寻找符合某个模式的匹配。
 例如，可使用<code>sregex_iterator</code>（即<code>regex_iterator&lt;string&gt;</code>），
 去输出某个<code>string</code>中所有空白字符分割的单词：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>
 </span>{
     string input = <span class="hljs-string">&quot;aa as; asd ++eˆasdf asdfg&quot;</span>;
     regex pat {<span class="hljs-string">R&quot;(\s+(\w+))&quot;</span>};
@@ -1136,7 +1136,7 @@ s.setAttribute('data-timestamp', +new Date());
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":9,"title":"9 字符串和正则表达式","level":"1.11","depth":1,"next":{"title":"10 输入输出","level":"1.12","depth":1,"path":"ch10.md","ref":"ch10.md","articles":[]},"previous":{"title":"8 标准库概览","level":"1.10","depth":1,"path":"ch08.md","ref":"ch08.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy","livereload"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"livereload":{},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch09.md","mtime":"2023-02-12T09:24:45.892Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-03-02T08:10:08.247Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":9,"title":"9 字符串和正则表达式","level":"1.11","depth":1,"next":{"title":"10 输入输出","level":"1.12","depth":1,"path":"ch10.md","ref":"ch10.md","articles":[]},"previous":{"title":"8 标准库概览","level":"1.10","depth":1,"path":"ch08.md","ref":"ch08.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch09.md","mtime":"2023-02-12T09:24:45.892Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1203,10 +1203,6 @@ s.setAttribute('data-timestamp', +new Date());
     
         
         <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

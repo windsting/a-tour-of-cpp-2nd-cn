@@ -9,3 +9,7 @@
     https://windsting.github.io/a-tour-of-cpp-2nd-cn/
 
 我没有提供pdf、mobi、epub等电子版的链接，原因是希望大家尽量阅读在线版本。因为一旦做成电子版的文件，就失去了勘误的机会，导致讹误因此开始流传下去。在线的版本接入了 Disqus 的评论系统，便于跟译者以及其他读者进行交流——前提是你能看得到这个评论区。
+
+- If you like this project, please consider 
+
+  <a href="https://www.buymeacoffee.com/windstings"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=windstings&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

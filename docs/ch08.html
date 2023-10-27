@@ -6,7 +6,7 @@
         <title>8 标准库概览 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="generator" content="HonKit 5.1.1">
         <meta name="author" content="Windsting">
         
         
@@ -480,8 +480,8 @@ Web接口、数据库接口等等。
 <p><a class="en-page-number" id="109"></a></p>
 <h2 id="8.3">8.3 标准库头文件和命名空间 </h2>
 <p>每个标准库部件都通过某些头文件提供。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;list&gt;</span></span>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;list&gt;</span></span>
 </code></pre>
 <p>这样就可以使用标准的<code>string</code>和<code>list</code>了。</p>
 <p>标准库被定义在一个名为<code>std</code>的命名空间(§3.4)里。
@@ -493,7 +493,7 @@ std::list&lt;std::string&gt; slogans {<span class="hljs-string">&quot;War is Pea
 也不总显式<code>#include</code>必要的头文件。
 要编译并运行这个代码片段，必须<code>#include</code>对应的头文件并确保其声明的名称可访问。
 例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string&gt;</span>        <span class="hljs-comment">// make the standard string facilities accessible</span></span>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span>        <span class="hljs-comment">// make the standard string facilities accessible</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;    <span class="hljs-comment">// make std names available without std:: prefix</span>
 string s {<span class="hljs-string">&quot;C++ is a general−purpose programming language&quot;</span>}; <span class="hljs-comment">// OK: string is std::string</span>
 </code></pre>
@@ -724,7 +724,7 @@ s.setAttribute('data-timestamp', +new Date());
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":8,"title":"8 标准库概览","level":"1.10","depth":1,"next":{"title":"9 字符串和正则表达式","level":"1.11","depth":1,"path":"ch09.md","ref":"ch09.md","articles":[]},"previous":{"title":"7 概束和泛型编程","level":"1.9","depth":1,"path":"ch07.md","ref":"ch07.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy","livereload"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"livereload":{},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch08.md","mtime":"2023-01-28T09:55:59.821Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-03-02T08:10:08.247Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":8,"title":"8 标准库概览","level":"1.10","depth":1,"next":{"title":"9 字符串和正则表达式","level":"1.11","depth":1,"path":"ch09.md","ref":"ch09.md","articles":[]},"previous":{"title":"7 概束和泛型编程","level":"1.9","depth":1,"path":"ch07.md","ref":"ch07.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch08.md","mtime":"2023-01-28T09:55:59.821Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -791,10 +791,6 @@ s.setAttribute('data-timestamp', +new Date());
     
         
         <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

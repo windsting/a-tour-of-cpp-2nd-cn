@@ -6,7 +6,7 @@
         <title>15 并发 · C++导览 第二版 简体中文版</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="generator" content="HonKit 5.1.1">
         <meta name="author" content="Windsting">
         
         
@@ -444,13 +444,13 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 <em>线程（thread）</em>是任务在程序里的系统级表示。
 对于需要与其它任务并发执行的任务，可做为参数构造一个<code>std::thread</code>
 （在<code>&lt;thread&gt;</code>里）来启动。任务是一个函数或者函数对象：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>;               <span class="hljs-comment">// 函数</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>;               <span class="hljs-comment">// 函数</span>
 
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">F</span> {</span>              <span class="hljs-comment">// 函数对象</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;  <span class="hljs-comment">// F的调用操作符（§6.3.2）</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">F</span> {              <span class="hljs-comment">// 函数对象</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;  <span class="hljs-comment">// F的调用操作符（§6.3.2）</span>
 };
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">()</span>
 </span>{
     thread t1 {f};      <span class="hljs-comment">// f() 在单独的线程里和执行</span>
     thread t2 {<span class="hljs-built_in">F</span>()};    <span class="hljs-comment">// F()() 在单独的线程里和执行</span>
@@ -467,14 +467,14 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 此类通信通常用锁或其它机制以避免数据竞争（对变量的失控并发访问）。
 编程并发任务可能<em>特别</em>棘手。
 琢磨以下任务<code>f</code>（函数）和<code>F</code>（函数对象）可能的实现：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
 </span>{
     cout &lt;&lt; <span class="hljs-string">&quot;Hello &quot;</span>;
 }
 </code></pre>
 <p><a class="en-page-number" id="197"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">F</span> {</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span> </span>{ cout &lt;&lt; <span class="hljs-string">&quot;Parallel World!\n&quot;</span>; }
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">F</span> {
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span> </span>{ cout &lt;&lt; <span class="hljs-string">&quot;Parallel World!\n&quot;</span>; }
 };
 </code></pre>
 <p>这展示了一个严重的错误：<code>f</code>和<code>F()</code>都用到了<code>cout</code>对象，但没通过任何形式进行同步。
@@ -491,18 +491,18 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 <h2 id="15.3">15.3 参数传递 </h2>
 <p>一般来说，任务需要待加工的数据。
 数据（或指向它的指针、引用）可以简单地作为参数传递。琢磨这个：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v)</span></span>;  <span class="hljs-comment">// 函数：处理v</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(vector&lt;<span class="hljs-type">double</span>&gt;&amp; v)</span></span>;  <span class="hljs-comment">// 函数：处理v</span>
 
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">F</span> {</span>                  <span class="hljs-comment">// 函数对象：处理v</span>
-    vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v;
-    <span class="hljs-built_in">F</span>(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; vv) :v{vv} { }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;      <span class="hljs-comment">// 调用操作符 §6.3.2</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">F</span> {                  <span class="hljs-comment">// 函数对象：处理v</span>
+    vector&lt;<span class="hljs-type">double</span>&gt;&amp; v;
+    <span class="hljs-built_in">F</span>(vector&lt;<span class="hljs-type">double</span>&gt;&amp; vv) :v{vv} { }
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;      <span class="hljs-comment">// 调用操作符 §6.3.2</span>
 };
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
-    vector&lt;<span class="hljs-keyword">double</span>&gt; some_vec {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>};
-    vector&lt;<span class="hljs-keyword">double</span>&gt; vec2 {<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14</span>};
+    vector&lt;<span class="hljs-type">double</span>&gt; some_vec {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>};
+    vector&lt;<span class="hljs-type">double</span>&gt; vec2 {<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14</span>};
 
     thread t1 {f,<span class="hljs-built_in">ref</span>(some_vec)};    <span class="hljs-comment">// f(some_vec) 在单独的线程里运行</span>
     thread t2 {F{vec2}};            <span class="hljs-comment">// F(vec2)() 在单独的线程里运行</span>
@@ -529,23 +529,23 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 这个返回结果的方式略有点旁门左道，但并不稀奇。
 有个更通俗的方式是把输入数据以<code>const</code>引用方式传递，
 再传递一个位置作为单独的参数，用于保存结果：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v, <span class="hljs-keyword">double</span>* res)</span></span>;   <span class="hljs-comment">// 从v获取输入；结果放进 *res</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;<span class="hljs-type">double</span>&gt;&amp; v, <span class="hljs-type">double</span>* res)</span></span>;   <span class="hljs-comment">// 从v获取输入；结果放进 *res</span>
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">F</span> {</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">F</span> {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">F</span>(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; vv, <span class="hljs-keyword">double</span>* p) :v{vv}, res{p} { }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;              <span class="hljs-comment">// 结果放进 *res</span>
+    <span class="hljs-built_in">F</span>(<span class="hljs-type">const</span> vector&lt;<span class="hljs-type">double</span>&gt;&amp; vv, <span class="hljs-type">double</span>* p) :v{vv}, res{p} { }
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">()</span></span>;              <span class="hljs-comment">// 结果放进 *res</span>
 <span class="hljs-keyword">private</span>:
-    <span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v;        <span class="hljs-comment">// 输入源</span>
-    <span class="hljs-keyword">double</span>* res;                    <span class="hljs-comment">// 输出目标</span>
+    <span class="hljs-type">const</span> vector&lt;<span class="hljs-type">double</span>&gt;&amp; v;        <span class="hljs-comment">// 输入源</span>
+    <span class="hljs-type">double</span>* res;                    <span class="hljs-comment">// 输出目标</span>
 };
-<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">g</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">double</span>&gt;&amp;)</span></span>;    <span class="hljs-comment">// 使用返回值</span>
+<span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">g</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;<span class="hljs-type">double</span>&gt;&amp;)</span></span>;    <span class="hljs-comment">// 使用返回值</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">user</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; vec1, vector&lt;<span class="hljs-keyword">double</span>&gt; vec2, vector&lt;<span class="hljs-keyword">double</span>&gt; vec3)</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">user</span><span class="hljs-params">(vector&lt;<span class="hljs-type">double</span>&gt;&amp; vec1, vector&lt;<span class="hljs-type">double</span>&gt; vec2, vector&lt;<span class="hljs-type">double</span>&gt; vec3)</span>
 </span>{
-    <span class="hljs-keyword">double</span> res1;
-    <span class="hljs-keyword">double</span> res2;
-    <span class="hljs-keyword">double</span> res3;
+    <span class="hljs-type">double</span> res1;
+    <span class="hljs-type">double</span> res2;
+    <span class="hljs-type">double</span> res3;
 
     thread t1 {f,<span class="hljs-built_in">cref</span>(vec1),&amp;res1};         <span class="hljs-comment">// f(vec1,&amp;res1) 在单独的线程里运行</span>
     thread t2 {F{vec2,&amp;res2}};              <span class="hljs-comment">// F{vec2,&amp;res2}() 在单独的线程里运行</span>
@@ -571,9 +571,9 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 一个“互斥对象（mutual exclusion object）”。
 <code>thread</code>执行<code>lock()</code>操作来获取<code>mutex</code>：</p>
 <pre><code class="lang-cpp">mutex m;    <span class="hljs-comment">// 参与控制的互斥量</span>
-<span class="hljs-keyword">int</span> sh;     <span class="hljs-comment">// 共享数据</span>
+<span class="hljs-type">int</span> sh;     <span class="hljs-comment">// 共享数据</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
 </span>{
     scoped_lock lck {m};    <span class="hljs-comment">// 获取互斥量</span>
     sh += <span class="hljs-number">7</span>;                <span class="hljs-comment">// 操作共享数据</span>
@@ -594,7 +594,7 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 程序员只需要知道哪个<code>mutex</code>对应哪个数据即可。
 显而易见这容易出错，同样不言而喻的是，明确这种对应关系的方式也多种多样。
 例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Record</span> {</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Record</span> {
 <span class="hljs-keyword">public</span>:
     mutex rm;
     <span class="hljs-comment">// ...</span>
@@ -608,7 +608,7 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 而此时<code>thread2</code>已经获取了<code>mutex2</code>并试图获取<code>mutex1</code>，
 这样，二者就都无法继续执行了。
 这是<code>scoped_lock</code>的用武之地，它同时获取多个锁来解决这个问题：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>
 </span>{
     scoped_lock lck {mutex1,mutex2,mutex3}; <span class="hljs-comment">// 三个锁全部获取</span>
     <span class="hljs-comment">// ... 处理共享数据 ...</span>
@@ -631,12 +631,12 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 一个读取者会申请“共享的”互斥量，以便其它读取者仍然能够访问，
 而写入者则要求排他性的访问，比如：</p>
 <pre><code class="lang-cpp">shared_mutex mx;    <span class="hljs-comment">// 可共享的互斥量</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reader</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">reader</span><span class="hljs-params">()</span>
 </span>{
     shared_lock lck {mx};   <span class="hljs-comment">// 乐于同其它读取者分享访问权限</span>
     <span class="hljs-comment">// ... 读取 ...</span>
 }
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">writer</span><span class="hljs-params">()</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">writer</span><span class="hljs-params">()</span>
 </span>{
     unique_lock lck {mx};   <span class="hljs-comment">// 需要排他性（唯一的）访问</span>
     <span class="hljs-comment">// ... 写入 ...</span>
@@ -652,7 +652,7 @@ C++标准库提供的支持是上述方法的一个变种，具备可移植性�
 this_thread::<span class="hljs-built_in">sleep_for</span>(milliseconds{<span class="hljs-number">20</span>});
 <span class="hljs-keyword">auto</span> t1 = high_resolution_clock::<span class="hljs-built_in">now</span>();
 
-cout &lt;&lt; duration_cast&lt;nanoseconds&gt;(t1-t0).<span class="hljs-built_in">count</span>() &lt;&lt; <span class="hljs-string">&quot; nanoseconds passed\n&quot;</span>;
+cout &lt;&lt; <span class="hljs-built_in">duration_cast</span>&lt;nanoseconds&gt;(t1-t0).<span class="hljs-built_in">count</span>() &lt;&lt; <span class="hljs-string">&quot; nanoseconds passed\n&quot;</span>;
 </code></pre>
 <p>请注意，我甚至不需要启动一个<code>thread</code>；
 默认情况下，<code>this_thread</code>指向当前唯一的线程。</p>
@@ -667,7 +667,7 @@ cout &lt;&lt; duration_cast&lt;nanoseconds&gt;(t1-t0).<span class="hljs-built_in
 考虑经典的例子：两个<code>thread</code>借助一个<code>queue</code>传递消息进行通信。
 为叙述简洁，我把<code>queue</code>和避免它发生数据竞争的机制定义在全局作用域
 供生产者和消费者访问：</p>
-<pre><code class="lang-cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> {</span>     <span class="hljs-comment">// 通信中使用的对象</span>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Message</span> {     <span class="hljs-comment">// 通信中使用的对象</span>
     <span class="hljs-comment">// ...</span>
 };
 
@@ -677,7 +677,7 @@ mutex mmutex;               <span class="hljs-comment">// 用于同步对mcond�
 </code></pre>
 <p><code>queue</code>、<code>condition_variable</code>、<code>mutex</code>这些类型都由标准库提供。</p>
 <p><code>consumer()</code>读取并处理<code>Message</code>：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">consumer</span><span class="hljs-params">()</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">consumer</span><span class="hljs-params">()</span>
 </span>{
     <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) {
         unique_lock lck {mmutex};       <span class="hljs-comment">// 申请 mmutex </span>
@@ -707,7 +707,7 @@ mutex mmutex;               <span class="hljs-comment">// 用于同步对mcond�
 <p>另外，<code>unique_lock</code>只能处理单个的<code>mutex</code>。</p>
 <p><a class="en-page-number" id="202"></a></p>
 <p>配套的<code>producer</code>是这样的：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">producer</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) {
         Message m;
         <span class="hljs-comment">// ... 填写信息 ...</span>
@@ -749,7 +749,7 @@ mutex mmutex;               <span class="hljs-comment">// 用于同步对mcond�
 很多其它俏皮话儿也都是从它们这来的。</p>
 <p>如果你的<code>promise</code>需要发送<code>X</code>类型的结果给<code>future</code>，
 有两种选择：传一个值或者传一个异常。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(promise&lt;X&gt;&amp; px)</span>  <span class="hljs-comment">// 一个任务：把结果放进px</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(promise&lt;X&gt;&amp; px)</span>  <span class="hljs-comment">// 一个任务：把结果放进px</span>
 </span>{
     <span class="hljs-comment">// ... </span>
     <span class="hljs-keyword">try</span> {
@@ -757,27 +757,27 @@ mutex mmutex;               <span class="hljs-comment">// 用于同步对mcond�
         <span class="hljs-comment">// ... 给res计算值 ... </span>
         px.<span class="hljs-built_in">set_value</span>(res);
     }
-    <span class="hljs-built_in"><span class="hljs-keyword">catch</span></span> (...) {       <span class="hljs-comment">// 矮油：res难产了</span>
+    <span class="hljs-built_in">catch</span> (...) {       <span class="hljs-comment">// 矮油：res难产了</span>
         px.<span class="hljs-built_in">set_exception</span>(<span class="hljs-built_in">current_exception</span>());  <span class="hljs-comment">// 把异常传给future所在的线程</span>
     }
 }
 </code></pre>
 <p>此处的<code>current_exception()</code>指向被捕获的异常。</p>
 <p>要处理<code>future</code>发过来的异常，<code>get()</code>的调用者必须在某处做好准备捕捉它。例如：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">(future&lt;X&gt;&amp; fx)</span>   <span class="hljs-comment">// 一个任务：从fx里提取结果</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">g</span><span class="hljs-params">(future&lt;X&gt;&amp; fx)</span>   <span class="hljs-comment">// 一个任务：从fx里提取结果</span>
 </span>{
     <span class="hljs-comment">// ...</span>
     <span class="hljs-keyword">try</span> {
         X v = fx.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">// 必要的话，等待这个值被计算出来</span>
         <span class="hljs-comment">// ... 使用 v ...</span>
     }
-    <span class="hljs-built_in"><span class="hljs-keyword">catch</span></span> (...) {       <span class="hljs-comment">// 矮油：有银儿搞不定v了涅</span>
+    <span class="hljs-built_in">catch</span> (...) {       <span class="hljs-comment">// 矮油：有银儿搞不定v了涅</span>
         <span class="hljs-comment">// ... 处理错误 ...</span>
     }
 }
 </code></pre>
 <p>如果<code>g()</code>无需自己处理错误，代码可以做到最精简：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">(future&lt;X&gt;&amp; fx)</span>   <span class="hljs-comment">// 一个任务：从fx里提取结果</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">g</span><span class="hljs-params">(future&lt;X&gt;&amp; fx)</span>   <span class="hljs-comment">// 一个任务：从fx里提取结果</span>
 </span>{
     <span class="hljs-comment">// ...</span>
     X v = fx.<span class="hljs-built_in">get</span>();     <span class="hljs-comment">// 必要的话，等待这个值被计算出来</span>
@@ -796,23 +796,23 @@ mutex mmutex;               <span class="hljs-comment">// 用于同步对mcond�
 它会给你对应其<code>promise</code>的<code>future</code>。
 例如，可以设置两个任务，分别用<code>accumulate()</code>（§14.3）
 累加某个<code>vector&lt;double&gt;</code>一半的元素：</p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">accum</span><span class="hljs-params">(<span class="hljs-keyword">double</span>* beg, <span class="hljs-keyword">double</span>* end, <span class="hljs-keyword">double</span> init)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">accum</span><span class="hljs-params">(<span class="hljs-type">double</span>* beg, <span class="hljs-type">double</span>* end, <span class="hljs-type">double</span> init)</span>
     <span class="hljs-comment">// 计算[beg:end)的和，初始值为init</span>
 </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">accumulate</span>(beg,end,init);
 }
 
-<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">comp2</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v)</span>
+<span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">comp2</span><span class="hljs-params">(vector&lt;<span class="hljs-type">double</span>&gt;&amp; v)</span>
 </span>{
-    <span class="hljs-keyword">using</span> Task_type = <span class="hljs-built_in"><span class="hljs-keyword">double</span></span>(<span class="hljs-keyword">double</span>*,<span class="hljs-keyword">double</span>*,<span class="hljs-keyword">double</span>);           <span class="hljs-comment">// 任务的类型</span>
+    <span class="hljs-keyword">using</span> Task_type = <span class="hljs-built_in">double</span>(<span class="hljs-type">double</span>*,<span class="hljs-type">double</span>*,<span class="hljs-type">double</span>);           <span class="hljs-comment">// 任务的类型</span>
 
     packaged_task&lt;Task_type&gt; pt0 {accum};                       <span class="hljs-comment">// 把任务（即accum）打包</span>
     packaged_task&lt;Task_type&gt; pt1 {accum};
 
-    future&lt;<span class="hljs-keyword">double</span>&gt; f0 {pt0.<span class="hljs-built_in">get_future</span>()};                       <span class="hljs-comment">// 获取pt0的future</span>
-    future&lt;<span class="hljs-keyword">double</span>&gt; f1 {pt1.<span class="hljs-built_in">get_future</span>()};                       <span class="hljs-comment">// 获取pt1的future</span>
+    future&lt;<span class="hljs-type">double</span>&gt; f0 {pt0.<span class="hljs-built_in">get_future</span>()};                       <span class="hljs-comment">// 获取pt0的future</span>
+    future&lt;<span class="hljs-type">double</span>&gt; f1 {pt1.<span class="hljs-built_in">get_future</span>()};                       <span class="hljs-comment">// 获取pt1的future</span>
 
-    <span class="hljs-keyword">double</span>* first = &amp;v[<span class="hljs-number">0</span>];
+    <span class="hljs-type">double</span>* first = &amp;v[<span class="hljs-number">0</span>];
     thread t1 {<span class="hljs-built_in">move</span>(pt0),first,first+v.<span class="hljs-built_in">size</span>()/<span class="hljs-number">2</span>,<span class="hljs-number">0</span>};             <span class="hljs-comment">// 为pt0启动一个线程</span>
     thread t2 {<span class="hljs-built_in">move</span>(pt1),first+v.<span class="hljs-built_in">size</span>()/<span class="hljs-number">2</span>,first+v.<span class="hljs-built_in">size</span>(),<span class="hljs-number">0</span>};    <span class="hljs-comment">// 为pt1启动一个线程</span>
 
@@ -837,7 +837,7 @@ mutex mmutex;               <span class="hljs-comment">// 用于同步对mcond�
 必要的时候，还有更微妙更诡秘的模型（比方依赖共享内存的编程样式）可用。</p>
 <p>想发起一个可能异步执行的任务，可以用<code>async()</code>：</p>
 <p><a class="en-page-number" id="205"></a></p>
-<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">comp4</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">double</span>&gt;&amp; v)</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">comp4</span><span class="hljs-params">(vector&lt;<span class="hljs-type">double</span>&gt;&amp; v)</span>
     <span class="hljs-comment">// 如果v足够大，就触发多个任务</span>
 </span>{
     <span class="hljs-keyword">if</span> (v.<span class="hljs-built_in">size</span>()&lt;<span class="hljs-number">10000</span>)     <span class="hljs-comment">// 值得采用并发吗？</span>
@@ -984,7 +984,7 @@ s.setAttribute('data-timestamp', +new Date());
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":15,"title":"15 并发","level":"1.17","depth":1,"next":{"title":"16 历史及兼容性","level":"1.18","depth":1,"path":"ch16.md","ref":"ch16.md","articles":[]},"previous":{"title":"14 数值","level":"1.16","depth":1,"path":"ch14.md","ref":"ch14.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy","livereload"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"livereload":{},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch15.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-03-02T08:10:08.247Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":15,"title":"15 并发","level":"1.17","depth":1,"next":{"title":"16 历史及兼容性","level":"1.18","depth":1,"path":"ch16.md","ref":"ch16.md","articles":[]},"previous":{"title":"14 数值","level":"1.16","depth":1,"path":"ch14.md","ref":"ch14.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch15.md","mtime":"2023-02-12T09:23:08.793Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2023-10-27T09:54:29.738Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1051,10 +1051,6 @@ s.setAttribute('data-timestamp', +new Date());
     
         
         <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
