@@ -19,6 +19,7 @@
     "devDependencies": {
         "@dogatana/honkit-plugin-back-to-top-button": "^1.0.0",
         "@dogatana/honkit-plugin-page-toc-button": "^1.0.0",
+        "@honkit/honkit-plugin-highlight": "^5.1.1",
         "gitbook-plugin-copy-code-button": "^0.0.2",
         "gitbook-plugin-disqus-legacy": "^1.2.3",
         "gitbook-plugin-forkmegithub": "^2.2.0",
