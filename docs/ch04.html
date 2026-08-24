@@ -892,7 +892,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
     <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>= <span class="hljs-number">0</span>;      <span class="hljs-comment">// 在“画布”上绘制</span>
     <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-type">int</span> angle)</span> </span>= <span class="hljs-number">0</span>;
 
-    <span class="hljs-keyword">virtual</span> ～<span class="hljs-built_in">Shape</span>() {}                <span class="hljs-comment">// 析构函数</span>
+    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">Shape</span>() {}                <span class="hljs-comment">// 析构函数</span>
     <span class="hljs-comment">// ...</span>
 };
 </code></pre>
@@ -954,7 +954,7 @@ Container* p = <span class="hljs-keyword">new</span> <span class="hljs-built_in"
     Shape* mouth;
 };
 </code></pre>
-<p><code>vector</code>的成员函数<code>push_bach()</code>把参数复制进<code>vector</code>（这里是<code>eyes</code>），
+<p><code>vector</code>的成员函数<code>push_back()</code>把参数复制进<code>vector</code>（这里是<code>eyes</code>），
 让它成为末尾的元素，并且把 vector 的容量增一。</p>
 <p>现在，可以利用<code>Smiley</code>的基类和成员函数<code>draw()</code>
 的调用来定义<code>Smiley::draw()</code>了：</p>
@@ -1255,7 +1255,7 @@ s.setAttribute('data-timestamp', +new Date());
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"ch":4,"title":"4 类","level":"1.6","depth":1,"next":{"title":"5 基本操作","level":"1.7","depth":1,"path":"ch05.md","ref":"ch05.md","articles":[]},"previous":{"title":"3 模块化","level":"1.5","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch04.md","mtime":"2025-09-05T09:14:54.709Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2025-09-08T08:11:03.428Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"ch":4,"title":"4 类","level":"1.6","depth":1,"next":{"title":"5 基本操作","level":"1.7","depth":1,"path":"ch05.md","ref":"ch05.md","articles":[]},"previous":{"title":"3 模块化","level":"1.5","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"dir":"ltr"},"config":{"plugins":["@dogatana/page-toc-button","@dogatana/back-to-top-button","copy-code-button","forkmegithub","disqus-legacy","livereload"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"styles":{"website":"styles/website.css"},"livereload":{},"search":{},"@dogatana/page-toc-button":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"disqus-legacy":{"shortname":"a-tour-of-cpp-2nd-cn"},"copy-code-button":{},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Windsting","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"C++导览 第二版 简体中文版","language":"zh-hans","links":{"sidebar":{"Github Link":"https://github.com/windsting/a-tour-of-cpp-2nd-cn"}},"gitbook":"*","description":"A Tour of C++ (第二版) 非官方中译本"},"file":{"path":"ch04.md","mtime":"2026-08-24T03:56:31.675Z","type":"markdown"},"gitbook":{"version":"5.1.1","time":"2026-08-24T04:04:31.025Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1322,6 +1322,10 @@ s.setAttribute('data-timestamp', +new Date());
     
         
         <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
